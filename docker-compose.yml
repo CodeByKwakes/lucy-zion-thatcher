@@ -1,0 +1,41 @@
+version: '3'
+services:
+  db:
+    image: postgis/postgis:13-master
+    restart: always
+    volumes:
+      - ./cms/data/database:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: 'lzt_cms_user'
+      POSTGRES_PASSWORD: 'd1r3ctu5'
+      POSTGRES_DB: 'lzt_cms'
+
+  cache:
+    image: redis:6
+
+  directus:
+    image: directus/directus:10.4.0
+    restart: always
+    ports:
+      - 8055:8055
+    volumes:
+      - ./cms/uploads:/directus/uploads
+      - ./cms/extensions:/directus/extensions
+    depends_on:
+      - cache
+      - db
+    environment:
+      KEY: '255d861b-5ea1-5996-9aa3-922530ec40b1'
+      SECRET: '6116487b-cda1-52c2-b5b5-c8022c45e263'
+      DB_CLIENT: 'pg'
+      DB_HOST: 'db'
+      DB_PORT: '5432'
+      DB_DATABASE: 'lzt_cms'
+      DB_USER: 'lzt_cms_user'
+      DB_PASSWORD: 'd1r3ctu5'
+      CACHE_ENABLED: 'true'
+      CACHE_STORE: 'redis'
+      REDIS: 'redis://cache:6379'
+      ADMIN_EMAIL: 'codebykwakes@gmail.com'
+      ADMIN_PASSWORD: 'd1r3ctu5'
+      CORS_ENABLED: "true"
