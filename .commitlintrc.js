@@ -5,13 +5,9 @@ module.exports = {
       2,
       'always',
       [
-        'feature',
-        'data-access',
-        'ui',
-        'util',
-        'routes',
-        'model',
-        'api',
+        'web-app',
+        'pages',
+        'shared'
       ],
     ],
   },

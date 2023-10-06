@@ -20,7 +20,14 @@
         "stylePreprocessorOptions": {
           "includePaths": ["libs/shared/ui-style/src/lib/scss"]
         },
-        "scripts": []
+        "scripts": [
+          "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+          "node_modules/aos/dist/aos.js",
+          "node_modules/glightbox/dist/js/glightbox.min.js",
+          "node_modules/swiper/swiper-bundle.min.js",
+          "node_modules/isotope-layout/dist/isotope.pkgd.min.js",
+          "./src/assets/js/main.js"
+        ]
       },
       "configurations": {
         "production": {
