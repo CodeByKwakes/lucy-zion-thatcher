@@ -16,8 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@lzt/core/feat-layout": ["libs/core/feat-layout/src/index.ts"],
-      "@lzt/pages/routes": ["libs/pages/routes/src/index.ts"],
       "@lzt/pages/feat-home": ["libs/pages/feat-home/src/index.ts"],
+      "@lzt/pages/routes": ["libs/pages/routes/src/index.ts"],
       "shared/ui-style": ["libs/shared/ui-style/src/index.ts"]
     }
   },
