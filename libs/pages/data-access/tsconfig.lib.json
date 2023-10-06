@@ -13,8 +13,5 @@
     "jest.config.ts",
     "src/**/*.test.ts"
   ],
-  "include": [
-    "src/**/*.ts",
-    "../../pages/data-access/src/lib/utils/directus.util.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }

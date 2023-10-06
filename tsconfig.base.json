@@ -17,6 +17,7 @@
     "paths": {
       "@lzt/core/data-access": ["libs/core/data-access/src/index.ts"],
       "@lzt/core/feat-layout": ["libs/core/feat-layout/src/index.ts"],
+      "@lzt/pages/data-access": ["libs/pages/data-access/src/index.ts"],
       "@lzt/pages/feat-home": ["libs/pages/feat-home/src/index.ts"],
       "@lzt/pages/routes": ["libs/pages/routes/src/index.ts"],
       "shared/ui-style": ["libs/shared/ui-style/src/index.ts"]
