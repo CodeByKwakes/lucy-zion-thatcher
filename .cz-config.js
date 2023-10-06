@@ -1,1 +1,1 @@
-module.exports = {path: '@commitlint/cz-commitlint'}
+module.exports = { path: '@commitlint/cz-commitlint' };
