@@ -1,7 +1,7 @@
 {
-  "name": "pages-feature-home",
+  "name": "pages-feat-home",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/pages/feature-home/src",
+  "sourceRoot": "libs/pages/feat-home/src",
   "prefix": "lib",
   "tags": ["tag:feature", "scope:pages"],
   "projectType": "library",
@@ -10,7 +10,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/pages/feature-home/jest.config.ts",
+        "jestConfig": "libs/pages/feat-home/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -25,8 +25,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/pages/feature-home/**/*.ts",
-          "libs/pages/feature-home/**/*.html"
+          "libs/pages/feat-home/**/*.ts",
+          "libs/pages/feat-home/**/*.html"
         ]
       }
     }
