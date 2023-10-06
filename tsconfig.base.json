@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@lzt/pages/routes": ["libs/pages/routes/src/index.ts"]
+      "@lzt/pages/routes": ["libs/pages/routes/src/index.ts"],
+      "shared/ui-style": ["libs/shared/ui-style/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
