@@ -5,10 +5,10 @@ import { usePageFeature } from '@lzt/pages/data-access';
 @Component({
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './feat-home.component.html',
-  styleUrls: ['./feat-home.component.scss']
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class FeatHomeComponent {
+export class HomeComponent {
   constructor() {
     usePageFeature().init();
   }
