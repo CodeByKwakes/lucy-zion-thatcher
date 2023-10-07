@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { usePageFeature } from '@lzt/pages/data-access';
 
 @Component({
   standalone: true,
   imports: [CommonModule],
   templateUrl: './feat-home.component.html',
-  styleUrls: ['./feat-home.component.scss'],
+  styleUrls: ['./feat-home.component.scss']
 })
-export class FeatHomeComponent {}
+export class FeatHomeComponent {
+  constructor() {
+    usePageFeature().init();
+    usePageFeature().pages$.subscribe((pages) => console.log(pages));
+  }
+}
