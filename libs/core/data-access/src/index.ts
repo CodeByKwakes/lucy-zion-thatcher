@@ -1,1 +1,1 @@
-export * from './lib/+state/index';
+export * from './lib/+state';

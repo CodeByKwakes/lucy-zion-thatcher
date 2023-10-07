@@ -6,5 +6,6 @@ export const {
   selectRouteParams,
   selectQueryParam,
   selectQueryParams,
-  selectRouteData
+  selectRouteData,
+  selectUrl
 } = getRouterSelectors();
