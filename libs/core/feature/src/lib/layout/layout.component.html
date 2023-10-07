@@ -18,18 +18,22 @@
     <nav
       id="navbar"
       class="navbar">
-      <ul>
-        <li>
-          <a
-            href="index.html"
-            class="active">
-            Home
-          </a>
+      <ul
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+        <li (click)="routeTo(['/home'])">
+          <a routerLink="/"> Home </a>
         </li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Speaker</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li (click)="routeTo(['/about'])">
+          <a routerLink="/about">About</a>
+        </li>
+        <li (click)="routeTo(['/speaker'])">
+          <a routerLink="/speaker">Speaker</a>
+        </li>
+        <!-- <li><a href="blog.html">Blog</a></li> -->
+        <li (click)="routeTo(['/contact'])">
+          <a>Contact</a>
+        </li>
       </ul>
     </nav>
     <!-- .navbar -->
@@ -38,42 +42,59 @@
 <!-- End Header -->
 
 <!-- ======= Hero Section ======= -->
-<section
-  id="hero"
-  class="hero d-flex align-items-center"
-  [ngStyle]="{ backgroundImage: 'url(' + heroImage + ')' }">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-4">
-        <h2 data-aos="fade-up">Lucy Zion Thatcher</h2>
-        <blockquote
-          data-aos="fade-up"
-          data-aos-delay="100">
-          <p>
-            My purpose is to increase people’s awareness of sexual health issues
-            and to provide tools and information to help navigate through them.
-            To improve sex education and to inspire people to embrace their
-            sexual authenticity, to love and accept themselves in their entirety
-            and approach sex in a mutually beneficial and respectful way.
-          </p>
-        </blockquote>
-        <div
-          class="d-flex"
-          data-aos="fade-up"
-          data-aos-delay="200">
-          <a
-            href="#about"
-            class="btn-get-started">
-            About Lucy
-          </a>
+<ng-container *ngIf="(page$ | async) === 'home'">
+  <section
+    id="hero"
+    class="hero d-flex align-items-center"
+    [ngStyle]="{ backgroundImage: 'url(' + heroImage + ')' }">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-4">
+          <h2 data-aos="fade-up">Lucy Zion Thatcher</h2>
+          <blockquote
+            data-aos="fade-up"
+            data-aos-delay="100">
+            <p>
+              My purpose is to increase people’s awareness of sexual health
+              issues and to provide tools and information to help navigate
+              through them. To improve sex education and to inspire people to
+              embrace their sexual authenticity, to love and accept themselves
+              in their entirety and approach sex in a mutually beneficial and
+              respectful way.
+            </p>
+          </blockquote>
+          <div
+            class="d-flex"
+            data-aos="fade-up"
+            data-aos-delay="200">
+            <a
+              href="#about"
+              class="btn-get-started">
+              About Lucy
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</ng-container>
+
 <!-- End Hero Section -->
 
 <main id="main">
+  <ng-container *ngIf="(page$ | async) !== 'home'">
+    <!-- ======= Breadcrumbs ======= -->
+    <div
+      class="breadcrumbs d-flex align-items-center"
+      style="background-image: url('assets/img/about-header.jpg')">
+      <div
+        class="container position-relative d-flex flex-column align-items-center">
+        <h2>About</h2>
+      </div>
+    </div>
+    <!-- End Breadcrumbs -->
+  </ng-container>
+
   <ng-content></ng-content>
 </main>
 
@@ -165,10 +186,6 @@
         . All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
         Designed by
         <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>

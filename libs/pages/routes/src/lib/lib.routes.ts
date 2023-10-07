@@ -21,6 +21,11 @@ export const routesRoutes: Route[] = [
         path: 'speaker',
         loadComponent: async () =>
           (await import('@lzt/pages/feature')).SpeakerComponent
+      },
+      {
+        path: 'contact',
+        loadComponent: async () =>
+          (await import('@lzt/pages/feature')).ContactComponent
       }
     ]
   }
