@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FeatLayoutComponent } from '@lzt/core/feat-layout';
+import { LayoutComponent } from '@lzt/core/feature';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, FeatLayoutComponent],
+  imports: [RouterModule, LayoutComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']

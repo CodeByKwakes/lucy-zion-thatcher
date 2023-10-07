@@ -4,13 +4,13 @@ import { selectUrl } from '@lzt/core/data-access';
 import { Store } from '@ngrx/store';
 
 @Component({
-  selector: 'lib-feat-layout',
+  selector: 'lib-layout',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './feat-layout.component.html',
-  styleUrls: ['./feat-layout.component.scss']
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.scss']
 })
-export class FeatLayoutComponent {
+export class LayoutComponent {
   heroImage = 'assets/imgs/photos/bg-image_16_9.jpg';
 
   constructor() {
