@@ -10,17 +10,17 @@ export const routesRoutes: Route[] = [
       {
         path: 'home',
         loadComponent: async () =>
-          (await import('@lzt/pages/feat-home')).HomeComponent
+          (await import('@lzt/pages/feature')).HomeComponent
       },
       {
         path: 'about',
         loadComponent: async () =>
-          (await import('@lzt/pages/feat-home')).AboutComponent
+          (await import('@lzt/pages/feature')).AboutComponent
       },
       {
         path: 'speaker',
         loadComponent: async () =>
-          (await import('@lzt/pages/feat-home')).SpeakerComponent
+          (await import('@lzt/pages/feature')).SpeakerComponent
       }
     ]
   }
