@@ -1,4 +1,4 @@
-import { AboutPage, HomePage, SpeakerPage } from '@lzt/pages/models';
+import { PageArray } from '@lzt/pages/models';
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
 export const PageActions = createActionGroup({
@@ -6,9 +6,7 @@ export const PageActions = createActionGroup({
   events: {
     'Load Pages': emptyProps(),
     'Load Pages Success': props<{
-      home: Record<string, HomePage>[];
-      about: Record<string, AboutPage>[];
-      speaker: Record<string, SpeakerPage>[];
+      pages: PageArray;
     }>(),
     'Load Pages Failure': props<{ error: Error }>()
   }

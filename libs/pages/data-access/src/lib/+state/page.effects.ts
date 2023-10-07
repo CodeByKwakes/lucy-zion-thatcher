@@ -11,9 +11,7 @@ const loadPages$ = createEffect(
       ofType(PageActions.loadPages),
       mergeMap(() => {
         return dataService.loadAllPages().pipe(
-          map(([home, about, speaker]) =>
-            PageActions.loadPagesSuccess({ home, about, speaker })
-          ),
+          map((pages) => PageActions.loadPagesSuccess({ pages })),
           catchError((error) => of(PageActions.loadPagesFailure({ error })))
         );
       })
