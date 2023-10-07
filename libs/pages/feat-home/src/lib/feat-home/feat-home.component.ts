@@ -11,6 +11,5 @@ import { usePageFeature } from '@lzt/pages/data-access';
 export class FeatHomeComponent {
   constructor() {
     usePageFeature().init();
-    usePageFeature().pages$.subscribe((pages) => console.log(pages));
   }
 }

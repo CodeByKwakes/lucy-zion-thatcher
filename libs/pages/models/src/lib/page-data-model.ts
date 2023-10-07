@@ -7,3 +7,11 @@ export type PageDataModel = [
   Record<string, AboutPage>[],
   Record<string, SpeakerPage>[]
 ];
+
+export type PageType = HomePage | AboutPage | SpeakerPage;
+
+export type PageArray = (
+  | Record<string, HomePage>[]
+  | Record<string, AboutPage>[]
+  | Record<string, SpeakerPage>[]
+)[];
