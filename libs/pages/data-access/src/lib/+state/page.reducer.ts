@@ -1,10 +1,11 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { PageActions } from './page.actions';
+import { PageDataModel } from '@lzt/pages/models';
 
 export const pageFeatureKey = 'page';
 
 export interface State {
-  data: unknown[];
+  data: PageDataModel | [];
   isLoading: boolean;
   error: Error | null;
 }
