@@ -47,7 +47,7 @@
   <section
     id="hero"
     class="hero d-flex align-items-center"
-    [ngStyle]="{ backgroundImage: 'url(http://localhost:8055/assets/' + $currentPage()?.header_image + ')' }">
+    [ngStyle]="{ backgroundImage: 'url('+ baseUrl + $currentPage()?.header_image + ')' }">
     <div class="container">
       <div class="row">
         <div class="col-xl-4">
@@ -80,7 +80,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <div
       class="breadcrumbs d-flex align-items-center"
-      style="background-image: url('assets/img/about-header.jpg')">
+      [ngStyle]="{ backgroundImage: 'url('+ baseUrl + $currentPage()?.header_image + ')' }">
       <div
         class="container position-relative d-flex flex-column align-items-center">
         <h2>{{$currentPage()?.title}}</h2>

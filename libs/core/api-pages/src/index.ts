@@ -1,4 +1,4 @@
-import { directus, usePageFeature } from '@lzt/pages/data-access';
+import { DIRECTUS_URL, directus, usePageFeature } from '@lzt/pages/data-access';
 import { HomePage } from '@lzt/pages/models';
 
-export { HomePage, directus, usePageFeature };
+export { DIRECTUS_URL, HomePage, directus, usePageFeature };

@@ -1,6 +1,9 @@
 import { createDirectus, rest, readItems } from '@directus/sdk';
 
-export const directus = createDirectus('http://localhost:8055').with(rest());
+export const DIRECTUS_URL = 'http://localhost:8055';
+export const DIRECTUS_IMAGE_PATH = `${DIRECTUS_URL}/assets/`;
+
+export const directus = createDirectus(DIRECTUS_URL).with(rest());
 
 export const getPage = async (pageId: string) =>
   await directus.request(readItems(pageId));

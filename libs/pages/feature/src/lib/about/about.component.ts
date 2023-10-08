@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AboutPage } from '@lzt/pages/models';
+import { BasePageComponent } from '../BasePageComponent';
 
 @Component({
   selector: 'lib-about',
@@ -8,4 +10,4 @@ import { CommonModule } from '@angular/common';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent {}
+export class AboutComponent extends BasePageComponent<AboutPage> {}
