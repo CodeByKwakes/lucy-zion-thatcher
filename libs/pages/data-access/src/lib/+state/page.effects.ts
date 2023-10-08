@@ -2,7 +2,7 @@ import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
-import { DataService } from '../services/data.service';
+import { DataService } from '@lzt/shared/data-access';
 import { PageActions } from './page.actions';
 
 const loadPages$ = createEffect(

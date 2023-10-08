@@ -10,7 +10,7 @@ import {
 import { pageEffects } from './page.effects';
 import { PageActions } from './page.actions';
 import { tap, filter, take } from 'rxjs';
-import { DIRECTUS_IMAGE_PATH } from '../utils/directus.util';
+import { DIRECTUS_IMAGE_PATH } from '@lzt/shared/data-access';
 
 function checkPageStore() {
   const store = inject(Store);

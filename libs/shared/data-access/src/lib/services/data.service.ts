@@ -7,7 +7,7 @@ import {
   SpeakerPage
 } from '@lzt/pages/models';
 import { Observable, forkJoin, map } from 'rxjs';
-import { getPage, getBlogPosts } from '../utils/directus.util';
+import { getBlogPosts, getPage } from '../utils/directus.util';
 
 @Injectable({
   providedIn: 'root'
