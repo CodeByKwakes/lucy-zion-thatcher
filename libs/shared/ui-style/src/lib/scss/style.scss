@@ -720,11 +720,11 @@ section {
 # Call To Action Section
 --------------------------------------------------------------*/
 .call-to-action {
-  // background: linear-gradient(
-  //     rgba(var(--secondary-rgb), 0.8),
-  //     rgba(var(--secondary-rgb), 0.8)
-  //   ),
-  //   url('../img/cta-bg.jpg') center center;
+  // background-image: linear-gradient(
+  //   rgba(var(--secondary-rgb), 0.8),
+  //   rgba(var(--secondary-rgb), 0.8)
+  // );
+  background-position: center center;
   background-size: cover;
   padding: 100px 0;
 }

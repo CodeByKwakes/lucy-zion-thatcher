@@ -27,7 +27,8 @@
 <!-- ======= Call To Action Section ======= -->
 <section
   id="call-to-action"
-  class="call-to-action">
+  class="call-to-action"
+  [ngStyle]="{ backgroundImage: 'linear-gradient(rgba(var(--secondary-rgb), 0.8),rgba(var(--secondary-rgb), 0.8)),url('+ imagePath + $page().quote_image + ')' }">
   <div
     class="container"
     data-aos="fade-up">
