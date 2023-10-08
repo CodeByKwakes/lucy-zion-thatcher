@@ -1,7 +1,9 @@
 import { PageEntity } from '@lzt/pages/models';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
-import { createFeature, createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 import { PageActions } from './page.actions';
+import { selectUrl } from '@lzt/pages/api-core';
+import { cr } from '@directus/sdk/dist/index-5c47c85c';
 
 export const pageFeatureKey = 'page';
 
@@ -34,5 +36,15 @@ export const reducer = createReducer(
 
 export const pageFeature = createFeature({
   name: pageFeatureKey,
-  reducer
+  reducer,
+  extraSelectors: ({ selectPageState, selectEntities }) => ({
+    ...pageAdapter.getSelectors(selectPageState),
+    selectCurrentPage: createSelector(
+      selectEntities,
+      selectUrl,
+      (entities, url) => entities[url.slice(1)] || null
+    )
+  })
 });
+
+export const { selectCurrentPage } = pageFeature;

@@ -2,6 +2,6 @@ export interface HomePage {
   id: string;
   slug: string;
   title: string;
-  image: string;
+  header_image: string;
   caption: string;
 }
