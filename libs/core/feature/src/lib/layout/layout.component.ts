@@ -1,9 +1,8 @@
-import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { selectUrl, useCoreStore } from '@lzt/core/data-access';
-import { Store } from '@ngrx/store';
-import { map } from 'rxjs';
+import { Component, Signal, computed } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
+import { HomePage, usePageFeature } from '@lzt/core/api-pages';
+import { useCoreStore } from '@lzt/core/data-access';
 
 @Component({
   selector: 'lib-layout',
@@ -14,16 +13,10 @@ import { RouterLinkActive } from '@angular/router';
 })
 export class LayoutComponent {
   heroImage = 'assets/imgs/photos/bg-image_16_9.jpg';
-  page$ = inject(Store)
-    .select(selectUrl)
-    .pipe(map((url) => url.slice(1)));
-  coreStore = useCoreStore();
 
-  constructor() {
-    inject(Store)
-      .select(selectUrl)
-      .subscribe((url) => console.log(url.slice(1)));
-  }
+  readonly $currentPage = usePageFeature().$currentPage;
+  readonly $homePage = computed(() => this.$currentPage()) as Signal<HomePage>;
+  readonly coreStore = useCoreStore();
 
   routeTo(path: unknown[], query?: object, extras?: object) {
     this.coreStore.routeTo(path, query, extras);

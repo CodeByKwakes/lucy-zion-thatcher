@@ -10,8 +10,5 @@ import { HomePage } from '@lzt/pages/models';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  $page = usePageFeature().currentPage$ as Signal<HomePage>;
-  constructor() {
-    usePageFeature().init();
-  }
+  readonly $page = usePageFeature().$currentPage as Signal<HomePage>;
 }
