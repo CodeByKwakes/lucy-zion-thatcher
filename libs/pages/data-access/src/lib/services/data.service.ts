@@ -6,8 +6,8 @@ import {
   PageArray,
   SpeakerPage
 } from '@lzt/pages/models';
-import { Observable, forkJoin } from 'rxjs';
-import { getPage } from '../utils/directus.util';
+import { Observable, forkJoin, map } from 'rxjs';
+import { getPage, getBlogPosts } from '../utils/directus.util';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,11 @@ export class DataService {
       getPage('about') as unknown as Observable<AboutPage>,
       getPage('speaker') as unknown as Observable<SpeakerPage>
     ]);
+  }
+
+  loadAllBlogs() {
+    return forkJoin([getBlogPosts() as unknown as Observable<unknown>]).pipe(
+      map(([blogs]) => blogs)
+    );
   }
 }
