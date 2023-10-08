@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@lzt/blogs/data-access": ["libs/blogs/data-access/src/index.ts"],
       "@lzt/core/api-pages": ["libs/core/api-pages/src/index.ts"],
       "@lzt/core/data-access": ["libs/core/data-access/src/index.ts"],
       "@lzt/core/feature": ["libs/core/feature/src/index.ts"],
