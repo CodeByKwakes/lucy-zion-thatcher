@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AboutPage, HomePage, PageArray, SpeakerPage } from '@lzt/pages/models';
+import {
+  AboutPage,
+  GlobalPage,
+  HomePage,
+  PageArray,
+  SpeakerPage
+} from '@lzt/pages/models';
 import { Observable, forkJoin } from 'rxjs';
 import { getPage } from '../utils/directus.util';
 
@@ -9,6 +15,7 @@ import { getPage } from '../utils/directus.util';
 export class DataService {
   loadAllPages(): Observable<PageArray> {
     return forkJoin([
+      getPage('global') as unknown as Observable<GlobalPage>,
       getPage('home') as unknown as Observable<HomePage>,
       getPage('about') as unknown as Observable<AboutPage>,
       getPage('speaker') as unknown as Observable<SpeakerPage>

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Signal, computed } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
-import { DIRECTUS_URL, HomePage, usePageFeature } from '@lzt/core/api-pages';
+import { GlobalPage, HomePage, usePageFeature } from '@lzt/core/api-pages';
 import { useCoreStore } from '@lzt/core/data-access';
 
 @Component({
@@ -12,10 +12,15 @@ import { useCoreStore } from '@lzt/core/data-access';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
-  readonly $currentPage = usePageFeature().$currentPage;
-  readonly $homePage = computed(() => this.$currentPage()) as Signal<HomePage>;
+  readonly pageStore = usePageFeature();
   readonly coreStore = useCoreStore();
-  readonly baseUrl = `${DIRECTUS_URL}/assets/`;
+
+  readonly imagePath = this.pageStore.imagePathUrl;
+  readonly $currentPage = this.pageStore.$currentPage;
+  readonly $homePage = computed(() => this.$currentPage()) as Signal<HomePage>;
+  readonly $globalPage = this.pageStore.$getPageBySlug(
+    'global'
+  ) as Signal<GlobalPage>;
 
   routeTo(path: unknown[], query?: object, extras?: object) {
     this.coreStore.routeTo(path, query, extras);
