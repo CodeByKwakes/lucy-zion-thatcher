@@ -7,8 +7,13 @@ export const appRoutes: Route[] = [
       {
         path: '',
         loadChildren: async () =>
-          (await import('@lzt/pages/routes')).routesRoutes,
+          (await import('@lzt/pages/routes')).routesRoutes
       },
-    ],
-  },
+      {
+        path: '',
+        loadChildren: async () =>
+          (await import('@lzt/blogs/routes')).routesRoutes
+      }
+    ]
+  }
 ];
