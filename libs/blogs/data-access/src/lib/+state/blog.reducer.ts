@@ -1,6 +1,7 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { BlogActions, BlogPost } from './blog.actions';
+import { BlogActions } from './blog.actions';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
+import { BlogPost } from '@lzt/shared/models';
 
 export const blogFeatureKey = 'blog';
 
