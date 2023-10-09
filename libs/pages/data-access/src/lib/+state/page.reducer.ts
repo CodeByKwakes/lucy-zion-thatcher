@@ -1,4 +1,4 @@
-import { PageEntity } from '@lzt/pages/models';
+import { PageEntity } from '@lzt/shared/models';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 import { PageActions } from './page.actions';

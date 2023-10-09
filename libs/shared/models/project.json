@@ -1,17 +1,17 @@
 {
-  "name": "pages-models",
+  "name": "shared-models",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/pages/models/src",
+  "sourceRoot": "libs/shared/models/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/pages/models",
-        "main": "libs/pages/models/src/index.ts",
-        "tsConfig": "libs/pages/models/tsconfig.lib.json",
-        "assets": ["libs/pages/models/*.md"]
+        "outputPath": "dist/libs/shared/models",
+        "main": "libs/shared/models/src/index.ts",
+        "tsConfig": "libs/shared/models/tsconfig.lib.json",
+        "assets": ["libs/shared/models/*.md"]
       }
     },
     "lint": {
@@ -19,8 +19,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/pages/models/**/*.ts",
-          "libs/pages/models/package.json"
+          "libs/shared/models/**/*.ts",
+          "libs/shared/models/package.json"
         ]
       }
     }

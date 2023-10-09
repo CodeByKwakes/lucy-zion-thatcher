@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AboutPage } from '@lzt/pages/models';
+import { AboutPage } from '@lzt/shared/models';
 import { BasePageComponent } from '../BasePageComponent';
 
 @Component({

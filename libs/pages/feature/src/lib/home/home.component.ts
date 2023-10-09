@@ -1,7 +1,7 @@
 import { Component, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { usePageFeature } from '@lzt/pages/data-access';
-import { HomePage } from '@lzt/pages/models';
+import { HomePage } from '@lzt/shared/models';
 
 @Component({
   standalone: true,

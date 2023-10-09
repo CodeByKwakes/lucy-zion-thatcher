@@ -1,4 +1,4 @@
-import { PageArray } from '@lzt/pages/models';
+import { PageArray } from '@lzt/shared/models';
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
 export const PageActions = createActionGroup({

@@ -5,7 +5,7 @@ import {
   HomePage,
   PageArray,
   SpeakerPage
-} from '@lzt/pages/models';
+} from '@lzt/shared/models';
 import { Observable, forkJoin, map } from 'rxjs';
 import { getBlogPosts, getPage } from '../utils/directus.util';
 
