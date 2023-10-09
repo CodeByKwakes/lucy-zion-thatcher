@@ -9,7 +9,20 @@
     {
       "files": "*.component.html",
       "options": {
-        "parser": "angular"
+        "parser": "angular",
+        "plugins": [
+          "prettier-plugin-organize-attributes"
+        ],
+        "attributeGroups": [
+          "$ANGULAR_STRUCTURAL_DIRECTIVE",
+          "$ANGULAR_ANIMATION",
+          "$ANGULAR_ANIMATION_INPUT",
+          "$ANGULAR_ELEMENT_REF",
+          "$CODE_GUIDE",
+          "$ANGULAR_INPUT",
+          "$ANGULAR_TWO_WAY_BINDING",
+          "$ANGULAR_OUTPUT"
+        ]
       }
     },
     {
