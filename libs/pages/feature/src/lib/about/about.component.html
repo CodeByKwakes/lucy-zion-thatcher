@@ -1,7 +1,7 @@
 <!-- ======= About Section ======= -->
 <section
-  id="about"
-  class="about">
+  class="about"
+  id="about">
   <div
     class="container"
     data-aos="fade-up">
@@ -10,9 +10,9 @@
       data-aos="fade-up">
       <div class="col-lg-4">
         <img
-          [src]="imagePath + $page().content_image"
           class="img-fluid"
-          alt="" />
+          alt=""
+          [src]="imagePath + $page().content_image" />
       </div>
       <div class="col-lg-8">
         <div
@@ -26,8 +26,8 @@
 
 <!-- ======= Call To Action Section ======= -->
 <section
-  id="call-to-action"
   class="call-to-action"
+  id="call-to-action"
   [ngStyle]="{ backgroundImage: 'linear-gradient(rgba(var(--secondary-rgb), 0.8),rgba(var(--secondary-rgb), 0.8)),url('+ imagePath + $page().quote_image + ')' }">
   <div
     class="container"

@@ -1,12 +1,12 @@
 <!-- ======= Header ======= -->
 <header
-  id="header"
-  class="header d-flex align-items-center fixed-top">
+  class="header d-flex align-items-center fixed-top"
+  id="header">
   <div
     class="container-fluid container-xl d-flex align-items-center justify-content-between">
     <a
-      (click)="routeTo(['home'])"
-      class="logo d-flex align-items-center">
+      class="logo d-flex align-items-center"
+      (click)="routeTo(['home'])">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <!-- <img [src]="imagePath + $globalPage().logo" alt="" /> -->
 
@@ -17,11 +17,11 @@
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
     <nav
-      id="navbar"
-      class="navbar">
+      class="navbar"
+      id="navbar">
       <ul
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{exact: true}">
+        [routerLinkActiveOptions]="{exact: true}"
+        routerLinkActive="active">
         <li (click)="routeTo(['home'])">
           <a routerLink="/"> Home </a>
         </li>
@@ -46,8 +46,8 @@
 <!-- ======= Hero Section ======= -->
 <ng-container *ngIf="$currentPage()?.slug === 'home'">
   <section
-    id="hero"
     class="hero d-flex align-items-center"
+    id="hero"
     [ngStyle]="{ backgroundImage: 'url('+ imagePath + $currentPage()?.header_image + ')' }">
     <div class="container">
       <div class="row">
@@ -59,10 +59,10 @@
             <p>{{$homePage().caption}}</p>
           </blockquote>
           <div
-            (click)="routeTo(['about'])"
             class="d-flex"
             data-aos="fade-up"
-            data-aos-delay="200">
+            data-aos-delay="200"
+            (click)="routeTo(['about'])">
             <a class="btn-get-started"> About Lucy </a>
           </div>
         </div>
@@ -92,15 +92,15 @@
 
 <!-- ======= Footer ======= -->
 <footer
-  id="footer"
-  class="footer">
+  class="footer"
+  id="footer">
   <div class="footer-content">
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-6 col-md-12 footer-info">
           <a
-            href="index.html"
-            class="logo d-flex align-items-center">
+            class="logo d-flex align-items-center"
+            href="index.html">
             <span>Lucy Zion Thatcher</span>
           </a>
           <p>NHS Sexual Health Advisor</p>
@@ -174,7 +174,7 @@
 <!-- End Footer -->
 
 <a
-  href="#"
-  class="scroll-top d-flex align-items-center justify-content-center">
+  class="scroll-top d-flex align-items-center justify-content-center"
+  href="#">
   <i class="bi bi-arrow-up-short"></i>
 </a>
