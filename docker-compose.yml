@@ -38,4 +38,4 @@ services:
       REDIS: 'redis://cache:6379'
       ADMIN_EMAIL: 'codebykwakes@gmail.com'
       ADMIN_PASSWORD: 'd1r3ctu5'
-      CORS_ENABLED: "true"
+      CORS_ENABLED: 'true'

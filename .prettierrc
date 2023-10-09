@@ -10,9 +10,7 @@
       "files": "*.component.html",
       "options": {
         "parser": "angular",
-        "plugins": [
-          "prettier-plugin-organize-attributes"
-        ],
+        "plugins": ["prettier-plugin-organize-attributes"],
         "attributeGroups": [
           "$ANGULAR_STRUCTURAL_DIRECTIVE",
           "$ANGULAR_ANIMATION",
