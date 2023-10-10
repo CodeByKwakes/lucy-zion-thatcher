@@ -9,6 +9,4 @@ import { LayoutComponent } from '@lzt/core/feature';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'lucy-zion-thatcher';
-}
+export class AppComponent {}
