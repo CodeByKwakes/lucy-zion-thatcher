@@ -6,9 +6,9 @@ services:
     volumes:
       - ./cms/data/database:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: 'lzt_cms_user'
-      POSTGRES_PASSWORD: 'd1r3ctu5'
-      POSTGRES_DB: 'lzt_cms'
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
 
   cache:
     image: redis:6
@@ -25,17 +25,17 @@ services:
       - cache
       - db
     environment:
-      KEY: '255d861b-5ea1-5996-9aa3-922530ec40b1'
-      SECRET: '6116487b-cda1-52c2-b5b5-c8022c45e263'
-      DB_CLIENT: 'pg'
-      DB_HOST: 'db'
-      DB_PORT: '5432'
-      DB_DATABASE: 'lzt_cms'
-      DB_USER: 'lzt_cms_user'
-      DB_PASSWORD: 'd1r3ctu5'
+      KEY: ${KEY}
+      SECRET: ${SECRET}
+      DB_CLIENT: ${DB_CLIENT}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
       CACHE_ENABLED: 'true'
       CACHE_STORE: 'redis'
       REDIS: 'redis://cache:6379'
-      ADMIN_EMAIL: 'codebykwakes@gmail.com'
-      ADMIN_PASSWORD: 'd1r3ctu5'
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       CORS_ENABLED: 'true'
