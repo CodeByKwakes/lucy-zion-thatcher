@@ -11,6 +11,7 @@ import {
 import { RouterLinkActive } from '@angular/router';
 import { GlobalPage, HomePage, usePageFeature } from '@lzt/core/api-pages';
 import { useCoreStore } from '@lzt/core/data-access';
+import AOS from 'aos';
 import { fromEvent, throttleTime } from 'rxjs';
 
 @Component({
@@ -35,6 +36,7 @@ export class LayoutComponent implements OnInit {
   #renderer = inject(Renderer2);
 
   ngOnInit(): void {
+    // this.initAos();
     this.initStickyHeader();
     this.initScrollTopButton();
     this.initMobileNavToggle();
@@ -108,5 +110,20 @@ export class LayoutComponent implements OnInit {
         });
       });
     }
+  }
+
+  private initAos() {
+    const aosInit = () => {
+      AOS.init({
+        duration: 800,
+        once: true,
+        mirror: false
+      });
+    };
+
+    fromEvent(window, 'load').subscribe(() => {
+      console.log('aos init');
+      aosInit();
+    });
   }
 }

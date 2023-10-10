@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
    * Preloader
    */
   const preloader = document.querySelector('#preloader');
+  console.log(preloader);
   if (preloader) {
     window.addEventListener('load', () => {
+      console.log('preloader remove');
       preloader.remove();
     });
   }
@@ -30,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   window.addEventListener('load', () => {
+    console.log('aos init');
     aos_init();
   });
   console.log('main.js load');
