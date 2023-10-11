@@ -27,7 +27,8 @@
           "node_modules/swiper/swiper-bundle.min.js",
           "node_modules/isotope-layout/dist/isotope.pkgd.min.js",
           "./src/assets/js/main.js"
-        ]
+        ],
+        "allowedCommonJsDependencies": ["aos"]
       },
       "configurations": {
         "production": {
