@@ -4,9 +4,8 @@ import {
   ElementRef,
   OnInit,
   Renderer2,
-  Signal,
-  computed,
-  inject
+  inject,
+  signal
 } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 import { GlobalPage, HomePage, usePageFeature } from '@lzt/core/api-pages';
@@ -22,15 +21,47 @@ import { fromEvent, throttleTime } from 'rxjs';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+  readonly #homeData: HomePage = {
+    id: '50289afe-9834-43de-99e6-0745b2bb7a67',
+    slug: 'home',
+    title: 'Lucy Zion Thatcher',
+    caption: 'Website Coming Soon - info@lucyzionthatcher.com',
+    header_image: 'assets/imgs/photos/bg-image_16_9.jpg'
+  };
+
+  readonly #globalData: GlobalPage = {
+    id: '1141c65e-6665-4e56-9b0d-ad671c13b8be',
+    logo: '54f82820-b692-450d-9919-f0a1393ae736',
+    email: 'info@lucyzionthatcher.com',
+    phone_number: '0207 274 8248',
+    social_media: [
+      {
+        name: 'instagram',
+        link: 'https://www.instagram.com/lucyzionthatcher'
+      },
+      {
+        name: 'linkedin',
+        link: 'https://www.linkedin.com/in/lucy-zion-thatcher-a8483619b'
+      },
+      {
+        name: 'tiktok',
+        link: 'https://www.tiktok.com/@lucyzionthatcher'
+      },
+      {
+        name: 'twitter',
+        link: 'https://twitter.com/aim4zion'
+      }
+    ],
+    slug: 'global'
+  };
+
   readonly pageStore = usePageFeature();
   readonly coreStore = useCoreStore();
 
   readonly imagePath = this.pageStore.imagePathUrl;
   readonly $currentPage = this.pageStore.$currentPage;
-  readonly $homePage = computed(() => this.$currentPage()) as Signal<HomePage>;
-  readonly $globalPage = this.pageStore.$getPageBySlug(
-    'global'
-  ) as Signal<GlobalPage>;
+  readonly $homePage = signal(this.#homeData);
+  readonly $globalPage = signal(this.#globalData);
 
   #el = inject(ElementRef);
   #renderer = inject(Renderer2);
