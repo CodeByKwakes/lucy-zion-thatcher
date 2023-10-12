@@ -38,9 +38,12 @@
           <div
             class="d-flex"
             data-aos="fade-up"
-            data-aos-delay="200"
-            (click)="routeTo(['about'])">
-            <a class="btn-get-started"> About Lucy </a>
+            data-aos-delay="200">
+            <a
+              class="btn-get-started"
+              href="mailto:{{$globalPage().email}}">
+              Email Lucy
+            </a>
           </div>
         </div>
       </div>
