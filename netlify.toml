@@ -1,0 +1,7 @@
+[build]
+  publish = "dist/angular-shopify"
+  command = "npx nx run lucy-zion-thatcher:build"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
