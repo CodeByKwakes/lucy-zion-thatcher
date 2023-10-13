@@ -8,7 +8,7 @@ import { provideCoreStore } from '@lzt/core/data-access';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
-    provideCoreStore()
+    provideRouter(appRoutes, withEnabledBlockingInitialNavigation())
+    // provideCoreStore()
   ]
 };

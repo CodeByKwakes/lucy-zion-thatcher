@@ -10,5 +10,5 @@ import { HomePage } from '@lzt/shared/models';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  readonly $page = usePageFeature().$currentPage as Signal<HomePage>;
+  // readonly $page = usePageFeature().$currentPage as Signal<HomePage>;
 }

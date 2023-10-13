@@ -55,11 +55,11 @@ export class LayoutComponent implements OnInit {
     slug: 'global'
   };
 
-  readonly pageStore = usePageFeature();
-  readonly coreStore = useCoreStore();
+  // readonly pageStore = usePageFeature();
+  // readonly coreStore = useCoreStore();
 
-  readonly imagePath = this.pageStore.imagePathUrl;
-  readonly $currentPage = this.pageStore.$currentPage;
+  // readonly imagePath = this.pageStore.imagePathUrl;
+  // readonly $currentPage = this.pageStore.$currentPage;
   readonly $homePage = signal(this.#homeData);
   readonly $globalPage = signal(this.#globalData);
 
@@ -75,7 +75,7 @@ export class LayoutComponent implements OnInit {
   }
 
   routeTo(path: unknown[], query?: object, extras?: object) {
-    this.coreStore.routeTo(path, query, extras);
+    // this.coreStore.routeTo(path, query, extras);
   }
 
   private initStickyHeader() {
