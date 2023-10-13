@@ -8,8 +8,7 @@ import {
   signal
 } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
-import { GlobalPage, HomePage, usePageFeature } from '@lzt/core/api-pages';
-import { useCoreStore } from '@lzt/core/data-access';
+import { GlobalPage, HomePage } from '@lzt/core/api-pages';
 import AOS from 'aos';
 import { fromEvent, throttleTime } from 'rxjs';
 
