@@ -13,8 +13,7 @@ body {
   flex-direction: column;
   font-family: var(--font-default);
   color: var(--text);
-  background-color: red;
-  // background-color: var(--background);
+  background-color: var(--background);
 }
 
 a {
