@@ -67,6 +67,7 @@ export class LayoutComponent implements OnInit {
   #renderer = inject(Renderer2);
 
   ngOnInit(): void {
+    console.log('LayoutComponent ngOnInit');
     // this.initAos();
     this.initStickyHeader();
     this.initScrollTopButton();
