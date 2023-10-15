@@ -1,10 +1,11 @@
 import { Route } from '@angular/router';
+import { providePageFeature, pagesGuard } from '@lzt/pages/data-access';
 
 export const routesRoutes: Route[] = [
   {
     path: '',
-    providers: [],
-    canActivate: [],
+    providers: [providePageFeature()],
+    canActivate: [pagesGuard],
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       {
