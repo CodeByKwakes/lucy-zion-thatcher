@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { useBlogFeature } from '@lzt/blogs/data-access';
 import { TruncatePipe } from '@lzt/shared/utils';
 import { useCoreStore } from '@lzt/blogs/api-core';
-
+import { BreadcrumbsComponent } from '@lzt/shared/ui-components';
 @Component({
   selector: 'lib-blog-list',
   standalone: true,
-  imports: [CommonModule, TruncatePipe],
+  imports: [CommonModule, TruncatePipe, BreadcrumbsComponent],
   templateUrl: './blog-list.component.html',
   styleUrls: ['./blog-list.component.scss']
 })

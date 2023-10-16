@@ -74,8 +74,8 @@
 <!-- End Hero Section -->
 
 <main id="main">
-  <ng-container *ngIf="$currentPage()?.slug !== 'home'">
-    <!-- ======= Breadcrumbs ======= -->
+  <!-- <ng-container *ngIf="$currentPage()?.slug !== 'home'">
+
     <div
       class="breadcrumbs d-flex align-items-center"
       [ngStyle]="{ backgroundImage: 'url('+ imagePath + $currentPage()?.header_image + ')' }">
@@ -84,8 +84,7 @@
         <h2>{{$currentPage()?.title}}</h2>
       </div>
     </div>
-    <!-- End Breadcrumbs -->
-  </ng-container>
+  </ng-container> -->
 
   <ng-content></ng-content>
 </main>

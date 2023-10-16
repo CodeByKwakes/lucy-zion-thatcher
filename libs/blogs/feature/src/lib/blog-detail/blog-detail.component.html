@@ -1,4 +1,9 @@
 <!-- ======= Blog Details Section ======= -->
+<lib-breadcrumbs
+  [imagePath]="imagePath"
+  [headerImage]="$blog()?.header_image || null"
+  [title]="$blog()?.header_title || null"></lib-breadcrumbs>
+
 <section
   class="blog"
   id="blog">
@@ -22,10 +27,6 @@
 
           <div class="meta-top">
             <ul>
-              <!-- <li class="d-flex align-items-center">
-                <i class="bi bi-person"></i>
-                <a href="blog-details.html">John Doe</a>
-              </li> -->
               <li class="d-flex align-items-center">
                 <i class="bi bi-clock"></i>
                 <a href="blog-details.html">
@@ -34,10 +35,6 @@
                   >
                 </a>
               </li>
-              <!-- <li class="d-flex align-items-center">
-                <i class="bi bi-chat-dots"></i>
-                <a href="blog-details.html">12 Comments</a>
-              </li> -->
             </ul>
           </div>
           <!-- End meta top -->
@@ -45,11 +42,8 @@
           <div
             class="content"
             [innerHTML]="$blog()?.blog_content"></div>
-          <!-- End post content -->
         </article>
-        <!-- End blog post -->
       </div>
     </div>
   </div>
 </section>
-<!-- End Blog Details Section -->
