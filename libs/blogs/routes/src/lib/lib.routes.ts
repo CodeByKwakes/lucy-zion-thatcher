@@ -5,12 +5,11 @@ import {
   provideBlogFeature
 } from '@lzt/blogs/data-access';
 
-export const routesRoutes: Route[] = [
+export const blogsRoutes: Route[] = [
   {
     path: '',
     providers: [provideBlogFeature()],
     children: [
-      // { path: '', pathMatch: 'full', redirectTo: 'blog-list' },
       {
         path: 'blogs',
         loadComponent: async () =>

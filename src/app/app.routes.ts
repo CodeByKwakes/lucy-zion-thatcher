@@ -9,12 +9,12 @@ export const appRoutes: Route[] = [
       {
         path: '',
         loadChildren: async () =>
-          (await import('@lzt/pages/routes')).routesRoutes
+          (await import('@lzt/pages/routes')).pagesRoutes
       },
       {
         path: '',
         loadChildren: async () =>
-          (await import('@lzt/blogs/routes')).routesRoutes
+          (await import('@lzt/blogs/routes')).blogsRoutes
       }
     ]
   }
