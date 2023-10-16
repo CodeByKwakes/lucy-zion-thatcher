@@ -1,1 +1,55 @@
-<p>blog-detail works!</p>
+<!-- ======= Blog Details Section ======= -->
+<section
+  class="blog"
+  id="blog">
+  <div
+    class="container"
+    data-aos="fade-up">
+    <div class="row justify-content-center g-5">
+      <div
+        class="col-lg-9"
+        data-aos="fade-up"
+        data-aos-delay="200">
+        <article class="blog-details">
+          <div class="post-img">
+            <img
+              class="img-fluid"
+              alt=""
+              [src]="imagePath + $blog()?.blog_feature_image" />
+          </div>
+
+          <h2 class="title">{{$blog()?.blog_title}}</h2>
+
+          <div class="meta-top">
+            <ul>
+              <!-- <li class="d-flex align-items-center">
+                <i class="bi bi-person"></i>
+                <a href="blog-details.html">John Doe</a>
+              </li> -->
+              <li class="d-flex align-items-center">
+                <i class="bi bi-clock"></i>
+                <a href="blog-details.html">
+                  <time datetime="2020-01-01"
+                    >{{$blog()?.date_created | date}}</time
+                  >
+                </a>
+              </li>
+              <!-- <li class="d-flex align-items-center">
+                <i class="bi bi-chat-dots"></i>
+                <a href="blog-details.html">12 Comments</a>
+              </li> -->
+            </ul>
+          </div>
+          <!-- End meta top -->
+
+          <div
+            class="content"
+            [innerHTML]="$blog()?.blog_content"></div>
+          <!-- End post content -->
+        </article>
+        <!-- End blog post -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Blog Details Section -->

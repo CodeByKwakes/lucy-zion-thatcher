@@ -5,12 +5,12 @@ export const blogsRoutes: Route[] = [
   {
     path: '',
     providers: [provideBlogFeature()],
+    canActivate: [blogsGuard],
     children: [
       {
         path: 'blogs',
         loadComponent: async () =>
-          (await import('@lzt/blogs/feature')).BlogListComponent,
-        canActivate: [blogsGuard]
+          (await import('@lzt/blogs/feature')).BlogListComponent
       },
       {
         path: 'blogs/:id',

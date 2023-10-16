@@ -4,7 +4,8 @@ import {
   blogFeature,
   selectAll,
   selectEntities,
-  selectIsLoaded
+  selectIsLoaded,
+  selectBlogFromRoute
 } from './blog.reducer';
 import { BlogActions } from './blog.actions';
 import { tap, filter, take } from 'rxjs';
@@ -41,6 +42,7 @@ export const useBlogFeature = () => {
     imagePathUrl: DIRECTUS_IMAGE_PATH,
     $allBlogs: store.selectSignal(selectAll),
     entities$: store.select(selectEntities),
+    $currentBlog: store.selectSignal(selectBlogFromRoute),
     checkBlogStore: checkBlogStore()
   };
 };

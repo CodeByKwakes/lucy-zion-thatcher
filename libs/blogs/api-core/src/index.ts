@@ -1,3 +1,3 @@
-import { useCoreStore, RouterActions } from '@lzt/core/data-access';
+import { selectRouter, useCoreStore } from '@lzt/core/data-access';
 
-export { useCoreStore, RouterActions };
+export { selectRouter, useCoreStore };
