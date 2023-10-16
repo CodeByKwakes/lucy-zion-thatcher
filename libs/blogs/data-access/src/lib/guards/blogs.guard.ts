@@ -8,3 +8,15 @@ export const blogsGuard: CanActivateFn = () => {
     catchError(() => of(false))
   );
 };
+
+// export const blogsGuard = () => {
+//   console.log('blogsGuard');
+//   return () => {
+//     console.log('blogsGuard after');
+//     return useBlogFeature().checkBlogStore.pipe(
+//       switchMap(() => of(true)),
+//       catchError(() => of(false))
+//     );
+//   };
+// };
+// canActivate: [blogsGuard()];

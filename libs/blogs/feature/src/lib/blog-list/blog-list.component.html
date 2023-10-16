@@ -44,7 +44,7 @@
                 [innerHTML]="item.blog_content | truncate: 200"></div>
 
               <div class="read-more mt-auto align-self-end">
-                <a>
+                <a (click)="routeToBlogDetail(item.id)">
                   Read More
                   <i class="bi bi-arrow-right"></i>
                 </a>

@@ -1,9 +1,5 @@
 import { Route } from '@angular/router';
-import {
-  blogExistsGuard,
-  blogsGuard,
-  provideBlogFeature
-} from '@lzt/blogs/data-access';
+import { blogsGuard, provideBlogFeature } from '@lzt/blogs/data-access';
 
 export const blogsRoutes: Route[] = [
   {
@@ -17,10 +13,10 @@ export const blogsRoutes: Route[] = [
         canActivate: [blogsGuard]
       },
       {
-        path: 'blogs/:blogId',
+        path: 'blogs/:id',
         loadComponent: async () =>
-          (await import('@lzt/blogs/feature')).BlogDetailComponent,
-        canActivate: [blogExistsGuard]
+          (await import('@lzt/blogs/feature')).BlogDetailComponent
+        // canActivate: [blogExistsGuard]
       }
     ]
   }
