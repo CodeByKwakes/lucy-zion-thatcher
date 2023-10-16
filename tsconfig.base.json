@@ -28,6 +28,7 @@
       "@lzt/pages/routes": ["libs/pages/routes/src/index.ts"],
       "@lzt/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@lzt/shared/models": ["libs/shared/models/src/index.ts"],
+      "@lzt/shared/ui-components": ["libs/shared/ui-components/src/index.ts"],
       "shared/ui-style": ["libs/shared/ui-style/src/index.ts"]
     }
   },
