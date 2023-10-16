@@ -6,6 +6,8 @@ import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { CustomSerializer } from '../utils/custom-serializer';
 import * as routerEffects from './router.effects';
 import { RouterActions } from './router.actions';
+
+export * from './router.actions';
 export * from './router.selectors';
 
 export function provideCoreStore() {
