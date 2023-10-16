@@ -43,10 +43,10 @@ export const pageFeature = createFeature({
     selectCurrentPage: createSelector(
       selectEntities,
       selectUrl,
-      (entities, url) => entities[url.slice(1)] || null
+      (entities, url) => entities[url.slice(1)] ?? null
     ),
     selectPageBySlug: (slug: string) =>
-      createSelector(selectEntities, (entities) => entities[slug] || null)
+      createSelector(selectEntities, (entities) => entities[slug] ?? null)
   })
 });
 

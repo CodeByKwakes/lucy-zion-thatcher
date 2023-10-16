@@ -1,4 +1,4 @@
-import { selectRouter } from '@lzt/blogs/api-core';
+import { selectRouteByParam } from '@lzt/blogs/api-core';
 import { BlogPost } from '@lzt/shared/models';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
@@ -40,9 +40,8 @@ export const blogFeature = createFeature({
     ...blogAdapter.getSelectors(selectBlogState),
     selectBlogFromRoute: createSelector(
       selectEntities,
-      selectRouter,
-      (entities, router) =>
-        router.state.params['id'] ? entities[router.state.params['id']] : null
+      selectRouteByParam,
+      (entities, { id }) => entities[id] ?? null
     )
   })
 });

@@ -1,3 +1,3 @@
-import { selectRouter, useCoreStore } from '@lzt/core/data-access';
+import { selectRouteByParam, useCoreStore } from '@lzt/core/data-access';
 
-export { selectRouter, useCoreStore };
+export { selectRouteByParam, useCoreStore };
