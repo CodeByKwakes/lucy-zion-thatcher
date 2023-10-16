@@ -39,7 +39,7 @@ export const useBlogFeature = () => {
   return {
     init: () => store.dispatch(BlogActions.loadBlogs()),
     imagePathUrl: DIRECTUS_IMAGE_PATH,
-    allBlogs$: store.selectSignal(selectAll),
+    $allBlogs: store.selectSignal(selectAll),
     entities$: store.select(selectEntities),
     checkBlogStore: checkBlogStore()
   };

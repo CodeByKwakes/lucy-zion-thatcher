@@ -9,4 +9,12 @@ export const getPage = async (pageId: string) =>
   await directus.request(readItems(pageId));
 
 export const getBlogPosts = async () =>
-  await directus.request(readItems('blog_posts'));
+  await directus.request(
+    readItems('blog_posts', {
+      filter: {
+        status: {
+          _eq: 'published'
+        }
+      }
+    })
+  );
