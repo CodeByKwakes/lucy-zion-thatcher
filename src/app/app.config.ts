@@ -3,8 +3,8 @@ import {
   provideRouter,
   withEnabledBlockingInitialNavigation
 } from '@angular/router';
-import { appRoutes } from './app.routes';
 import { provideCoreStore } from '@lzt/core/data-access';
+import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
