@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SpeakerPage } from '@lzt/shared/models';
 import { BasePageComponent } from '../BasePageComponent';
 import { BreadcrumbsComponent } from '@lzt/shared/ui-components';
+
 @Component({
   selector: 'lib-speaker',
   standalone: true,

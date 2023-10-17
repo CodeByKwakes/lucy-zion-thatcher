@@ -1,8 +1,8 @@
+import { selectUrl } from '@lzt/pages/api-core';
 import { PageEntity } from '@lzt/shared/models';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 import { PageActions } from './page.actions';
-import { selectUrl } from '@lzt/pages/api-core';
 
 export const pageFeatureKey = 'page';
 

@@ -46,7 +46,11 @@ export class LayoutComponent implements OnInit {
     initMobileNavToggle(this.#el);
   }
 
-  routeTo(path: string[]) {
+  /**
+   * Navigates to the specified path.
+   * @param path - An array of strings representing the path to navigate to.
+   */
+  routeTo(path: string[]): void {
     this.coreStore.routeTo(path);
   }
 

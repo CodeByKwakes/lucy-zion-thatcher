@@ -1,6 +1,11 @@
 import { ElementRef } from '@angular/core';
 
-export function initMobileNavToggle(el: ElementRef): void {
+/**
+ * Initializes the mobile navigation toggle functionality.
+ * @param el - The ElementRef of the component.
+ * @returns void
+ */
+export const initMobileNavToggle = (el: ElementRef): void => {
   const mobileNavShow = el.nativeElement.querySelector('.mobile-nav-show');
   const mobileNavHide = el.nativeElement.querySelector('.mobile-nav-hide');
   const mobileNavToggleElements =
@@ -17,6 +22,11 @@ export function initMobileNavToggle(el: ElementRef): void {
     el.addEventListener('click', mobileNavToggle);
   });
 
+  /**
+   * Toggles the mobile navigation menu.
+   * @param event - The click event.
+   * @returns void
+   */
   function mobileNavToggle(event: Event) {
     event.preventDefault();
     if (bodyEl) {
@@ -26,4 +36,4 @@ export function initMobileNavToggle(el: ElementRef): void {
     mobileNavShow.classList.toggle('d-none');
     mobileNavHide.classList.toggle('d-none');
   }
-}
+};

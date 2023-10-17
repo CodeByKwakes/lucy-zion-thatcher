@@ -1,7 +1,16 @@
 import { ElementRef, Renderer2 } from '@angular/core';
 import { fromEvent, throttleTime } from 'rxjs';
 
-export function initScrollTopButton(el: ElementRef, renderer: Renderer2) {
+/**
+ * Initializes the scroll top button functionality.
+ * @param el - The ElementRef of the scroll top button.
+ * @param renderer - The Renderer2 used to manipulate the DOM.
+ * @returns void
+ */
+export const initScrollTopButton = (
+  el: ElementRef,
+  renderer: Renderer2
+): void => {
   const scrollTop = el.nativeElement.querySelector('.scroll-top');
 
   if (scrollTop) {
@@ -26,4 +35,4 @@ export function initScrollTopButton(el: ElementRef, renderer: Renderer2) {
 
     fromEvent(scrollTop, 'click').subscribe(toggleScrollTo);
   }
-}
+};

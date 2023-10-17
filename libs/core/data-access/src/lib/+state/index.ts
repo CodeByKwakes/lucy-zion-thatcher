@@ -10,6 +10,10 @@ import * as routerEffects from './router.effects';
 export * from './router.actions';
 export * from './router.selectors';
 
+/**
+ * Provides the core store configuration for the application.
+ * @returns The environment providers for the core store.
+ */
 export function provideCoreStore() {
   return makeEnvironmentProviders([
     provideStore({
