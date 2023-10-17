@@ -4,16 +4,20 @@ import {
   ElementRef,
   OnInit,
   Renderer2,
-  computed,
   Signal,
+  computed,
   inject
 } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 import { GlobalPage, HomePage, usePageFeature } from '@lzt/core/api-pages';
 import { useCoreStore } from '@lzt/core/data-access';
-
 import AOS from 'aos';
-import { fromEvent, throttleTime } from 'rxjs';
+import { fromEvent } from 'rxjs';
+import {
+  initMobileNavToggle,
+  initScrollTopButton,
+  initStickyHeader
+} from '../composables';
 
 @Component({
   selector: 'lib-layout',
@@ -37,80 +41,13 @@ export class LayoutComponent implements OnInit {
   #renderer = inject(Renderer2);
 
   ngOnInit(): void {
-    // this.initAos();
-    this.initStickyHeader();
-    this.initScrollTopButton();
-    this.initMobileNavToggle();
+    initStickyHeader(this.#el, this.#renderer);
+    initScrollTopButton(this.#el, this.#renderer);
+    initMobileNavToggle(this.#el);
   }
 
-  routeTo(path: unknown[], query?: object, extras?: object) {
-    this.coreStore.routeTo(path, query, extras);
-  }
-
-  private initStickyHeader() {
-    const selectHeader = this.#el.nativeElement.querySelector('#header');
-    if (selectHeader) {
-      fromEvent(window, 'scroll')
-        .pipe(throttleTime(100))
-        .subscribe(() => {
-          window.scrollY > 100
-            ? this.#renderer.addClass(selectHeader, 'sticked')
-            : this.#renderer.removeClass(selectHeader, 'sticked');
-        });
-    }
-  }
-
-  private initMobileNavToggle() {
-    const mobileNavShow =
-      this.#el.nativeElement.querySelector('.mobile-nav-show');
-    const mobileNavHide =
-      this.#el.nativeElement.querySelector('.mobile-nav-hide');
-    const mobileNavToggleElements =
-      this.#el.nativeElement.querySelectorAll('.mobile-nav-toggle');
-
-    const bodyEl = document.querySelector('body');
-
-    if (!mobileNavShow || !mobileNavHide || !bodyEl) {
-      console.error('Required elements not found in the DOM.');
-      return; // Exit the function if any required element is missing.
-    }
-
-    mobileNavToggleElements.forEach((el: HTMLElement) => {
-      el.addEventListener('click', mobileNavToggle);
-    });
-
-    function mobileNavToggle(event: Event) {
-      event.preventDefault();
-      if (bodyEl) {
-        bodyEl.classList.toggle('mobile-nav-active');
-      }
-      mobileNavShow.classList.toggle('d-none');
-      mobileNavHide.classList.toggle('d-none');
-    }
-  }
-
-  private initScrollTopButton() {
-    const scrollTop = this.#el.nativeElement.querySelector('.scroll-top');
-    if (scrollTop) {
-      const togglescrollTop = () => {
-        window.scrollY > 100
-          ? this.#renderer.addClass(scrollTop, 'active')
-          : this.#renderer.removeClass(scrollTop, 'active');
-      };
-
-      fromEvent(window, 'load').subscribe(togglescrollTop);
-
-      fromEvent(document, 'scroll')
-        .pipe(throttleTime(100))
-        .subscribe(togglescrollTop);
-
-      fromEvent(scrollTop, 'click').subscribe(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-    }
+  routeTo(path: string[]) {
+    this.coreStore.routeTo(path);
   }
 
   private initAos() {
