@@ -1,1 +1,1 @@
-export * from './lib/pipes/truncate.pipe';
+export * from './lib/pipes';
