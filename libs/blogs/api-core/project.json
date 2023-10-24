@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/blogs/api-core/src",
   "prefix": "lib",
-  "tags": ["tag:api", "scope:blog"],
+  "tags": ["type:api", "scope:blogs"],
   "projectType": "library",
   "targets": {
     "test": {
