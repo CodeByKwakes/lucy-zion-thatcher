@@ -25,5 +25,5 @@
       }
     }
   },
-  "tags": ["type:models"]
+  "tags": ["type:models", "scope:shared"]
 }

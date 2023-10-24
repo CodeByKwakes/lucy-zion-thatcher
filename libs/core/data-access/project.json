@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/core/data-access/src",
   "prefix": "lib",
-  "tags": ["type:data-access", "scope: core"],
+  "tags": ["type:data-access", "scope:core"],
   "projectType": "library",
   "targets": {
     "test": {

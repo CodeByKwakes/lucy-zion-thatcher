@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/blogs/feature/src",
   "prefix": "lib",
-  "tags": ["type:feature", "scope:blog"],
+  "tags": ["type:feature", "scope:blogs"],
   "projectType": "library",
   "targets": {
     "test": {
