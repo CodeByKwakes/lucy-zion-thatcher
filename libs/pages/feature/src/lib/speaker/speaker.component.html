@@ -40,8 +40,8 @@
     </div>
 
     <div class="row gy-5">
+      @for (item of $page().list; track item) {
       <div
-        *ngFor="let item of $page().list"
         class="col-lg-4 col-md-6 service-item d-flex"
         data-aos="fade-up"
         data-aos-delay="100">
@@ -52,6 +52,7 @@
           <p class="description">{{item.text}}</p>
         </div>
       </div>
+      }
       <!-- End Service Item -->
 
       <!-- <div

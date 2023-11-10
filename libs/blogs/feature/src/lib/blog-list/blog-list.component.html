@@ -12,9 +12,8 @@
         data-aos="fade-up"
         data-aos-delay="200">
         <div class="row gy-5 posts-list">
-          <div
-            *ngFor="let item of $blogList()"
-            class="col-lg-4">
+          @for (item of $blogList(); track item) {
+          <div class="col-lg-4">
             <article class="d-flex flex-column">
               <div class="post-img">
                 <img
@@ -52,6 +51,7 @@
               </div>
             </article>
           </div>
+          }
           <!-- End post list item -->
         </div>
         <!-- End blog posts list -->
