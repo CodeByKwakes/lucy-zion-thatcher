@@ -5,28 +5,29 @@
   transition: all 0.5s;
   z-index: 997;
   padding: 24px 0;
+
+  .logo {
+    img {
+      max-height: 40px;
+      margin-right: 6px;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
+      font-family: var(--font-secondary);
+      margin: 0;
+    }
+  }
+}
+.header.sticked {
+  background: rgba(var(--secondary-rgb) / 90%);
+  padding: 12px 0;
 }
 
 @media (max-width: 1200px) {
   .header {
     padding: 12px 0;
   }
-}
-
-.header.sticked {
-  background: rgba(var(--secondary-rgb) / 90%);
-  padding: 12px 0;
-}
-
-.header .logo img {
-  max-height: 40px;
-  margin-right: 6px;
-}
-
-.header .logo h1 {
-  font-size: 30px;
-  font-weight: 700;
-  color: #fff;
-  font-family: var(--font-secondary);
-  margin: 0;
 }

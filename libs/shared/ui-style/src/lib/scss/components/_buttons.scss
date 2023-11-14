@@ -13,17 +13,17 @@
   height: 40px;
   border-radius: 4px;
   transition: all 0.4s;
-}
 
-.scroll-top i {
-  font-size: 24px;
-  color: #fff;
-  line-height: 0;
-}
+  i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+  }
 
-.scroll-top:hover {
-  background: rgba(var(--primary-rgb) / 80%);
-  color: #fff;
+  &:hover {
+    background: rgba(var(--primary-rgb) / 80%);
+    color: #fff;
+  }
 }
 
 .scroll-top.active {
