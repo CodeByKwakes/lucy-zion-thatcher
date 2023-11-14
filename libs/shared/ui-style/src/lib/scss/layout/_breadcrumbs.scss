@@ -2,36 +2,36 @@
 # Breadcrumbs
 -------------------------------------------------------------- */
 .breadcrumbs {
-  padding: 140px 0 60px;
-  min-height: 30vh;
   position: relative;
-  background-size: cover;
-  background-position: center;
+  min-height: 30vh;
+  padding: 140px 0 60px;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
   &::before {
-    content: '';
-    background-color: rgba(var(--secondary-rgb) / 70%);
     position: absolute;
+    background-color: rgba(var(--secondary-rgb) / 70%);
+    content: '';
     inset: 0;
   }
 
   h2 {
-    font-size: 56px;
-    font-weight: 500;
     color: var(--text);
+    font-weight: 500;
+    font-size: 56px;
     font-family: var(--font-secondary);
   }
 
   ol {
     display: flex;
     flex-wrap: wrap;
-    list-style: none;
-    padding: 0 0 10px;
     margin: 0;
-    font-size: 16px;
-    font-weight: 600;
+    padding: 0 0 10px;
     color: var(--accent);
+    font-weight: 600;
+    font-size: 16px;
+    list-style: none;
 
     a {
       color: rgba(var(--text-rgb) / 80%);

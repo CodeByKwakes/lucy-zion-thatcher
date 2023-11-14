@@ -2,9 +2,9 @@
 # Header
 -------------------------------------------------------------- */
 .header {
-  transition: all 0.5s;
   z-index: 997;
   padding: 24px 0;
+  transition: all 0.5s;
 
   .logo {
     img {
@@ -13,20 +13,21 @@
     }
 
     h1 {
-      font-size: 30px;
-      font-weight: 700;
-      color: #fff;
-      font-family: var(--font-secondary);
       margin: 0;
+      color: #fff;
+      font-weight: 700;
+      font-size: 30px;
+      font-family: var(--font-secondary);
     }
   }
 }
+
 .header.sticked {
-  background: rgba(var(--secondary-rgb) / 90%);
   padding: 12px 0;
+  background: rgba(var(--secondary-rgb) / 90%);
 }
 
-@media (max-width: 1200px) {
+@media (width <= 1200px) {
   .header {
     padding: 12px 0;
   }
