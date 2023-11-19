@@ -40,34 +40,23 @@
       cursor: pointer;
       transition: 0.3s;
 
-      &:focus {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 15px 0 15px 30px;
-        color: rgba(var(--text-rgb) / 60%);
-        font-weight: 500;
-        font-size: 15px;
-        font-family: var(--font-default);
-        white-space: nowrap;
-        cursor: pointer;
-        transition: 0.3s;
-
-        i {
-          margin-left: 5px;
-          font-size: 12px;
-          line-height: 0;
-        }
-      }
-
       i {
         margin-left: 5px;
         font-size: 12px;
         line-height: 0;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: var(--text);
+      }
+
+      &:focus {
+        i {
+          margin-left: 5px;
+          font-size: 12px;
+          line-height: 0;
+        }
       }
     }
 
@@ -214,32 +203,14 @@
       white-space: nowrap;
       transition: 0.3s;
 
-      &:focus {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        color: rgba(var(--text-rgb) / 70%);
-        font-weight: 600;
-        font-size: 15px;
-        font-family: var(--font-default);
-        white-space: nowrap;
-        transition: 0.3s;
-
-        i {
-          margin-left: 5px;
-          font-size: 12px;
-          line-height: 0;
-        }
-      }
-
       i {
         margin-left: 5px;
         font-size: 12px;
         line-height: 0;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: var(--text);
       }
     }
@@ -267,20 +238,6 @@
         margin: 10px 20px;
         padding: 10px 0;
         background-color: rgb(20 35 51 / 60%);
-      }
-
-      .dropdown {
-        ul {
-          position: static;
-          display: none;
-          margin: 10px 20px;
-          padding: 10px 0;
-          background-color: rgb(20 35 51 / 60%);
-        }
-
-        > .dropdown-active {
-          display: block;
-        }
       }
 
       > .dropdown-active {
