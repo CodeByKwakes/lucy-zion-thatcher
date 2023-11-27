@@ -3,27 +3,27 @@
 -------------------------------------------------------------- */
 .scroll-top {
   position: fixed;
-  visibility: hidden;
-  opacity: 0;
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: var(--primary);
   width: 40px;
   height: 40px;
+  background: var(--primary);
   border-radius: 4px;
+  visibility: hidden;
+  opacity: 0;
   transition: all 0.4s;
-}
 
-.scroll-top i {
-  font-size: 24px;
-  color: #fff;
-  line-height: 0;
-}
+  i {
+    color: #fff;
+    font-size: 24px;
+    line-height: 0;
+  }
 
-.scroll-top:hover {
-  background: rgba(var(--primary-rgb) / 80%);
-  color: #fff;
+  &:hover {
+    color: #fff;
+    background: rgba(var(--primary-rgb) / 80%);
+  }
 }
 
 .scroll-top.active {

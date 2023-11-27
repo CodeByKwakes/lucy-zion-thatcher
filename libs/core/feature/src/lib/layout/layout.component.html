@@ -15,44 +15,77 @@
 
     <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    <nav
+      class="navbar"
+      id="navbar">
+      <ul
+        [routerLinkActiveOptions]="{exact: true}"
+        routerLinkActive="active">
+        <li (click)="routeTo(['home'])">
+          <a routerLink="/"> Home </a>
+        </li>
+        <li (click)="routeTo(['about'])">
+          <a routerLink="/about">About</a>
+        </li>
+        <li (click)="routeTo(['speaker'])">
+          <a routerLink="/speaker">Speaker</a>
+        </li>
+        <li (click)="routeTo(['blogs'])"><a>Blog</a></li>
+        <li (click)="routeTo(['contact'])">
+          <a>Contact</a>
+        </li>
+      </ul>
+    </nav>
+
     <!-- .navbar -->
   </div>
 </header>
 <!-- End Header -->
 
 <!-- ======= Hero Section ======= -->
-<ng-container *ngIf="$homePage()?.slug === 'home'">
-  <section
-    class="hero d-flex align-items-center"
-    id="hero">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-4">
-          <h2 data-aos="fade-up">{{$homePage().title}}</h2>
-          <blockquote
-            data-aos="fade-up"
-            data-aos-delay="100">
-            <p>{{$homePage().caption}}</p>
-          </blockquote>
-          <div
-            class="d-flex"
-            data-aos="fade-up"
-            data-aos-delay="200">
-            <a
-              class="btn-get-started"
-              href="mailto:{{$globalPage().email}}">
-              Email Lucy
-            </a>
-          </div>
+@if ($currentPage()?.slug === 'home') {
+<section
+  class="hero d-flex align-items-center"
+  id="hero"
+  [ngStyle]="{ backgroundImage: 'url('+ imagePath + $currentPage()?.header_image + ')' }">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-4">
+        <h2 data-aos="fade-up">{{$currentPage()?.title}}</h2>
+        <blockquote
+          data-aos="fade-up"
+          data-aos-delay="100">
+          <p>{{$homePage().caption}}</p>
+        </blockquote>
+        <div
+          class="d-flex"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          (click)="routeTo(['about'])">
+          <a class="btn-get-started"> About Lucy </a>
         </div>
       </div>
     </div>
-  </section>
-</ng-container>
+  </div>
+</section>
+}
 
 <!-- End Hero Section -->
 
 <main id="main">
+  <!-- <ng-container *ngIf="$currentPage()?.slug !== 'home'">
+
+    <div
+      class="breadcrumbs d-flex align-items-center"
+      [ngStyle]="{ backgroundImage: 'url('+ imagePath + $currentPage()?.header_image + ')' }">
+      <div
+        class="container position-relative d-flex flex-column align-items-center">
+        <h2>{{$currentPage()?.title}}</h2>
+      </div>
+    </div>
+  </ng-container> -->
+
   <ng-content></ng-content>
 </main>
 
@@ -76,16 +109,40 @@
           </p>
 
           <div class="social-links d-flex mt-3">
+            @for (item of $globalPage().social_media; track item) {
             <a
-              *ngFor="let item of $globalPage().social_media"
               [href]="item.link"
               [class]="item.name">
               <i class="bi bi-{{item.name}}"></i>
             </a>
+            }
           </div>
         </div>
+        <div
+          class="col-lg-3 col-md-6 col-12 text-center text-md-start footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li>
+              <i class="bi bi-dash"></i>
+              <a (click)="routeTo(['home'])">Home</a>
+            </li>
+            <li>
+              <i class="bi bi-dash"></i>
+              <a (click)="routeTo(['about'])">About</a>
+            </li>
+            <li>
+              <i class="bi bi-dash"></i>
+              <a (click)="routeTo(['speaker'])">Speaker</a>
+            </li>
+            <li>
+              <i class="bi bi-dash"></i>
+              <a (click)="routeTo(['blogs'])">Blog</a>
+            </li>
+          </ul>
+        </div>
 
-        <div class="col-lg-3 col-6 footer-contact text-center text-md-start">
+        <div
+          class="col-lg-3 col-md-6 col-12 footer-contact text-center text-md-start">
           <h4>Contact</h4>
           <p>
             <strong>Phone:</strong>

@@ -1,7 +1,8 @@
-import { createFeature, createReducer, on } from '@ngrx/store';
-import { BlogActions } from './blog.actions';
-import { EntityState, createEntityAdapter } from '@ngrx/entity';
+import { selectRouteByParam } from '@lzt/blogs/api-core';
 import { BlogPost } from '@lzt/shared/models';
+import { EntityState, createEntityAdapter } from '@ngrx/entity';
+import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
+import { BlogActions } from './blog.actions';
 
 export const blogFeatureKey = 'blog';
 
@@ -35,10 +36,20 @@ export const reducer = createReducer(
 export const blogFeature = createFeature({
   name: blogFeatureKey,
   reducer,
-  extraSelectors: ({ selectBlogState }) => ({
-    ...blogAdapter.getSelectors(selectBlogState)
+  extraSelectors: ({ selectBlogState, selectEntities }) => ({
+    ...blogAdapter.getSelectors(selectBlogState),
+    selectBlogFromRoute: createSelector(
+      selectEntities,
+      selectRouteByParam,
+      (entities, { id }) => entities[id] ?? null
+    )
   })
 });
 
-export const { selectIsLoaded, selectAll, selectTotal, selectEntities } =
-  blogFeature;
+export const {
+  selectIsLoaded,
+  selectAll,
+  selectTotal,
+  selectEntities,
+  selectBlogFromRoute
+} = blogFeature;

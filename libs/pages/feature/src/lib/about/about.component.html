@@ -1,3 +1,8 @@
+<lib-breadcrumbs
+  [imagePath]="imagePath"
+  [headerImage]="$page().header_image || null"
+  [title]="$page().title || null" />
+
 <!-- ======= About Section ======= -->
 <section
   class="about"
@@ -35,7 +40,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-6 text-center">
         <blockquote>
-          <p style="font-style: italic">{{$page().quote_caption}}</p>
+          <p style="font-style: italic">{{ $page().quote_caption }}</p>
           <footer><cite>– Lucy Zion Thatcher</cite></footer>
         </blockquote>
       </div>

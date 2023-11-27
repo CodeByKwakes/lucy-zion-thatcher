@@ -1,0 +1,27 @@
+{
+  "name": "blogs-api-core",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/blogs/api-core/src",
+  "prefix": "lib",
+  "tags": ["type:api", "scope:blogs"],
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/blogs/api-core/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/blogs/api-core/**/*.ts",
+          "libs/blogs/api-core/**/*.html"
+        ]
+      }
+    }
+  }
+}
