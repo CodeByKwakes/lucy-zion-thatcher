@@ -84,7 +84,11 @@
               },
               {
                 "sourceTag": "scope:blogs",
-                "onlyDependOnLibsWithTags": ["scope:blogs", "scope:shared"]
+                "onlyDependOnLibsWithTags": [
+                  "scope:blogs",
+                  "scope:shared",
+                  "scope:core"
+                ]
               },
               {
                 "sourceTag": "scope:core",
