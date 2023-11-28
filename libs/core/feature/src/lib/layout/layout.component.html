@@ -8,9 +8,11 @@
       class="logo d-flex align-items-center"
       (click)="routeTo(['home'])">
       <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img [src]="imagePath + $globalPage().logo" alt="" /> -->
+      <img
+        alt=""
+        [src]="imagePath + $globalPage().logo" />
 
-      <h1 class="d-flex align-items-center">Lucy Zion Thatcher</h1>
+      <!-- <h1 class="d-flex align-items-center">Lucy Zion Thatcher</h1> -->
     </a>
 
     <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -99,8 +101,11 @@
         <div class="col-lg-6 col-md-12 footer-info">
           <a
             class="logo d-flex align-items-center"
-            href="index.html">
-            <span>Lucy Zion Thatcher</span>
+            (click)="routeTo(['home'])">
+            <!-- <span>Lucy Zion Thatcher</span> -->
+            <img
+              alt=""
+              [src]="imagePath + $globalPage().logo" />
           </a>
           <p>NHS Sexual Health Advisor</p>
           <p>Young People and Safeguarding Lead | Author</p>
