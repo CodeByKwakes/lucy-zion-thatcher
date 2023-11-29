@@ -4,3 +4,4 @@ export * from './lib/global-page.model';
 export * from './lib/home-page.model';
 export * from './lib/page.model';
 export * from './lib/speaker-page.model';
+export * from './lib/contact-page.model';

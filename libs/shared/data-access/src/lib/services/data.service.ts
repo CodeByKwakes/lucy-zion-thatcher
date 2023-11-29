@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {
   AboutPage,
   BlogPost,
+  ContactPage,
   GlobalPage,
   HomePage,
   PageArray,
   SpeakerPage
 } from '@lzt/shared/models';
 import { Observable, forkJoin, map } from 'rxjs';
-import { getBlogPosts, getPage } from '../utils';
+import { MessageData, createMessage, getBlogPosts, getPage } from '../utils';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class DataService {
       getPage('global') as unknown as Observable<GlobalPage>,
       getPage('home') as unknown as Observable<HomePage>,
       getPage('about') as unknown as Observable<AboutPage>,
-      getPage('speaker') as unknown as Observable<SpeakerPage>
+      getPage('speaker') as unknown as Observable<SpeakerPage>,
+      getPage('contact') as unknown as Observable<ContactPage>
     ]);
   }
 
@@ -27,5 +29,9 @@ export class DataService {
     return forkJoin([getBlogPosts() as unknown as Observable<BlogPost[]>]).pipe(
       map(([blogs]) => blogs)
     );
+  }
+
+  sendMessage(data: MessageData) {
+    return createMessage(data);
   }
 }
