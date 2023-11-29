@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   AboutPage,
   BlogPost,
+  ContactPage,
   GlobalPage,
   HomePage,
   PageArray,
@@ -19,7 +20,8 @@ export class DataService {
       getPage('global') as unknown as Observable<GlobalPage>,
       getPage('home') as unknown as Observable<HomePage>,
       getPage('about') as unknown as Observable<AboutPage>,
-      getPage('speaker') as unknown as Observable<SpeakerPage>
+      getPage('speaker') as unknown as Observable<SpeakerPage>,
+      getPage('contact') as unknown as Observable<ContactPage>
     ]);
   }
 
