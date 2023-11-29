@@ -5,6 +5,7 @@ import { usePageFeature } from '@lzt/pages/data-access';
 import { ContactPage, GlobalPage } from '@lzt/shared/models';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BasePageComponent } from '../BasePageComponent';
+import { DataService, MessageData } from '@lzt/shared/data-access';
 
 @Component({
   selector: 'lib-contact',
@@ -15,7 +16,13 @@ import { BasePageComponent } from '../BasePageComponent';
 })
 export class ContactComponent extends BasePageComponent<ContactPage> {
   readonly #pageStore = usePageFeature();
+  readonly #dataService = inject(DataService);
+
   #formBuilder = inject(FormBuilder);
+
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
+  isLoading = false;
 
   readonly $globalPage = this.#pageStore.$getPageBySlug(
     'global'
@@ -30,5 +37,21 @@ export class ContactComponent extends BasePageComponent<ContactPage> {
 
   onSubmit() {
     console.log(this.contactForm.value);
+    this.isLoading = true;
+    this.#dataService.sendMessage(this.contactForm.value as MessageData).then(
+      () => {
+        this.isLoading = false;
+        this.successMessage = 'Your message has been sent. Thank you!';
+        this.contactForm.reset();
+
+        setTimeout(() => {
+          this.successMessage = null;
+        }, 5000);
+      },
+      (error) => {
+        this.isLoading = false;
+        this.errorMessage = error.message;
+      }
+    );
   }
 }

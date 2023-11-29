@@ -9,7 +9,7 @@ import {
   SpeakerPage
 } from '@lzt/shared/models';
 import { Observable, forkJoin, map } from 'rxjs';
-import { getBlogPosts, getPage } from '../utils';
+import { MessageData, createMessage, getBlogPosts, getPage } from '../utils';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +29,9 @@ export class DataService {
     return forkJoin([getBlogPosts() as unknown as Observable<BlogPost[]>]).pipe(
       map(([blogs]) => blogs)
     );
+  }
+
+  sendMessage(data: MessageData) {
+    return createMessage(data);
   }
 }

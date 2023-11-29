@@ -58,7 +58,7 @@
     }
 
     .error-message {
-      display: none;
+      display: block;
       padding: 15px;
       color: #fff;
       font-weight: 600;
@@ -75,7 +75,7 @@
     }
 
     .sent-message {
-      display: none;
+      display: block;
       padding: 15px;
       color: #fff;
       font-weight: 600;
@@ -84,7 +84,7 @@
     }
 
     .loading {
-      display: none;
+      display: block;
       padding: 15px;
       text-align: center;
       background: #fff;

@@ -93,11 +93,13 @@
               required></textarea>
           </div>
           <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">
-              Your message has been sent. Thank you!
-            </div>
+            @if (isLoading) {
+            <div class="loading">Loading...</div>
+            } @if (errorMessage) {
+            <div class="error-message">{{errorMessage}}</div>
+            } @if (successMessage) {
+            <div class="sent-message">{{successMessage}}</div>
+            }
           </div>
           <div class="text-center">
             <button
