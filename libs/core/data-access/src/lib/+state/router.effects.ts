@@ -41,4 +41,4 @@ const navigateBack$ = createEffect(
   { functional: true, dispatch: false }
 );
 
-export const routerEffects = { navigateGo$, navigateForward$, navigateBack$ };
+export const RouterEffects = { navigateGo$, navigateForward$, navigateBack$ };

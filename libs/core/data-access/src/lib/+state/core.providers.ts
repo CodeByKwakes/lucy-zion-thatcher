@@ -5,7 +5,7 @@ import { provideStore, Store } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { CustomSerializer } from '../utils/custom-serializer';
 import { RouterActions } from './router.actions';
-import { routerEffects } from './router.effects';
+import { RouterEffects } from './router.effects';
 
 /**
  * Provides the core store configuration for the application.
@@ -19,7 +19,7 @@ export function provideCoreStore() {
     provideRouterStore({
       serializer: CustomSerializer
     }),
-    provideEffects(routerEffects),
+    provideEffects(RouterEffects),
     provideStoreDevtools()
   ]);
 }
