@@ -8,9 +8,10 @@ import {
   computed,
   inject
 } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
+import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { GlobalPage, HomePage, usePageFeature } from '@lzt/core/api-pages';
 import { useCoreStore } from '@lzt/core/data-access';
+import { GetAssetPipe } from '@lzt/shared/utils';
 import AOS from 'aos';
 import { fromEvent } from 'rxjs';
 import {
@@ -18,27 +19,28 @@ import {
   initScrollTopButton,
   initStickyHeader
 } from '../composables';
-import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-layout',
   standalone: true,
-  imports: [CommonModule, RouterLinkActive, GetAssetPipe],
+  imports: [CommonModule, RouterLinkActive, RouterLinkWithHref, GetAssetPipe],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  readonly pageStore = usePageFeature();
-  readonly coreStore = useCoreStore();
-
-  readonly $currentPage = this.pageStore.$currentPage;
-  readonly $homePage = computed(() => this.$currentPage()) as Signal<HomePage>;
-  readonly $globalPage = this.pageStore.$getPageBySlug(
-    'global'
-  ) as Signal<GlobalPage>;
+  readonly #pageStore = usePageFeature();
 
   #el = inject(ElementRef);
   #renderer = inject(Renderer2);
+
+  readonly $currentPage = this.#pageStore.$currentPage;
+  readonly $globalPage = this.#pageStore.$getPageBySlug(
+    'global'
+  ) as Signal<GlobalPage>;
+  readonly $homePage = computed(() => this.$currentPage()) as Signal<HomePage>;
+  readonly coreStore = useCoreStore();
+
+  public links: string[] = ['home', 'about', 'speaker', 'blogs', 'contact'];
 
   ngOnInit(): void {
     initStickyHeader(this.#el, this.#renderer);

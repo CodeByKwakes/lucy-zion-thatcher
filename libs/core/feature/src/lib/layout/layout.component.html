@@ -21,19 +21,11 @@
       <ul
         [routerLinkActiveOptions]="{exact: true}"
         routerLinkActive="active">
-        <li (click)="routeTo(['home'])">
-          <a routerLink="/"> Home </a>
+        @for (item of links; track $index) {
+        <li (click)="routeTo([item])">
+          <a>{{item | titlecase}}</a>
         </li>
-        <li (click)="routeTo(['about'])">
-          <a routerLink="/about">About</a>
-        </li>
-        <li (click)="routeTo(['speaker'])">
-          <a routerLink="/speaker">Speaker</a>
-        </li>
-        <!-- <li (click)="routeTo(['blogs'])"><a>Blog</a></li> -->
-        <li (click)="routeTo(['contact'])">
-          <a>Contact</a>
-        </li>
+        }
       </ul>
     </nav>
   </div>
