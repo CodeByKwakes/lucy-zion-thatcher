@@ -7,12 +7,9 @@
     <a
       class="logo d-flex align-items-center"
       (click)="routeTo(['home'])">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
       <img
         alt=""
         [src]="$globalPage().logo | getAsset" />
-
-      <!-- <h1 class="d-flex align-items-center">Lucy Zion Thatcher</h1> -->
     </a>
 
     <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -39,8 +36,6 @@
         </li>
       </ul>
     </nav>
-
-    <!-- .navbar -->
   </div>
 </header>
 <!-- End Header -->
@@ -50,7 +45,7 @@
 <section
   class="hero d-flex align-items-center"
   id="hero"
-  [ngStyle]="{ backgroundImage: 'url('+ imagePath + $currentPage()?.header_image + ')' }">
+  [ngStyle]="{ backgroundImage: 'url('+ ($currentPage()?.header_image! | getAsset) + ')' }">
   <div class="container">
     <div class="row">
       <div class="col-xl-4">

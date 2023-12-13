@@ -19,7 +19,7 @@
             <img
               class="img-fluid"
               alt=""
-              [src]="imagePath + $blog()?.blog_feature_image" />
+              [src]="$blog()?.blog_feature_image! | getAsset" />
           </div>
 
           <h2 class="title">{{$blog()?.blog_title}}</h2>

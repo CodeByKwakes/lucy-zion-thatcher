@@ -31,7 +31,6 @@ export class LayoutComponent implements OnInit {
   readonly pageStore = usePageFeature();
   readonly coreStore = useCoreStore();
 
-  readonly imagePath = this.pageStore.imagePathUrl;
   readonly $currentPage = this.pageStore.$currentPage;
   readonly $homePage = computed(() => this.$currentPage()) as Signal<HomePage>;
   readonly $globalPage = this.pageStore.$getPageBySlug(
