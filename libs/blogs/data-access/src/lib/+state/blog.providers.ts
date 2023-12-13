@@ -1,5 +1,4 @@
 import { inject, makeEnvironmentProviders } from '@angular/core';
-import { DIRECTUS_IMAGE_PATH } from '@lzt/shared/data-access';
 import { provideEffects } from '@ngrx/effects';
 import { Store, provideState } from '@ngrx/store';
 import { filter, take, tap } from 'rxjs';
@@ -39,7 +38,6 @@ export const useBlogFeature = () => {
 
   return {
     init: () => store.dispatch(BlogActions.loadBlogs()),
-    imagePathUrl: DIRECTUS_IMAGE_PATH,
     $allBlogs: store.selectSignal(selectAll),
     entities$: store.select(selectEntities),
     $currentBlog: store.selectSignal(selectBlogFromRoute),

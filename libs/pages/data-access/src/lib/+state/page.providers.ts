@@ -1,5 +1,4 @@
 import { inject, makeEnvironmentProviders } from '@angular/core';
-import { DIRECTUS_IMAGE_PATH } from '@lzt/shared/data-access';
 import { provideEffects } from '@ngrx/effects';
 import { Store, provideState } from '@ngrx/store';
 import { filter, take, tap } from 'rxjs';
@@ -38,7 +37,6 @@ export function usePageFeature() {
 
   return {
     init: () => store.dispatch(PageActions.loadPages()),
-    imagePathUrl: DIRECTUS_IMAGE_PATH,
     checkPageStore: useCheckPageStore(),
     $currentPage: store.selectSignal(selectCurrentPage),
     $getPageBySlug: (slug: string) => store.selectSignal(selectPageBySlug(slug))

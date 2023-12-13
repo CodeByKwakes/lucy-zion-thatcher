@@ -18,11 +18,12 @@ import {
   initScrollTopButton,
   initStickyHeader
 } from '../composables';
+import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-layout',
   standalone: true,
-  imports: [CommonModule, RouterLinkActive],
+  imports: [CommonModule, RouterLinkActive, GetAssetPipe],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
@@ -30,7 +31,6 @@ export class LayoutComponent implements OnInit {
   readonly pageStore = usePageFeature();
   readonly coreStore = useCoreStore();
 
-  readonly imagePath = this.pageStore.imagePathUrl;
   readonly $currentPage = this.pageStore.$currentPage;
   readonly $homePage = computed(() => this.$currentPage()) as Signal<HomePage>;
   readonly $globalPage = this.pageStore.$getPageBySlug(

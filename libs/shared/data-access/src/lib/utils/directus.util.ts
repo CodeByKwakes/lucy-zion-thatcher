@@ -1,7 +1,8 @@
 import { createDirectus, rest, readItems, createItem } from '@directus/sdk';
+import { environment } from '@lzt/shared/utils';
 
-export const DIRECTUS_URL = 'http://localhost:8055';
-export const DIRECTUS_IMAGE_PATH = `${DIRECTUS_URL}/assets/`;
+export const DIRECTUS_URL = environment.directus.url;
+export const DIRECTUS_IMAGE_PATH = `${environment.directus.imagePath}/`;
 
 export const directus = createDirectus(DIRECTUS_URL).with(rest());
 

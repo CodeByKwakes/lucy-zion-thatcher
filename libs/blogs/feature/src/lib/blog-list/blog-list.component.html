@@ -19,7 +19,7 @@
                 <img
                   class="img-fluid"
                   alt=""
-                  [src]="imagePathUrl + item.blog_feature_image" />
+                  [src]="item.blog_feature_image | getAsset" />
               </div>
 
               <h2 class="title">
