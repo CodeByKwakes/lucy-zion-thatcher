@@ -19,7 +19,7 @@
                 <img
                   class="img-fluid"
                   alt=""
-                  [src]="item.blog_feature_image | getAsset" />
+                  [src]="item?.blog_feature_image! | getAsset" />
               </div>
 
               <h2 class="title">
@@ -51,7 +51,7 @@
               </div>
             </article>
           </div>
-          }
+          } @empty { No Blogs Available }
           <!-- End post list item -->
         </div>
         <!-- End blog posts list -->

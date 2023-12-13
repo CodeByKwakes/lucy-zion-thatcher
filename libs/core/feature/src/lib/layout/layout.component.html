@@ -63,18 +63,6 @@
 <!-- End Hero Section -->
 
 <main id="main">
-  <!-- <ng-container *ngIf="$currentPage()?.slug !== 'home'">
-
-    <div
-      class="breadcrumbs d-flex align-items-center"
-      [ngStyle]="{ backgroundImage: 'url('+ imagePath + $currentPage()?.header_image + ')' }">
-      <div
-        class="container position-relative d-flex flex-column align-items-center">
-        <h2>{{$currentPage()?.title}}</h2>
-      </div>
-    </div>
-  </ng-container> -->
-
   <ng-content></ng-content>
 </main>
 
@@ -89,7 +77,6 @@
           <a
             class="logo d-flex align-items-center"
             (click)="routeTo(['home'])">
-            <!-- <span>Lucy Zion Thatcher</span> -->
             <img
               alt=""
               [src]="$globalPage().logo | getAsset" />
@@ -114,22 +101,12 @@
           class="col-lg-3 col-md-6 col-12 text-center text-md-start footer-links">
           <h4>Useful Links</h4>
           <ul>
+            @for (item of links; track $index) {
             <li>
               <i class="bi bi-dash"></i>
-              <a (click)="routeTo(['home'])">Home</a>
+              <a (click)="routeTo([item])">{{item | titlecase}}</a>
             </li>
-            <li>
-              <i class="bi bi-dash"></i>
-              <a (click)="routeTo(['about'])">About</a>
-            </li>
-            <li>
-              <i class="bi bi-dash"></i>
-              <a (click)="routeTo(['speaker'])">Speaker</a>
-            </li>
-            <!-- <li>
-              <i class="bi bi-dash"></i>
-              <a (click)="routeTo(['blogs'])">Blog</a>
-            </li> -->
+            }
           </ul>
         </div>
 
