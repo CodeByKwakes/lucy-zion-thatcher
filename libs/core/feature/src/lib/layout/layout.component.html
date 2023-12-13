@@ -10,7 +10,7 @@
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <img
         alt=""
-        [src]="imagePath + $globalPage().logo" />
+        [src]="$globalPage().logo | getAsset" />
 
       <!-- <h1 class="d-flex align-items-center">Lucy Zion Thatcher</h1> -->
     </a>

@@ -18,11 +18,12 @@ import {
   initScrollTopButton,
   initStickyHeader
 } from '../composables';
+import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-layout',
   standalone: true,
-  imports: [CommonModule, RouterLinkActive],
+  imports: [CommonModule, RouterLinkActive, GetAssetPipe],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })

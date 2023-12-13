@@ -1,5 +1,4 @@
 <lib-breadcrumbs
-  [imagePath]="imagePath"
   [headerImage]="$page().header_image || null"
   [title]="$page().title || null" />
 <!-- ======= About Section ======= -->
@@ -16,7 +15,7 @@
         <img
           class="img-fluid"
           alt=""
-          [src]="imagePath + $page().content_image" />
+          [src]="$page().content_image | getAsset" />
       </div>
       <div class="col-lg-8">
         <div
