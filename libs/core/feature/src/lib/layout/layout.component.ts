@@ -1,10 +1,12 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   OnInit,
   Renderer2,
   Signal,
+  ViewChild,
   computed,
   inject
 } from '@angular/core';
@@ -13,7 +15,6 @@ import { GlobalPage, HomePage, usePageFeature } from '@lzt/core/api-pages';
 import { useCoreStore } from '@lzt/core/data-access';
 import { GetAssetPipe } from '@lzt/shared/utils';
 import AOS from 'aos';
-import { fromEvent } from 'rxjs';
 import {
   initMobileNavToggle,
   initScrollTopButton,
@@ -23,11 +24,19 @@ import {
 @Component({
   selector: 'lib-layout',
   standalone: true,
-  imports: [CommonModule, RouterLinkActive, RouterLinkWithHref, GetAssetPipe],
+  imports: [
+    CommonModule,
+    RouterLinkActive,
+    RouterLinkWithHref,
+    GetAssetPipe,
+    NgOptimizedImage
+  ],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit, AfterViewInit {
+  @ViewChild('preloader', { static: false }) preloader!: ElementRef;
+
   readonly #pageStore = usePageFeature();
 
   #el = inject(ElementRef);
@@ -48,6 +57,10 @@ export class LayoutComponent implements OnInit {
     initMobileNavToggle(this.#el);
   }
 
+  ngAfterViewInit(): void {
+    // this.removeLoader();
+    this.initAos();
+  }
   /**
    * Navigates to the specified path.
    * @param path - An array of strings representing the path to navigate to.
@@ -56,18 +69,19 @@ export class LayoutComponent implements OnInit {
     this.coreStore.routeTo(path);
   }
 
-  private initAos() {
-    const aosInit = () => {
-      AOS.init({
-        duration: 800,
-        once: true,
-        mirror: false
-      });
-    };
+  private removeLoader() {
+    if (this.preloader) {
+      console.log('preloader remove');
+      this.preloader.nativeElement.remove();
+    }
+  }
 
-    fromEvent(window, 'load').subscribe(() => {
-      console.log('aos init');
-      aosInit();
+  private initAos() {
+    AOS.init({
+      duration: 800,
+      once: true,
+      mirror: false
     });
+    console.log('aos init');
   }
 }

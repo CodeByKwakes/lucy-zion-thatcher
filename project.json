@@ -25,8 +25,7 @@
           "node_modules/aos/dist/aos.js",
           "node_modules/glightbox/dist/js/glightbox.min.js",
           "node_modules/swiper/swiper-bundle.min.js",
-          "node_modules/isotope-layout/dist/isotope.pkgd.min.js",
-          "./src/assets/js/main.js"
+          "node_modules/isotope-layout/dist/isotope.pkgd.min.js"
         ],
         "allowedCommonJsDependencies": ["aos"]
       },

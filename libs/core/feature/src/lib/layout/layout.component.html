@@ -9,7 +9,10 @@
       (click)="routeTo(['home'])">
       <img
         alt=""
-        [src]="$globalPage().logo | getAsset" />
+        ngSrc="{{($globalPage().logo | getAsset) + 'width=250&height=100&format=webp'}}"
+        width="250"
+        height="100"
+        priority />
     </a>
 
     <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -79,7 +82,10 @@
             (click)="routeTo(['home'])">
             <img
               alt=""
-              [src]="$globalPage().logo | getAsset" />
+              ngSrc="{{($globalPage().logo | getAsset) + 'width=250&height=100&format=webp'}}"
+              width="250"
+              height="100"
+              priority />
           </a>
           <p>NHS Sexual Health Advisor</p>
           <p>Young People and Safeguarding Lead | Author</p>
@@ -145,3 +151,5 @@
 <a class="scroll-top d-flex align-items-center justify-content-center">
   <i class="bi bi-arrow-up-short"></i>
 </a>
+
+<!-- <div id="preloader"></div> -->
