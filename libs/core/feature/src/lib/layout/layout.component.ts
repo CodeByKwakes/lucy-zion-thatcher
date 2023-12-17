@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { GlobalPage, HomePage, usePageFeature } from '@lzt/core/api-pages';
 import { useCoreStore } from '@lzt/core/data-access';
+import { FooterComponent, HeaderComponent } from '@lzt/core/ui';
 import { GetAssetPipe } from '@lzt/shared/utils';
 import AOS from 'aos';
 import {
@@ -19,12 +20,11 @@ import {
   initScrollTopButton,
   initStickyHeader
 } from '../composables';
-import { HeaderComponent } from '@lzt/core/ui';
 
 @Component({
   selector: 'lib-layout',
   standalone: true,
-  imports: [CommonModule, GetAssetPipe, NgOptimizedImage, HeaderComponent],
+  imports: [CommonModule, GetAssetPipe, HeaderComponent, FooterComponent],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
@@ -57,10 +57,10 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   }
   /**
    * Navigates to the specified path.
-   * @param path - An array of strings representing the path to navigate to.
+   * @param page - An array of strings representing the path to navigate to.
    */
-  routeTo(path: string): void {
-    this.coreStore.routeTo([path]);
+  onRouteToPage(page: string): void {
+    this.coreStore.routeTo([page]);
   }
 
   private removeLoader() {
