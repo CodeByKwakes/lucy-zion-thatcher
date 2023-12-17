@@ -7,10 +7,9 @@ import {
   Renderer2,
   Signal,
   ViewChild,
-  computed,
   inject
 } from '@angular/core';
-import { GlobalPage, HomePage, usePageFeature } from '@lzt/core/api-pages';
+import { GlobalPage, usePageFeature } from '@lzt/core/api-pages';
 import { useCoreStore } from '@lzt/core/data-access';
 import { FooterComponent, HeaderComponent } from '@lzt/core/ui';
 import { GetAssetPipe } from '@lzt/shared/utils';
@@ -29,21 +28,22 @@ import {
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit, AfterViewInit {
-  @ViewChild('preloader', { static: false }) preloader!: ElementRef;
-
+  readonly #coreStore = useCoreStore();
+  readonly #el = inject(ElementRef);
   readonly #pageStore = usePageFeature();
+  readonly #renderer = inject(Renderer2);
 
-  #el = inject(ElementRef);
-  #renderer = inject(Renderer2);
-
-  readonly $currentPage = this.#pageStore.$currentPage;
   readonly $globalPage = this.#pageStore.$getPageBySlug(
     'global'
   ) as Signal<GlobalPage>;
-  readonly $homePage = computed(() => this.$currentPage()) as Signal<HomePage>;
-  readonly coreStore = useCoreStore();
+  readonly links: string[] = ['home', 'about', 'speaker', 'blogs', 'contact'];
 
-  public links: string[] = ['home', 'about', 'speaker', 'blogs', 'contact'];
+  @ViewChild('preloader', { static: false }) preloader!: ElementRef;
+
+  ngAfterViewInit(): void {
+    // this.removeLoader();
+    this.initAos();
+  }
 
   ngOnInit(): void {
     initStickyHeader(this.#el, this.#renderer);
@@ -51,23 +51,8 @@ export class LayoutComponent implements OnInit, AfterViewInit {
     initMobileNavToggle(this.#el);
   }
 
-  ngAfterViewInit(): void {
-    // this.removeLoader();
-    this.initAos();
-  }
-  /**
-   * Navigates to the specified path.
-   * @param page - An array of strings representing the path to navigate to.
-   */
   onRouteToPage(page: string): void {
-    this.coreStore.routeTo([page]);
-  }
-
-  private removeLoader() {
-    if (this.preloader) {
-      console.log('preloader remove');
-      this.preloader.nativeElement.remove();
-    }
+    this.#coreStore.routeTo([page]);
   }
 
   private initAos() {
@@ -77,5 +62,12 @@ export class LayoutComponent implements OnInit, AfterViewInit {
       mirror: false
     });
     console.log('aos init');
+  }
+
+  private removeLoader() {
+    if (this.preloader) {
+      console.log('preloader remove');
+      this.preloader.nativeElement.remove();
+    }
   }
 }

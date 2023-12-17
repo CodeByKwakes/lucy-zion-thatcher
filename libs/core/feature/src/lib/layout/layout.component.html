@@ -6,36 +6,6 @@
   (routeChanged)="onRouteToPage($event)" />
 <!-- End Header -->
 
-<!-- ======= Hero Section ======= -->
-@if ($currentPage()?.slug === 'home') {
-<section
-  class="hero d-flex align-items-center"
-  id="hero"
-  [ngStyle]="{ backgroundImage: 'url('+ ($currentPage()?.header_image! | getAsset) + ')' }">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-4">
-        <h2 data-aos="fade-up">{{$currentPage()?.title}}</h2>
-        <blockquote
-          data-aos="fade-up"
-          data-aos-delay="100">
-          <p>{{$homePage().caption}}</p>
-        </blockquote>
-        <div
-          class="d-flex"
-          data-aos="fade-up"
-          data-aos-delay="200"
-          (click)="onRouteToPage('about')">
-          <a class="btn-get-started"> About Lucy </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-}
-
-<!-- End Hero Section -->
-
 <main id="main">
   <ng-content></ng-content>
 </main>
@@ -45,6 +15,7 @@
   [email]="$globalPage().email"
   [links]="links"
   [logo]="($globalPage().logo | getAsset) + 'width=250&height=100&format=webp'"
+  [phoneNumber]="$globalPage().phone_number"
   [socialMedia]="$globalPage().social_media"
   (routeChanged)="onRouteToPage($event)" />
 <!-- End Footer -->
