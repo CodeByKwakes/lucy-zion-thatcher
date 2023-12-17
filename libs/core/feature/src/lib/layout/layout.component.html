@@ -1,38 +1,9 @@
 <!-- ======= Header ======= -->
-<header
-  class="header d-flex align-items-center fixed-top"
-  id="header">
-  <div
-    class="container-fluid container-xl d-flex align-items-center justify-content-between">
-    <a
-      class="logo d-flex align-items-center"
-      (click)="routeTo(['home'])">
-      <img
-        alt=""
-        ngSrc="{{($globalPage().logo | getAsset) + 'width=250&height=100&format=webp'}}"
-        width="250"
-        height="100"
-        priority />
-    </a>
-
-    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-    <nav
-      class="navbar"
-      id="navbar">
-      <ul
-        [routerLinkActiveOptions]="{exact: true}"
-        routerLinkActive="active">
-        @for (item of links; track $index) {
-        <li (click)="routeTo([item])">
-          <a>{{item | titlecase}}</a>
-        </li>
-        }
-      </ul>
-    </nav>
-  </div>
-</header>
+<lib-header
+  [links]="links"
+  [logo]="($globalPage().logo | getAsset) + 'width=250&height=100&format=webp'
+  "
+  (routeChanged)="routeTo($event)" />
 <!-- End Header -->
 
 <!-- ======= Hero Section ======= -->
@@ -54,7 +25,7 @@
           class="d-flex"
           data-aos="fade-up"
           data-aos-delay="200"
-          (click)="routeTo(['about'])">
+          (click)="routeTo('about')">
           <a class="btn-get-started"> About Lucy </a>
         </div>
       </div>
@@ -79,7 +50,7 @@
         <div class="col-lg-6 col-md-12 footer-info">
           <a
             class="logo d-flex align-items-center"
-            (click)="routeTo(['home'])">
+            (click)="routeTo('home')">
             <img
               alt=""
               ngSrc="{{($globalPage().logo | getAsset) + 'width=250&height=100&format=webp'}}"
@@ -110,7 +81,7 @@
             @for (item of links; track $index) {
             <li>
               <i class="bi bi-dash"></i>
-              <a (click)="routeTo([item])">{{item | titlecase}}</a>
+              <a (click)="routeTo(item)">{{item | titlecase}}</a>
             </li>
             }
           </ul>
