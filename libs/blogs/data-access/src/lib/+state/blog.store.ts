@@ -1,5 +1,4 @@
-import { computed, effect, inject } from '@angular/core';
-import { selectRouteByParam, useCoreStore } from '@lzt/blogs/api-core';
+import { effect, inject } from '@angular/core';
 import { DataService } from '@lzt/shared/data-access';
 import { BlogPost } from '@lzt/shared/models';
 import {
@@ -13,7 +12,6 @@ import {
   patchState,
   signalStore,
   type,
-  withComputed,
   withHooks,
   withMethods
 } from '@ngrx/signals';
@@ -25,15 +23,16 @@ export const BlogStore = signalStore(
   { providedIn: 'root' },
   withEntities({ entity: type<BlogPost>(), collection: 'blog' }),
   withCallState(),
-  withComputed(({ blogEntityMap }, coreStore = inject(useCoreStore)) => ({
-    selectBlogFromRoute: computed(() => {
-      const id = coreStore.select(
-        selectRouteByParam({ param: 'id' })
-      ) as string;
+  // withComputed(({ blogEntityMap }, coreStore = inject(selectRouteByParam)) => ({
+  //   selectBlogFromRoute: computed(() => {
+  //     // const id = coreStore.select(
+  //     //   selectRouteByParam({ param: 'id' })
+  //     // ) as string;
+  //     const id = coreStore({ param: 'id' });
 
-      return blogEntityMap()[id] ?? null;
-    })
-  })),
+  //     return blogEntityMap()[id] ?? null;
+  //   })
+  // })),
   withMethods((store, dataService = inject(DataService)) => ({
     loadBlogs: rxMethod<void>(
       pipe(
