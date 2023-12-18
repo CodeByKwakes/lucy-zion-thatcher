@@ -15,7 +15,7 @@
         <img
           class="img-fluid"
           alt=""
-          [src]="$page().content_image | getAsset" />
+          [src]="($page().content_image | getAsset) + '?format=webp'" />
       </div>
       <div class="col-lg-8">
         <div

@@ -19,7 +19,7 @@
                 <img
                   class="img-fluid"
                   alt=""
-                  [src]="item?.blog_feature_image! | getAsset" />
+                  [src]="(item?.blog_feature_image! | getAsset)  + '?format=webp'" />
               </div>
 
               <h2 class="title">

@@ -1,7 +1,7 @@
 <!-- ======= Header ======= -->
 <lib-header
   [links]="links"
-  [logo]="($globalPage().logo | getAsset) + 'width=250&height=100&format=webp'
+  [logo]="($globalPage().logo | getAsset) + '?format=webp'
   "
   (routeChanged)="onRouteToPage($event)" />
 <!-- End Header -->
@@ -14,7 +14,7 @@
 <lib-footer
   [email]="$globalPage().email"
   [links]="links"
-  [logo]="($globalPage().logo | getAsset) + 'width=250&height=100&format=webp'"
+  [logo]="($globalPage().logo | getAsset) + '?format=webp'"
   [phoneNumber]="$globalPage().phone_number"
   [socialMedia]="$globalPage().social_media"
   (routeChanged)="onRouteToPage($event)" />

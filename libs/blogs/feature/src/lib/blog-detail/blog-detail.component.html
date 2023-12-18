@@ -19,7 +19,7 @@
             <img
               class="img-fluid"
               alt=""
-              [src]="$blog()?.blog_feature_image! | getAsset" />
+              [src]="($blog()?.blog_feature_image! | getAsset)  + '?format=webp'" />
           </div>
 
           <h2 class="title">{{$blog()?.blog_title}}</h2>

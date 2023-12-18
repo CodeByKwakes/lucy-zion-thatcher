@@ -16,7 +16,7 @@
         <img
           class="img-fluid"
           alt=""
-          [src]="$page().content_image | getAsset" />
+          [src]="($page().content_image | getAsset) +'?format=webp'" />
       </div>
       <div class="col-lg-8">
         <div
@@ -33,7 +33,7 @@
   class="call-to-action"
   id="call-to-action"
   [ngStyle]="{
-    backgroundImage: 'linear-gradient(rgba(var(--secondary-rgb) / 0.8),rgba(var(--secondary-rgb) / 0.8)),url('+ ($page().quote_image! | getAsset)+ ')' }">
+    backgroundImage: 'linear-gradient(rgba(var(--secondary-rgb) / 0.8),rgba(var(--secondary-rgb) / 0.8)),url('+ ($page().quote_image! | getAsset) + '?format=webp)' }">
   <div
     class="container"
     data-aos="fade-up">
