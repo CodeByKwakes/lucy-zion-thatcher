@@ -14,4 +14,5 @@ import { GetAssetPipe } from '@lzt/shared/utils';
 export class BlogDetailComponent {
   readonly blogStore = useBlogFeature();
   readonly $blog = this.blogStore.$currentBlog;
+  // readonly blog = inject(BlogStore).selectBlogFromRoute();
 }
