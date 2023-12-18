@@ -28,6 +28,7 @@ export const BlogStore = signalStore(
       pipe(
         tap(() => patchState(store, setLoading())),
         mergeMap(() => {
+          // patchState(store, setLoading());
           return dataService.loadAllBlogs().pipe(
             tapResponse({
               next: (blogs) =>
@@ -45,12 +46,17 @@ export const BlogStore = signalStore(
     )
   })),
   withHooks({
-    onInit({ loadBlogs, blogEntities }) {
+    onInit({ loadBlogs, blogEntities, blogIds, callState }) {
       loadBlogs();
       effect(() => {
+        console.log('BlogStore callState', callState());
         console.log('BlogStore.onInit()');
+        console.log('blogIds', blogIds());
         console.log('blogEntities', blogEntities());
       });
+    },
+    onDestroy() {
+      console.log('BlogStore.onDestroy()');
     }
   })
 );

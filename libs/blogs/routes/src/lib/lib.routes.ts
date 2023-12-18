@@ -1,11 +1,11 @@
 import { Route } from '@angular/router';
-import { blogsGuard, provideBlogFeature } from '@lzt/blogs/data-access';
+// import { blogsGuard, provideBlogFeature } from '@lzt/blogs/data-access';
 
 export const blogsRoutes: Route[] = [
   {
     path: '',
-    providers: [provideBlogFeature()],
-    canActivate: [blogsGuard],
+    // providers: [provideBlogFeature()],
+    // canActivate: [blogsGuard],
     children: [
       {
         path: 'blogs',

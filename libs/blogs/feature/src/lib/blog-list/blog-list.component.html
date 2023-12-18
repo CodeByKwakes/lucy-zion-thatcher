@@ -12,7 +12,7 @@
         data-aos="fade-up"
         data-aos-delay="200">
         <div class="row gy-5 posts-list">
-          @for (item of $blogList(); track item.id) {
+          @for (item of blog.blogEntities(); track item.id) {
           <div class="col-lg-4">
             <article class="d-flex flex-column">
               <div class="post-img">
