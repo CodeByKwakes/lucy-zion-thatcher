@@ -23,7 +23,7 @@ import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 })
 export class HeaderComponent {
   @Input() links: string[] = [];
-  @Input() logo!: string;
+  @Input() logo: string | null = null;
 
   @Output() routeChanged = new EventEmitter<string>();
 

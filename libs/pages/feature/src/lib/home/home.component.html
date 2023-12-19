@@ -1,16 +1,17 @@
 <!-- ======= Hero Section ======= -->
+@if(currentPage()) {
 <section
   class="hero d-flex align-items-center"
   id="hero"
-  [ngStyle]="{ backgroundImage: 'url('+ ($page().header_image! | getAsset) + '?format=webp)' }">
+  [ngStyle]="{ backgroundImage: 'url('+ (currentPage().header_image! | getAsset) + '?format=webp)' }">
   <div class="container">
     <div class="row">
       <div class="col-xl-4">
-        <h2 data-aos="fade-up">{{$page().title}}</h2>
+        <h2 data-aos="fade-up">{{currentPage().title}}</h2>
         <blockquote
           data-aos="fade-up"
           data-aos-delay="100">
-          <p>{{$page().caption}}</p>
+          <p>{{currentPage().caption}}</p>
         </blockquote>
         <div
           class="d-flex"
@@ -23,4 +24,5 @@
     </div>
   </div>
 </section>
+}
 <!-- End Hero Section -->

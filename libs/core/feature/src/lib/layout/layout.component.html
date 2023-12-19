@@ -1,7 +1,8 @@
+@if(loaded()) {
 <!-- ======= Header ======= -->
 <lib-header
-  [links]="links"
-  [logo]="($globalPage().logo | getAsset) + '?format=webp'
+  [links]="links()"
+  [logo]="(globalPage().logo | getAsset) + '?format=webp'
   "
   (routeChanged)="onRouteToPage($event)" />
 <!-- End Header -->
@@ -12,11 +13,11 @@
 
 <!-- ======= Footer ======= -->
 <lib-footer
-  [email]="$globalPage().email"
-  [links]="links"
-  [logo]="($globalPage().logo | getAsset) + '?format=webp'"
-  [phoneNumber]="$globalPage().phone_number"
-  [socialMedia]="$globalPage().social_media"
+  [email]="globalPage().email"
+  [links]="links()"
+  [logo]="(globalPage().logo | getAsset) + '?format=webp'"
+  [phoneNumber]="globalPage().phone_number"
+  [socialMedia]="globalPage().social_media"
   (routeChanged)="onRouteToPage($event)" />
 <!-- End Footer -->
 
@@ -24,4 +25,6 @@
   <i class="bi bi-arrow-up-short"></i>
 </a>
 
-<!-- <div id="preloader"></div> -->
+} @else {
+<div id="preloader"></div>
+}

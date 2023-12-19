@@ -25,7 +25,7 @@ import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 export class FooterComponent {
   @Input() socialMedia: SocialMedia[] = [];
   @Input() links: string[] = [];
-  @Input() logo: string = '';
+  @Input() logo: string | null = null;
   @Input() phoneNumber: string = '';
   @Input() email: string = '';
 

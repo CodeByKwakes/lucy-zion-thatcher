@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { HomePage } from '@lzt/shared/models';
-import { BasePageComponent } from '../BasePageComponent';
+import { Component, Signal, inject } from '@angular/core';
 import { useCoreStore } from '@lzt/core/data-access';
+import { PageStore } from '@lzt/pages/data-access';
+import { HomePage } from '@lzt/shared/models';
 import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
@@ -11,10 +11,14 @@ import { GetAssetPipe } from '@lzt/shared/utils';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent extends BasePageComponent<HomePage> {
-  readonly coreStore = useCoreStore();
+export class HomeComponent {
+  readonly #coreStore = useCoreStore();
+  readonly #pageStore = inject(PageStore);
+
+  readonly currentPage = this.#pageStore.selectCurrentPage as Signal<HomePage>;
+  readonly loaded = this.#pageStore.loaded;
 
   onRouteToPage(page: string): void {
-    this.coreStore.routeTo([page]);
+    this.#coreStore.routeTo([page]);
   }
 }
