@@ -1,12 +1,17 @@
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   EventEmitter,
   Input,
-  Output
+  Output,
+  Renderer2,
+  inject
 } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
+import { initMobileNavToggle, initStickyHeader } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-header',
@@ -21,11 +26,18 @@ import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
+  readonly #el = inject(ElementRef);
+  readonly #renderer = inject(Renderer2);
+
   @Input() links: string[] = [];
   @Input() logo: string | null = null;
-
   @Output() routeChanged = new EventEmitter<string>();
+
+  ngAfterViewInit(): void {
+    initStickyHeader(this.#el, this.#renderer);
+    initMobileNavToggle(this.#el);
+  }
 
   onRouteChanged(route: string) {
     this.routeChanged.emit(route);

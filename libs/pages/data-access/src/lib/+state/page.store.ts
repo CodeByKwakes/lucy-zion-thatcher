@@ -58,14 +58,13 @@ export const PageStore = signalStore(
     )
   })),
   withHooks({
-    onInit({ loadPages, pageEntities, pageIds, callState, selectCurrentPage }) {
+    onInit({ loadPages, pageEntities, pageIds, callState }) {
       loadPages();
       effect(() => {
         console.log('PageStore callState', callState());
         console.log('PageStore.onInit()');
         console.log('pageIds', pageIds());
         console.log('pageEntities', pageEntities());
-        console.log('current page', selectCurrentPage());
       });
     }
   })
