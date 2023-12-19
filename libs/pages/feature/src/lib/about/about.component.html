@@ -1,6 +1,7 @@
+@if(currentPage()) {
 <lib-breadcrumbs
-  [headerImage]="$page().header_image || null"
-  [title]="$page().title || null" />
+  [headerImage]="currentPage().header_image!"
+  [title]="currentPage().title || null" />
 
 <!-- ======= About Section ======= -->
 <section
@@ -16,12 +17,12 @@
         <img
           class="img-fluid"
           alt=""
-          [src]="($page().content_image | getAsset) +'?format=webp'" />
+          [src]="(currentPage().content_image | getAsset) +'?format=webp'" />
       </div>
       <div class="col-lg-8">
         <div
           class="content ps-lg-5"
-          [innerHTML]="$page().content_text"></div>
+          [innerHTML]="currentPage().content_text"></div>
       </div>
     </div>
   </div>
@@ -33,14 +34,14 @@
   class="call-to-action"
   id="call-to-action"
   [ngStyle]="{
-    backgroundImage: 'linear-gradient(rgba(var(--secondary-rgb) / 0.8),rgba(var(--secondary-rgb) / 0.8)),url('+ ($page().quote_image! | getAsset) + '?format=webp)' }">
+    backgroundImage: 'linear-gradient(rgba(var(--secondary-rgb) / 0.8),rgba(var(--secondary-rgb) / 0.8)),url('+ (currentPage().quote_image! | getAsset) + ')' }">
   <div
     class="container"
     data-aos="fade-up">
     <div class="row justify-content-center">
       <div class="col-lg-6 text-center">
         <blockquote>
-          <p style="font-style: italic">{{ $page().quote_caption }}</p>
+          <p style="font-style: italic">{{ currentPage().quote_caption }}</p>
           <footer><cite>– Lucy Zion Thatcher</cite></footer>
         </blockquote>
       </div>
@@ -48,3 +49,4 @@
   </div>
 </section>
 <!-- End Call To Action Section -->
+}

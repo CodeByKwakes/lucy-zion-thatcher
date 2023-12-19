@@ -16,7 +16,6 @@ export class HomeComponent {
   readonly #pageStore = inject(PageStore);
 
   readonly currentPage = this.#pageStore.selectCurrentPage as Signal<HomePage>;
-  readonly loaded = this.#pageStore.loaded;
 
   onRouteToPage(page: string): void {
     this.#coreStore.routeTo([page]);

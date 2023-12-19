@@ -1,11 +1,10 @@
-import { Component, Signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BreadcrumbsComponent } from '@lzt/shared/ui-components';
-import { usePageFeature } from '@lzt/pages/data-access';
-import { ContactPage, GlobalPage } from '@lzt/shared/models';
+import { Component, Signal, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BasePageComponent } from '../BasePageComponent';
+import { PageStore } from '@lzt/pages/data-access';
 import { DataService, MessageData } from '@lzt/shared/data-access';
+import { ContactPage, GlobalPage } from '@lzt/shared/models';
+import { BreadcrumbsComponent } from '@lzt/shared/ui-components';
 
 @Component({
   selector: 'lib-contact',
@@ -14,19 +13,10 @@ import { DataService, MessageData } from '@lzt/shared/data-access';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent extends BasePageComponent<ContactPage> {
-  readonly #pageStore = usePageFeature();
+export class ContactComponent {
   readonly #dataService = inject(DataService);
-
-  #formBuilder = inject(FormBuilder);
-
-  successMessage: string | null = null;
-  errorMessage: string | null = null;
-  isLoading = false;
-
-  readonly $globalPage = this.#pageStore.$getPageBySlug(
-    'global'
-  ) as Signal<GlobalPage>;
+  readonly #formBuilder = inject(FormBuilder);
+  readonly #pageStore = inject(PageStore);
 
   readonly contactForm = this.#formBuilder.group({
     name: ['', Validators.required],
@@ -34,23 +24,30 @@ export class ContactComponent extends BasePageComponent<ContactPage> {
     subject: [''],
     message: ['']
   });
+  readonly currentPage = this.#pageStore
+    .selectCurrentPage as Signal<ContactPage>;
+  readonly globalPage = this.#pageStore.selectGlobalPage as Signal<GlobalPage>;
+
+  readonly errorMessage = signal<string | null>(null);
+  readonly isLoading = signal(false);
+  readonly successMessage = signal<string | null>(null);
 
   onSubmit() {
     console.log(this.contactForm.value);
-    this.isLoading = true;
+    this.isLoading.set(true);
     this.#dataService.sendMessage(this.contactForm.value as MessageData).then(
       () => {
-        this.isLoading = false;
-        this.successMessage = 'Your message has been sent. Thank you!';
+        this.isLoading.set(false);
+        this.successMessage.set('Your message has been sent. Thank you!');
         this.contactForm.reset();
 
         setTimeout(() => {
-          this.successMessage = null;
+          this.successMessage.set(null);
         }, 5000);
       },
       (error) => {
-        this.isLoading = false;
-        this.errorMessage = error.message;
+        this.isLoading.set(false);
+        this.errorMessage.set(error.message);
       }
     );
   }
