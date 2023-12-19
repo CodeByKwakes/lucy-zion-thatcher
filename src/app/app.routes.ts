@@ -1,10 +1,8 @@
 import { Route } from '@angular/router';
-import { pagesGuard } from '@lzt/pages/data-access';
 
 export const appRoutes: Route[] = [
   {
     path: '',
-    canActivate: [pagesGuard],
     children: [
       {
         path: '',
