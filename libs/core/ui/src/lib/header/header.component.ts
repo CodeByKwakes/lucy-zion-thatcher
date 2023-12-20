@@ -1,7 +1,6 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -23,8 +22,7 @@ import { initMobileNavToggle, initStickyHeader } from '@lzt/shared/utils';
     RouterLinkWithHref
   ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements AfterViewInit {
   readonly #el = inject(ElementRef);

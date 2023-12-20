@@ -1,6 +1,6 @@
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -9,9 +9,8 @@ import {
   Renderer2,
   inject
 } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { SocialMedia } from '@lzt/shared/models';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
+import { SocialMedia } from '@lzt/shared/models';
 import { initScrollTopButton } from '@lzt/shared/utils';
 
 @Component({
@@ -24,8 +23,7 @@ import { initScrollTopButton } from '@lzt/shared/utils';
     RouterLinkWithHref
   ],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './footer.component.scss'
 })
 export class FooterComponent implements AfterViewInit {
   readonly #el = inject(ElementRef);
