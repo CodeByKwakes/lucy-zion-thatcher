@@ -65,12 +65,8 @@
       text-align: left;
       background: #df1529;
 
-      br {
-        + {
-          br {
-            margin-top: 25px;
-          }
-        }
+      br + br {
+        margin-top: 25px;
       }
     }
 

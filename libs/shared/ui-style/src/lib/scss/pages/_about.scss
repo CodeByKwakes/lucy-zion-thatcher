@@ -3,36 +3,9 @@
 -------------------------------------------------------------- */
 .about {
   .content {
-    h3 {
-      color: var(--secondary);
-      font-weight: 700;
-      font-size: 36px;
-      font-family: var(--font-secondary);
-    }
-
     p {
       margin: 30px 0;
       color: var(--text);
-    }
-
-    ul {
-      padding: 0;
-      list-style: none;
-
-      li {
-        position: relative;
-        padding: 0 0 15px 26px;
-        font-weight: 600;
-        font-size: 15px;
-      }
-
-      i {
-        position: absolute;
-        top: -3px;
-        left: 0;
-        color: var(--primary);
-        font-size: 20px;
-      }
     }
   }
 }
@@ -59,38 +32,12 @@
 .call-to-action {
   padding: 100px 0;
 
-  // background-image: linear-gradient( // rgba(var(--secondary-rgb) / 0.8), // rgba(var(--secondary-rgb) / 0.8) // );
   background-position: center center;
   background-size: cover;
-
-  h3 {
-    margin-bottom: 25px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 28px;
-  }
 
   p {
     margin-bottom: 25px;
     color: var(--text);
-  }
-
-  .cta-btn {
-    display: inline-block;
-    margin: 10px;
-    padding: 12px 40px;
-    color: #fff;
-    font-weight: 500;
-    font-size: 16px;
-    font-family: var(--font-default);
-    letter-spacing: 1px;
-    background: #2aa5df;
-    border-radius: 50px;
-    transition: 0.5s;
-
-    &:hover {
-      background: var(--primary);
-    }
   }
 }
 
