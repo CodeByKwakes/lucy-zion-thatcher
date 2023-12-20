@@ -1,14 +1,22 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-sass-guidelines",
-    "stylelint-config-idiomatic-order",
-    "stylelint-prettier/recommended"
+  "ignoreFiles": ["**/*"],
+  "overrides": [
+    {
+      "files": ["**/*.css"],
+      "extends": [
+        "stylelint-config-standard",
+        "stylelint-config-rational-order"
+      ],
+      "rules": {}
+    },
+    {
+      "files": ["**/*.scss"],
+      "extends": [
+        "stylelint-config-standard-scss",
+        "stylelint-config-rational-order"
+      ],
+      "rules": {}
+    }
   ],
-  "rules": {
-    "max-line-length": 80,
-    "order/properties-alphabetical-order": null,
-    "selector-class-pattern": "^([a-z][a-z0-9]*)(-_[a-z0-9]+)*$",
-    "string-quotes": "single"
-  }
+  "rules": {}
 }
