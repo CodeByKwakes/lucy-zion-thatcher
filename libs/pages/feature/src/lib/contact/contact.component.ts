@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, Signal, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PageStore } from '@lzt/pages/data-access';
-import { DataService, MessageData } from '@lzt/shared/data-access';
-import { ContactPage, GlobalPage } from '@lzt/shared/models';
+import { DataService } from '@lzt/shared/data-access';
+import { ContactPage, GlobalPage, MessageMeta } from '@lzt/shared/models';
 import { BreadcrumbsComponent } from '@lzt/shared/ui-components';
 
 @Component({
@@ -35,7 +35,7 @@ export class ContactComponent {
   onSubmit() {
     console.log(this.contactForm.value);
     this.isLoading.set(true);
-    this.#dataService.sendMessage(this.contactForm.value as MessageData).then(
+    this.#dataService.sendMessage(this.contactForm.value as MessageMeta).then(
       () => {
         this.isLoading.set(false);
         this.successMessage.set('Your message has been sent. Thank you!');

@@ -5,11 +5,12 @@ import {
   ContactPage,
   GlobalPage,
   HomePage,
+  MessageMeta,
   PageArray,
   SpeakerPage
 } from '@lzt/shared/models';
 import { Observable, forkJoin, map } from 'rxjs';
-import { MessageData, createMessage, getBlogPosts, getPage } from '../utils';
+import { createMessage, getBlogPosts, getPage } from '../utils';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,7 @@ export class DataService {
     );
   }
 
-  sendMessage(data: MessageData) {
+  sendMessage(data: MessageMeta) {
     return createMessage(data);
   }
 }
