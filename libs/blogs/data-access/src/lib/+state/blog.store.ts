@@ -1,4 +1,4 @@
-import { computed, effect, inject } from '@angular/core';
+import { computed, inject } from '@angular/core';
 import { selectRouteByParam } from '@lzt/blogs/api-core';
 import { DataService } from '@lzt/shared/data-access';
 import { BlogPost } from '@lzt/shared/models';
@@ -56,14 +56,8 @@ export const BlogStore = signalStore(
     )
   })),
   withHooks({
-    onInit({ loadBlogs, blogEntities, blogIds, callState }) {
+    onInit({ loadBlogs }) {
       loadBlogs();
-      effect(() => {
-        console.log('BlogStore callState', callState());
-        console.log('BlogStore.onInit()');
-        console.log('blogIds', blogIds());
-        console.log('blogEntities', blogEntities());
-      });
     },
     onDestroy() {
       console.log('BlogStore.onDestroy()');

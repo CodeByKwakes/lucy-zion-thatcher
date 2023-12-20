@@ -1,4 +1,4 @@
-import { computed, effect, inject } from '@angular/core';
+import { computed, inject } from '@angular/core';
 import { selectUrl } from '@lzt/core/data-access';
 import { DataService } from '@lzt/shared/data-access';
 import { PageEntity } from '@lzt/shared/models';
@@ -58,14 +58,8 @@ export const PageStore = signalStore(
     )
   })),
   withHooks({
-    onInit({ loadPages, pageEntities, pageIds, callState }) {
+    onInit({ loadPages }) {
       loadPages();
-      effect(() => {
-        console.log('PageStore callState', callState());
-        console.log('PageStore.onInit()');
-        console.log('pageIds', pageIds());
-        console.log('pageEntities', pageEntities());
-      });
     }
   })
 );
