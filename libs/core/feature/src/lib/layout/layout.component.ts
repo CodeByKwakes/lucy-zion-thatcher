@@ -6,11 +6,13 @@ import {
   inject,
   signal
 } from '@angular/core';
-import { GlobalPage, PageStore } from '@lzt/core/api-pages';
+import { PageStore } from '@lzt/core/api-pages';
 import { useCoreStore } from '@lzt/core/data-access';
 import { FooterComponent, HeaderComponent } from '@lzt/core/ui';
+import { GlobalPage } from '@lzt/shared/models';
 import { GetAssetPipe } from '@lzt/shared/utils';
 import AOS from 'aos';
+import { NAV_LINKS } from '../constants';
 
 @Component({
   selector: 'lib-layout',
@@ -24,14 +26,8 @@ export class LayoutComponent implements AfterViewInit {
   readonly #pageStore = inject(PageStore);
 
   readonly globalPage = this.#pageStore.selectGlobalPage as Signal<GlobalPage>;
-  readonly links = signal<string[]>([
-    'home',
-    'about',
-    'speaker',
-    'blogs',
-    'contact'
-  ]);
-  readonly loaded = this.#pageStore.loaded;
+  readonly links = signal<string[]>(NAV_LINKS);
+  readonly pagesLoaded = this.#pageStore.loaded;
 
   ngAfterViewInit(): void {
     this.initAos();
@@ -47,6 +43,5 @@ export class LayoutComponent implements AfterViewInit {
       once: true,
       mirror: false
     });
-    console.log('aos init');
   }
 }

@@ -1,4 +1,3 @@
-import { usePageFeature, PageStore } from '@lzt/pages/data-access';
-import { GlobalPage, HomePage } from '@lzt/shared/models';
+import { PageStore } from '@lzt/pages/data-access';
 
-export { GlobalPage, HomePage, usePageFeature, PageStore };
+export { PageStore };
