@@ -20,15 +20,15 @@
     }
 
     .post-img {
-      max-height: 240px;
       overflow: hidden;
+      max-height: 240px;
     }
 
     .title {
-      margin: 20px 0 0;
       padding: 0;
-      font-weight: 600;
+      margin: 20px 0 0;
       font-size: 20px;
+      font-weight: 600;
 
       a {
         color: var(--accent);
@@ -48,8 +48,8 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        margin: 0;
         padding: 0;
+        margin: 0;
         list-style: none;
 
         li {
@@ -84,8 +84,8 @@
       a {
         display: inline-block;
         color: var(--accent);
-        font-weight: 500;
         font-size: 15px;
+        font-weight: 500;
         transition: 0.3s;
 
         &:hover {
@@ -103,16 +103,16 @@
     box-shadow: 0 4px 16px rgba(var(--color-black-rgb) / 10%);
 
     .post-img {
-      margin: -30px -30px 20px;
       overflow: hidden;
+      margin: -30px -30px 20px;
     }
 
     .title {
-      margin: 20px 0 0;
       padding: 0;
+      margin: 20px 0 0;
       color: var(--secondary);
-      font-weight: 700;
       font-size: 28px;
+      font-weight: 700;
     }
 
     .content {
@@ -120,24 +120,24 @@
 
       h3 {
         margin-top: 30px;
-        font-weight: bold;
         font-size: 22px;
+        font-weight: bold;
       }
 
       blockquote {
         position: relative;
-        margin: 20px 0;
-        padding: 60px;
         overflow: hidden;
-        text-align: center;
+        padding: 60px;
+        margin: 20px 0;
         background-color: rgba(var(--secondary-rgb) / 6%);
+        text-align: center;
 
         p {
           margin-bottom: 0;
           color: var(--color-default);
-          font-weight: 500;
           font-size: 22px;
           font-style: italic;
+          font-weight: 500;
           line-height: 1.6;
         }
 
@@ -163,8 +163,8 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        margin: 0;
         padding: 0;
+        margin: 0;
         list-style: none;
 
         li {
@@ -252,8 +252,8 @@
   }
 
   .post-author {
-    margin-top: 30px;
     padding: 20px;
+    margin-top: 30px;
     box-shadow: 0 4px 16px rgba(var(--color-black-rgb) / 10%);
 
     img {
@@ -262,11 +262,11 @@
     }
 
     h4 {
-      margin-bottom: 0;
       padding: 0;
+      margin-bottom: 0;
       color: var(--secondary);
-      font-weight: 600;
       font-size: 22px;
+      font-weight: 600;
     }
 
     .social-links {
@@ -290,11 +290,11 @@
 -------------------------------------------------------------- */
   .sidebar {
     .sidebar-title {
-      margin: 0;
       padding: 0;
+      margin: 0;
       color: var(--secondary);
-      font-weight: 400;
       font-size: 22px;
+      font-weight: 400;
     }
 
     .sidebar-item {
@@ -309,8 +309,8 @@
       form {
         position: relative;
         padding: 3px 10px;
-        background: #fff;
         border: 1px solid rgba(var(--secondary-rgb) / 20%);
+        background: #fff;
 
         input[type='text'] {
           width: calc(100% - 40px);
@@ -328,14 +328,14 @@
           top: 0;
           right: 0;
           bottom: 0;
-          margin: -1px;
           padding: 0 15px;
+          border: 0;
+          border-radius: 0 4px 4px 0;
+          margin: -1px;
+          background: var(--primary);
           color: #fff;
           font-size: 16px;
           line-height: 0;
-          background: var(--primary);
-          border: 0;
-          border-radius: 0 4px 4px 0;
           transition: 0.3s;
 
           i {
@@ -398,8 +398,8 @@
       }
 
       h4 {
-        font-weight: 400;
         font-size: 18px;
+        font-weight: 400;
 
         a {
           color: var(--secondary);
@@ -432,18 +432,18 @@
 
         a {
           display: inline-block;
-          margin: 0 6px 8px 0;
           padding: 6px 14px;
-          color: #38618e;
-          font-size: 14px;
           border: 1px solid rgba(var(--secondary-rgb) / 15%);
           border-radius: 50px;
+          margin: 0 6px 8px 0;
+          color: #38618e;
+          font-size: 14px;
           transition: 0.3s;
 
           &:hover {
-            color: #fff;
-            background: var(--primary);
             border: 1px solid var(--primary);
+            background: var(--primary);
+            color: #fff;
           }
 
           span {
@@ -515,13 +515,13 @@
     }
 
     .reply-form {
-      margin-top: 30px;
       padding: 30px;
+      margin-top: 30px;
       box-shadow: 0 4px 16px rgba(var(--color-black-rgb) / 10%);
 
       h4 {
-        font-weight: bold;
         font-size: 22px;
+        font-weight: bold;
       }
 
       p {
@@ -530,8 +530,8 @@
 
       input {
         padding: 10px;
-        font-size: 14px;
         border-radius: 4px;
+        font-size: 14px;
 
         &:focus {
           border-color: rgba(var(--primary-rgb) / 80%);
@@ -541,8 +541,8 @@
 
       textarea {
         padding: 10px;
-        font-size: 14px;
         border-radius: 4px;
+        font-size: 14px;
 
         &:focus {
           border-color: rgba(var(--primary-rgb) / 80%);
@@ -556,9 +556,9 @@
 
       .btn-primary {
         padding: 10px 20px;
-        background-color: var(--secondary);
         border: 0;
         border-radius: 4px;
+        background-color: var(--secondary);
 
         &:hover {
           background-color: rgba(var(--secondary-rgb) / 80%);
@@ -576,8 +576,8 @@
 
     ul {
       display: flex;
-      margin: 0;
       padding: 0;
+      margin: 0;
       list-style: none;
     }
 
@@ -587,28 +587,28 @@
 
       a {
         display: flex;
-        align-items: center;
-        justify-content: center;
         width: 40px;
         height: 40px;
+        align-items: center;
+        justify-content: center;
         padding: 7px 16px;
-        color: var(--text);
-        background: var(--accent);
         border-radius: 50%;
+        background: var(--accent);
+        color: var(--text);
       }
 
       &:hover {
         a {
-          color: var(--text);
           background: var(--primary);
+          color: var(--text);
         }
       }
     }
 
     li.active {
       a {
-        color: var(--text);
         background: var(--primary);
+        color: var(--text);
       }
     }
   }
@@ -621,9 +621,9 @@
   .post-box {
     position: relative;
     display: flex;
-    flex-direction: column;
-    height: 100%;
     overflow: hidden;
+    height: 100%;
+    flex-direction: column;
     transition: 0.3s;
 
     .post-img {
@@ -640,14 +640,14 @@
 
       .post-date {
         color: var(--primary);
-        font-weight: 400;
         font-size: 15px;
+        font-weight: 400;
       }
 
       .post-author {
         color: var(--secondary);
-        font-weight: 400;
         font-size: 15px;
+        font-weight: 400;
       }
     }
 
@@ -655,8 +655,8 @@
       position: relative;
       margin: 15px 0 0;
       color: var(--text);
-      font-weight: 700;
       font-size: 18px;
+      font-weight: 700;
       transition: 0.3s;
     }
 

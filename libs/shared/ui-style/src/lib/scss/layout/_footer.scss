@@ -24,9 +24,9 @@
         span {
           margin-top: 3px;
           color: var(--secondary);
-          font-weight: 700;
-          font-size: 30px;
           font-family: var(--font-secondary);
+          font-size: 30px;
+          font-weight: 700;
           letter-spacing: 1px;
         }
       }
@@ -34,24 +34,24 @@
       p {
         margin-bottom: 0;
         color: var(--text);
-        font-size: 15px;
         font-family: var(--font-primary);
+        font-size: 15px;
       }
     }
 
     .social-links {
       a {
         display: flex;
-        align-items: center;
-        justify-content: center;
         width: 32px;
         height: 32px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
         margin-right: 10px;
+        background-color: var(--accent);
         color: var(--text);
         font-size: 14px;
         line-height: 0;
-        background-color: var(--accent);
-        border-radius: 50px;
         transition: 0.3s;
 
         &:hover {
@@ -64,16 +64,16 @@
       position: relative;
       padding-bottom: 12px;
       color: var(--text);
-      font-weight: bold;
       font-size: 16px;
+      font-weight: bold;
     }
 
     .footer-links {
       margin-bottom: 30px;
 
       ul {
-        margin: 0;
         padding: 0;
+        margin: 0;
         list-style: none;
 
         i {

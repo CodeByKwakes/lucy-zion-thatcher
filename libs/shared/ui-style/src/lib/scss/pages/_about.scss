@@ -14,13 +14,13 @@
   blockquote {
     p {
       &::before {
-        font-size: 24px;
         content: '\201C';
+        font-size: 24px;
       }
 
       &::after {
-        font-size: 24px;
         content: '\201D';
+        font-size: 24px;
       }
     }
   }
@@ -31,7 +31,6 @@
 -------------------------------------------------------------- */
 .call-to-action {
   padding: 100px 0;
-
   background-position: center center;
   background-size: cover;
 
