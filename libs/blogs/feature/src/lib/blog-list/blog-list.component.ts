@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { useCoreStore } from '@lzt/blogs/api-core';
+import { useCoreStore } from '@lzt/blogs/api';
 import { BlogStore } from '@lzt/blogs/data-access';
 import { BreadcrumbsComponent } from '@lzt/shared/ui-components';
 import { GetAssetPipe, TruncatePipe } from '@lzt/shared/utils';

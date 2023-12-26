@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'blogs-api-core',
+  displayName: 'blogs-api',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/blogs/api-core',
+  coverageDirectory: '../../../coverage/libs/blogs/api',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
