@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Signal, inject } from '@angular/core';
-import { PageStore } from '@lzt/core/api-pages';
+import { PageStore } from '@lzt/core/api';
 import { AboutPage } from '@lzt/shared/models';
 import { BreadcrumbsComponent } from '@lzt/shared/ui-components';
 import { GetAssetPipe } from '@lzt/shared/utils';
