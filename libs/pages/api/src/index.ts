@@ -1,3 +1,3 @@
-import { selectUrl, useCoreStore } from '@lzt/core/data-access';
+import { PageStore } from '@lzt/pages/data-access';
 
-export { selectUrl, useCoreStore };
+export { PageStore };

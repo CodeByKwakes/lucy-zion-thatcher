@@ -1,3 +1,3 @@
-import { selectRouteByParam, useCoreStore } from '@lzt/core/data-access';
+import { PageStore } from '@lzt/pages/data-access';
 
-export { selectRouteByParam, useCoreStore };
+export { PageStore };
