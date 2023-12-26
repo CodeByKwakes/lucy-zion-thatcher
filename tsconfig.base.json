@@ -24,7 +24,7 @@
       "@lzt/core/data-access": ["libs/core/data-access/src/index.ts"],
       "@lzt/core/feature": ["libs/core/feature/src/index.ts"],
       "@lzt/core/ui": ["libs/core/ui/src/index.ts"],
-      "@lzt/pages/api-core": ["libs/pages/api-core/src/index.ts"],
+      "@lzt/pages/api-core": ["libs/pages/api/src/index.ts"],
       "@lzt/pages/data-access": ["libs/pages/data-access/src/index.ts"],
       "@lzt/pages/feature": ["libs/pages/feature/src/index.ts"],
       "@lzt/pages/routes": ["libs/pages/routes/src/index.ts"],
