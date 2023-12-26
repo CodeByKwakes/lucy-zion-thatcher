@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'api',
+  displayName: 'core-api-pages',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/core/api',
+  coverageDirectory: '../../../coverage/libs/core/api-pages',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

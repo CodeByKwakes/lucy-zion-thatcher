@@ -6,9 +6,9 @@ import {
   inject,
   signal
 } from '@angular/core';
+import { PageStore } from '@lzt/core/api-pages';
 import { useCoreStore } from '@lzt/core/data-access';
 import { FooterComponent, HeaderComponent } from '@lzt/core/ui';
-import { PageStore } from '@lzt/pages/data-access';
 import { GlobalPage } from '@lzt/shared/models';
 import { GetAssetPipe } from '@lzt/shared/utils';
 import AOS from 'aos';
