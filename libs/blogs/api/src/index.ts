@@ -1,3 +1,3 @@
-import { PageStore } from '@lzt/pages/data-access';
+import { BlogStore } from '@lzt/blogs/data-access';
 
-export { PageStore };
+export { BlogStore };

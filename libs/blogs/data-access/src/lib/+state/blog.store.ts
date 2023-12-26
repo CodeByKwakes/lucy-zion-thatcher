@@ -1,5 +1,5 @@
 import { computed, inject } from '@angular/core';
-import { selectRouteByParam } from '@lzt/blogs/api';
+import { selectRouteByParam } from '@lzt/core/api';
 import { DataService } from '@lzt/shared/data-access';
 import { BlogPost } from '@lzt/shared/models';
 import {
