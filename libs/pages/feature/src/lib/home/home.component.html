@@ -1,1 +1,28 @@
-<!-- <pre>{{ $page()| json }}</pre> -->
+<!-- ======= Hero Section ======= -->
+@if(currentPage()) {
+<section
+  class="hero d-flex align-items-center"
+  id="hero"
+  [ngStyle]="{ backgroundImage: 'url('+ (currentPage().header_image! | getAsset) + '?format=webp)' }">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-4">
+        <h2 data-aos="fade-up">{{currentPage().title}}</h2>
+        <blockquote
+          data-aos="fade-up"
+          data-aos-delay="100">
+          <p>{{currentPage().caption}}</p>
+        </blockquote>
+        <div
+          class="d-flex"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          (click)="onRouteToPage('about')">
+          <a class="btn-get-started"> About Lucy </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+}
+<!-- End Hero Section -->

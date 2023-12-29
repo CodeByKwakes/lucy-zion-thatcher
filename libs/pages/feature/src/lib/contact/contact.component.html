@@ -1,6 +1,7 @@
+@if(currentPage()) {
 <lib-breadcrumbs
-  [headerImage]="$page().header_image || null"
-  [title]="$page().title || null" />
+  [headerImage]="currentPage().header_image || null"
+  [title]="currentPage().title || null" />
 
 <section
   class="contact"
@@ -26,7 +27,7 @@
           <i class="bi bi-envelope flex-shrink-0"></i>
           <div>
             <h4>Email:</h4>
-            <p>{{$globalPage().email}}</p>
+            <p>{{globalPage().email}}</p>
           </div>
         </div>
         <!-- End Info Item -->
@@ -35,7 +36,7 @@
           <i class="bi bi-phone flex-shrink-0"></i>
           <div>
             <h4>Phone:</h4>
-            <p>{{$globalPage().phone_number}}</p>
+            <p>{{globalPage().phone_number}}</p>
           </div>
         </div>
         <!-- End Info Item -->
@@ -92,12 +93,12 @@
               required></textarea>
           </div>
           <div class="my-3">
-            @if (isLoading) {
+            @if (isLoading()) {
             <div class="loading">Loading...</div>
-            } @if (errorMessage) {
-            <div class="error-message">{{errorMessage}}</div>
-            } @if (successMessage) {
-            <div class="sent-message">{{successMessage}}</div>
+            } @if (errorMessage()) {
+            <div class="error-message">{{errorMessage()}}</div>
+            } @if (successMessage()) {
+            <div class="sent-message">{{successMessage()}}</div>
             }
           </div>
           <div class="text-center">
@@ -113,3 +114,4 @@
     </div>
   </div>
 </section>
+}

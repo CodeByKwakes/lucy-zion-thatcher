@@ -1,7 +1,9 @@
 <!-- ======= Blog Details Section ======= -->
+
+@if(blog) {
 <lib-breadcrumbs
-  [headerImage]="$blog()?.header_image || null"
-  [title]="$blog()?.header_title || null" />
+  [headerImage]="blog.header_image || null"
+  [title]="blog.header_title || null" />
 
 <section
   class="blog"
@@ -19,10 +21,10 @@
             <img
               class="img-fluid"
               alt=""
-              [src]="$blog()?.blog_feature_image! | getAsset" />
+              [src]="(blog.blog_feature_image! | getAsset)  + '?format=webp'" />
           </div>
 
-          <h2 class="title">{{$blog()?.blog_title}}</h2>
+          <h2 class="title">{{blog.blog_title}}</h2>
 
           <div class="meta-top">
             <ul>
@@ -30,7 +32,7 @@
                 <i class="bi bi-clock"></i>
                 <a href="blog-details.html">
                   <time datetime="2020-01-01"
-                    >{{$blog()?.date_created | date}}</time
+                    >{{blog.date_created | date}}</time
                   >
                 </a>
               </li>
@@ -40,9 +42,10 @@
 
           <div
             class="content"
-            [innerHTML]="$blog()?.blog_content"></div>
+            [innerHTML]="blog.blog_content"></div>
         </article>
       </div>
     </div>
   </div>
 </section>
+}

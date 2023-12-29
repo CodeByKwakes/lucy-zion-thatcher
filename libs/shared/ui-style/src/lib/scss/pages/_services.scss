@@ -4,33 +4,24 @@
 .services-list {
   .service-item {
     position: relative;
+  }
 
-    .icon {
-      i {
-        margin-right: 20px;
-        color: #38618e;
-        font-size: 32px;
-        line-height: 0;
-      }
-    }
+  .service-item-title {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+  }
 
-    .title {
-      margin-bottom: 5px;
-      font-weight: 700;
-      font-size: 18px;
+  .service-item-title a {
+    color: var(--primary);
+  }
 
-      a {
-        color: var(--primary);
+  .service-item-title a:hover {
+    color: var(--accent);
+  }
 
-        &:hover {
-          color: var(--accent);
-        }
-      }
-    }
-
-    .description {
-      font-size: 14px;
-      line-height: 24px;
-    }
+  .service-item-description {
+    font-size: 14px;
+    line-height: 24px;
   }
 }

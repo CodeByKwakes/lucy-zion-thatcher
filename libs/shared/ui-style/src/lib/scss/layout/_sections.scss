@@ -2,8 +2,8 @@
 # Sections & Section Header
 -------------------------------------------------------------- */
 section {
-  padding: 80px 0;
   overflow: hidden;
+  padding: 80px 0;
 }
 
 .section-header {
@@ -12,10 +12,10 @@ section {
 
   h2 {
     position: relative;
-    margin-bottom: 20px;
     padding-bottom: 20px;
-    font-weight: 600;
+    margin-bottom: 20px;
     font-size: 32px;
+    font-weight: 600;
 
     &::after {
       position: absolute;

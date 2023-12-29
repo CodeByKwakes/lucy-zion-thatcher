@@ -1,7 +1,7 @@
 <div
   class="breadcrumbs d-flex align-items-center"
   [ngStyle]="{
-    'backgroundImage': headerImage ? 'url(' + (headerImage | getAsset) + ')' : '' }">
+    'backgroundImage': headerImage ? 'url(' + (headerImage | getAsset) + '?format=webp)' : null }">
   <div
     class="container position-relative d-flex flex-column align-items-center">
     <h2>{{title}}</h2>

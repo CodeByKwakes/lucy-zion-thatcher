@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { useCoreStore } from '@lzt/blogs/api-core';
-import { useBlogFeature } from '@lzt/blogs/data-access';
+import { Component, inject } from '@angular/core';
+import { BlogStore } from '@lzt/blogs/data-access';
+import { useCoreStore } from '@lzt/core/api';
 import { BreadcrumbsComponent } from '@lzt/shared/ui-components';
 import { GetAssetPipe, TruncatePipe } from '@lzt/shared/utils';
 
@@ -13,9 +13,8 @@ import { GetAssetPipe, TruncatePipe } from '@lzt/shared/utils';
   styleUrls: ['./blog-list.component.scss']
 })
 export class BlogListComponent {
-  readonly #store = useBlogFeature();
   readonly #coreStore = useCoreStore();
-  readonly $blogList = this.#store.$allBlogs;
+  readonly blog = inject(BlogStore);
 
   routeToBlogDetail(id: string) {
     this.#coreStore.routeTo(['blogs', id]);

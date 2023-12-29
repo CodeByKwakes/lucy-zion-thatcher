@@ -12,8 +12,8 @@
     ul {
       display: flex;
       align-items: center;
-      margin: 0;
       padding: 0;
+      margin: 0;
       list-style: none;
     }
 
@@ -33,12 +33,12 @@
       justify-content: space-between;
       padding: 15px 0 15px 30px;
       color: rgba(var(--text-rgb) / 60%);
-      font-weight: 500;
-      font-size: 15px;
-      font-family: var(--font-default);
-      white-space: nowrap;
       cursor: pointer;
+      font-family: var(--font-default);
+      font-size: 15px;
+      font-weight: 500;
       transition: 0.3s;
+      white-space: nowrap;
 
       i {
         margin-left: 5px;
@@ -71,17 +71,17 @@
     .dropdown {
       ul {
         position: absolute;
+        z-index: 99;
         top: calc(100% + 30px);
         left: 14px;
-        z-index: 99;
         display: block;
-        margin: 0;
         padding: 10px 0;
+        margin: 0;
         background: #fff;
         box-shadow: 0 0 30px rgb(127 137 161 / 25%);
-        visibility: hidden;
         opacity: 0;
         transition: 0.2s;
+        visibility: hidden;
 
         li {
           min-width: 200px;
@@ -118,8 +118,8 @@
       &:hover {
         > ul {
           top: 100%;
-          visibility: visible;
           opacity: 1;
+          visibility: visible;
         }
       }
 
@@ -134,8 +134,8 @@
           > ul {
             top: 0;
             left: 100%;
-            visibility: visible;
             opacity: 1;
+            visibility: visible;
           }
         }
       }
@@ -172,10 +172,10 @@
 @media (width <= 1279px) {
   .navbar {
     position: fixed;
+    z-index: 9997;
     top: 0;
     right: -100%;
     bottom: 0;
-    z-index: 9997;
     width: 100%;
     max-width: 400px;
     transition: 0.3s;
@@ -183,12 +183,12 @@
     ul {
       position: absolute;
       z-index: 9998;
-      margin: 0;
       padding: 50px 0 10px;
-      overflow-y: auto;
+      margin: 0;
       background: rgba(var(--secondary-rgb) / 90%);
-      transition: 0.3s;
       inset: 0;
+      overflow-y: auto;
+      transition: 0.3s;
     }
 
     a {
@@ -197,11 +197,11 @@
       justify-content: space-between;
       padding: 10px 20px;
       color: rgba(var(--text-rgb) / 70%);
-      font-weight: 600;
-      font-size: 15px;
       font-family: var(--font-default);
-      white-space: nowrap;
+      font-size: 15px;
+      font-weight: 600;
       transition: 0.3s;
+      white-space: nowrap;
 
       i {
         margin-left: 5px;
@@ -235,8 +235,8 @@
       ul {
         position: static;
         display: none;
-        margin: 10px 20px;
         padding: 10px 0;
+        margin: 10px 20px;
         background-color: rgb(20 35 51 / 60%);
       }
 
@@ -248,21 +248,21 @@
 
   .mobile-nav-show {
     color: rgba(var(--text-rgb) / 90%);
+    cursor: pointer;
     font-size: 28px;
     line-height: 0;
-    cursor: pointer;
     transition: 0.5s;
   }
 
   .mobile-nav-hide {
     position: fixed;
+    z-index: 9999;
     top: 15px;
     right: 15px;
-    z-index: 9999;
     color: rgba(var(--text-rgb) / 90%);
+    cursor: pointer;
     font-size: 32px;
     line-height: 0;
-    cursor: pointer;
     transition: 0.5s;
   }
 

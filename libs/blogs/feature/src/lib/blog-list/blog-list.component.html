@@ -1,5 +1,6 @@
 <lib-breadcrumbs title="Blogs" />
 
+@if(blog.loaded()) {
 <section
   class="blog"
   id="blog">
@@ -12,14 +13,15 @@
         data-aos="fade-up"
         data-aos-delay="200">
         <div class="row gy-5 posts-list">
-          @for (item of $blogList(); track item.id) {
+          @for (item of blog.blogEntities(); track item.id) {
+
           <div class="col-lg-4">
             <article class="d-flex flex-column">
               <div class="post-img">
                 <img
                   class="img-fluid"
                   alt=""
-                  [src]="item.blog_feature_image | getAsset" />
+                  [src]="(item?.blog_feature_image! | getAsset)  + '?format=webp'" />
               </div>
 
               <h2 class="title">
@@ -51,7 +53,8 @@
               </div>
             </article>
           </div>
-          }
+
+          } @empty { No Blogs Available }
           <!-- End post list item -->
         </div>
         <!-- End blog posts list -->
@@ -69,3 +72,4 @@
     </div>
   </div>
 </section>
+} @else { Loading }

@@ -1,9 +1,9 @@
 import { RouterReducerState, getRouterSelectors } from '@ngrx/router-store';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { RouterStateUrl } from '../utils/custom-serializer';
+import { RouterState } from '../utils/custom-serializer';
 
 export const selectRouterState =
-  createFeatureSelector<RouterReducerState<RouterStateUrl>>('router');
+  createFeatureSelector<RouterReducerState<RouterState>>('router');
 
 export const selectRouteByParam = createSelector(
   selectRouterState,

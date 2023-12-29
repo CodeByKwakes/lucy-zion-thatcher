@@ -1,178 +1,26 @@
+@if(pagesLoaded()) {
 <!-- ======= Header ======= -->
-<header
-  class="header d-flex align-items-center fixed-top"
-  id="header">
-  <div
-    class="container-fluid container-xl d-flex align-items-center justify-content-between">
-    <a
-      class="logo d-flex align-items-center"
-      (click)="routeTo(['home'])">
-      <img
-        alt=""
-        [src]="$globalPage().logo | getAsset" />
-    </a>
-
-    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-    <nav
-      class="navbar"
-      id="navbar">
-      <ul
-        [routerLinkActiveOptions]="{exact: true}"
-        routerLinkActive="active">
-        <li (click)="routeTo(['home'])">
-          <a routerLink="/"> Home </a>
-        </li>
-        <li (click)="routeTo(['about'])">
-          <a routerLink="/about">About</a>
-        </li>
-        <li (click)="routeTo(['speaker'])">
-          <a routerLink="/speaker">Speaker</a>
-        </li>
-        <!-- <li (click)="routeTo(['blogs'])"><a>Blog</a></li> -->
-        <li (click)="routeTo(['contact'])">
-          <a>Contact</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<lib-header
+  [links]="links()"
+  [logo]="(globalPage().logo | getAsset) + '?format=webp'
+  "
+  (routeChanged)="onRouteToPage($event)" />
 <!-- End Header -->
 
-<!-- ======= Hero Section ======= -->
-@if ($currentPage()?.slug === 'home') {
-<section
-  class="hero d-flex align-items-center"
-  id="hero"
-  [ngStyle]="{ backgroundImage: 'url('+ ($currentPage()?.header_image! | getAsset) + ')' }">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-4">
-        <h2 data-aos="fade-up">{{$currentPage()?.title}}</h2>
-        <blockquote
-          data-aos="fade-up"
-          data-aos-delay="100">
-          <p>{{$homePage().caption}}</p>
-        </blockquote>
-        <div
-          class="d-flex"
-          data-aos="fade-up"
-          data-aos-delay="200"
-          (click)="routeTo(['about'])">
-          <a class="btn-get-started"> About Lucy </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-}
-
-<!-- End Hero Section -->
-
 <main id="main">
-  <!-- <ng-container *ngIf="$currentPage()?.slug !== 'home'">
-
-    <div
-      class="breadcrumbs d-flex align-items-center"
-      [ngStyle]="{ backgroundImage: 'url('+ imagePath + $currentPage()?.header_image + ')' }">
-      <div
-        class="container position-relative d-flex flex-column align-items-center">
-        <h2>{{$currentPage()?.title}}</h2>
-      </div>
-    </div>
-  </ng-container> -->
-
   <ng-content></ng-content>
 </main>
 
 <!-- ======= Footer ======= -->
-<footer
-  class="footer"
-  id="footer">
-  <div class="footer-content">
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-6 col-md-12 footer-info">
-          <a
-            class="logo d-flex align-items-center"
-            (click)="routeTo(['home'])">
-            <!-- <span>Lucy Zion Thatcher</span> -->
-            <img
-              alt=""
-              [src]="$globalPage().logo | getAsset" />
-          </a>
-          <p>NHS Sexual Health Advisor</p>
-          <p>Young People and Safeguarding Lead | Author</p>
-          <p>
-            Advocate for Female Sexual Empowerment | Motivational Interviewer
-          </p>
-
-          <div class="social-links d-flex mt-3">
-            @for (item of $globalPage().social_media; track item) {
-            <a
-              [href]="item.link"
-              [class]="item.name">
-              <i class="bi bi-{{item.name}}"></i>
-            </a>
-            }
-          </div>
-        </div>
-        <div
-          class="col-lg-3 col-md-6 col-12 text-center text-md-start footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li>
-              <i class="bi bi-dash"></i>
-              <a (click)="routeTo(['home'])">Home</a>
-            </li>
-            <li>
-              <i class="bi bi-dash"></i>
-              <a (click)="routeTo(['about'])">About</a>
-            </li>
-            <li>
-              <i class="bi bi-dash"></i>
-              <a (click)="routeTo(['speaker'])">Speaker</a>
-            </li>
-            <!-- <li>
-              <i class="bi bi-dash"></i>
-              <a (click)="routeTo(['blogs'])">Blog</a>
-            </li> -->
-          </ul>
-        </div>
-
-        <div
-          class="col-lg-3 col-md-6 col-12 footer-contact text-center text-md-start">
-          <h4>Contact</h4>
-          <p>
-            <strong>Phone:</strong>
-            {{$globalPage().phone_number}}
-            <br />
-            <strong>Email:</strong>
-            {{$globalPage().email}}
-            <br />
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-legal">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright
-        <strong><span>Lucy Zion Thatcher</span></strong>
-        . All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by
-        <a>CodeByKwakes</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<lib-footer
+  [email]="globalPage().email"
+  [links]="links()"
+  [logo]="(globalPage().logo | getAsset) + '?format=webp'"
+  [phoneNumber]="globalPage().phone_number"
+  [socialMedia]="globalPage().social_media"
+  (routeChanged)="onRouteToPage($event)" />
 <!-- End Footer -->
 
-<a class="scroll-top d-flex align-items-center justify-content-center">
-  <i class="bi bi-arrow-up-short"></i>
-</a>
+} @else {
+<div class="preloader"></div>
+}
