@@ -1,5 +1,5 @@
 import { computed, inject } from '@angular/core';
-import { selectUrl } from '@lzt/core/data-access';
+import { selectUrl } from '@lzt/core/api';
 import { DataService } from '@lzt/shared/data-access';
 import { PageEntity } from '@lzt/shared/models';
 import {
