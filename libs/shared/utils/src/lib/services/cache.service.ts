@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import CryptoJS from 'crypto-js';
+import { environment } from '../environments/environment';
 
 interface DataWithTimestamp {
   value: unknown;
   timestamp: number;
   expirationInSeconds: number;
+  isEncrypted: boolean;
 }
 
 @Injectable({
@@ -11,6 +14,7 @@ interface DataWithTimestamp {
 })
 export class CacheService {
   #prefix = 'app-cache-';
+  private secretKey = '1029384756';
 
   get(key: string): unknown {
     const storageKey = this.getKey(key);
@@ -24,23 +28,30 @@ export class CacheService {
         !dataWithTimestamp.expirationInSeconds ||
         this.isDataValid(dataWithTimestamp)
       ) {
-        return dataWithTimestamp.value;
-      } else {
-        // If data is expired, remove it from the cache
-        this.clearKey(key);
+        return dataWithTimestamp.isEncrypted
+          ? this.decrypt(dataWithTimestamp.value)
+          : dataWithTimestamp.value;
       }
+      // If data is expired, remove it from the cache
+      this.clearKey(key);
     }
 
     return null;
   }
 
-  set(key: string, value: unknown, expirationInSeconds: number = 0): void {
+  set(
+    key: string,
+    value: unknown,
+    expirationInSeconds: number = 0,
+    encrypt: boolean = environment.isProduction
+  ): void {
     const storageKey = this.getKey(key);
     const timestamp = new Date().getTime();
-    const dataWithTimestamp = {
-      value,
+    const dataWithTimestamp: DataWithTimestamp = {
+      value: encrypt ? this.encrypt(value) : value,
       timestamp,
-      expirationInSeconds
+      expirationInSeconds,
+      isEncrypted: encrypt
     };
 
     localStorage.setItem(storageKey, JSON.stringify(dataWithTimestamp));
@@ -61,6 +72,22 @@ export class CacheService {
     const expirationTime = dataWithTimestamp.expirationInSeconds * 1000; // Convert seconds to milliseconds
 
     return currentTime - cacheTime < expirationTime;
+  }
+
+  private encrypt(value: unknown): string {
+    return CryptoJS.AES.encrypt(
+      JSON.stringify(value),
+      this.secretKey
+    ).toString();
+  }
+
+  private decrypt(encryptedValue: unknown): unknown {
+    const decryptedBytes = CryptoJS.AES.decrypt(
+      encryptedValue as string,
+      this.secretKey
+    );
+
+    return JSON.parse(decryptedBytes.toString(CryptoJS.enc.Utf8));
   }
 
   private getKey(key: string): string {
