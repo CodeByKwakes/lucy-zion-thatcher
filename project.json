@@ -4,21 +4,34 @@
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "./src",
-  "tags": ["type:app"],
+  "tags": [
+    "type:app"
+  ],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/lucy-zion-thatcher",
         "index": "./src/index.html",
         "main": "./src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "./tsconfig.app.json",
-        "assets": ["./src/favicon.ico", "./src/assets"],
-        "styles": ["./src/styles.scss"],
+        "assets": [
+          "./src/favicon.ico",
+          "./src/assets"
+        ],
+        "styles": [
+          "./src/styles.scss"
+        ],
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/shared/ui-style/src/lib/scss"]
+          "includePaths": [
+            "libs/shared/ui-style/src/lib/scss"
+          ]
         },
         "scripts": [
           "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
@@ -27,7 +40,10 @@
           "node_modules/swiper/swiper-bundle.min.js",
           "node_modules/isotope-layout/dist/isotope.pkgd.min.js"
         ],
-        "allowedCommonJsDependencies": ["aos"]
+        "allowedCommonJsDependencies": [
+          "aos",
+          "crypto-js"
+        ]
       },
       "configurations": {
         "production": {
@@ -82,14 +98,20 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["./src"]
+        "lintFilePatterns": [
+          "./src"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectName}"
+      ],
       "options": {
         "jestConfig": "jest.config.app.ts"
       }
