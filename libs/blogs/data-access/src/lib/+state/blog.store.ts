@@ -1,3 +1,4 @@
+import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { computed, inject } from '@angular/core';
 import { selectRouteByParam } from '@lzt/core/api';
 import { DataService } from '@lzt/shared/data-access';
@@ -24,6 +25,7 @@ import { mergeMap, pipe } from 'rxjs';
 
 export const BlogStore = signalStore(
   { providedIn: 'root' },
+  withDevtools('blogs'),
   withEntities({ entity: type<BlogPost>(), collection: 'blog' }),
   withCallState(),
   withComputed(({ blogEntityMap }, store = inject(Store)) => ({
