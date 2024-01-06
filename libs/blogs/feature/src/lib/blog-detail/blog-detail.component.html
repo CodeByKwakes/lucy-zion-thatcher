@@ -2,8 +2,8 @@
 
 @if(blog) {
 <lib-breadcrumbs
-  [headerImage]="blog.header_image || null"
-  [title]="blog.header_title || null" />
+  [headerImage]="blog.blog_feature_image || null"
+  [title]="blog.blog_title || null" />
 
 <section
   class="blog"
@@ -24,7 +24,7 @@
               [src]="(blog.blog_feature_image! | getAsset)  + '?format=webp'" />
           </div>
 
-          <h2 class="title">{{blog.blog_title}}</h2>
+          <!-- <h2 class="title">{{blog.blog_title}}</h2> -->
 
           <div class="meta-top">
             <ul>

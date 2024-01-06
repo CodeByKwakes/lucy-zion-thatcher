@@ -23,27 +23,27 @@ export class DataService {
    * @returns {Observable<BlogPost[]>} An observable that emits an array of blog posts.
    */
   loadAllBlogs(): Observable<BlogPost[]> {
-    const cachedData = this.#cacheService.get('blogs');
+    // const cachedData = this.#cacheService.get('blogs');
 
-    if (cachedData) {
-      console.log('cachedData blogs');
-      return new Observable<BlogPost[]>((observer) => {
-        observer.next(cachedData as BlogPost[]);
-        observer.complete();
-      });
-    } else {
-      console.log('http blogs');
-      /**
-       * Array of observables.
-       * @type {Observable<BlogPost[]>[]}
-       */
-      const observables = [getBlogPosts() as unknown as Observable<BlogPost[]>];
+    // if (cachedData) {
+    //   console.log('cachedData blogs');
+    //   return new Observable<BlogPost[]>((observer) => {
+    //     observer.next(cachedData as BlogPost[]);
+    //     observer.complete();
+    //   });
+    // } else {
+    // console.log('http blogs');
+    /**
+     * Array of observables.
+     * @type {Observable<BlogPost[]>[]}
+     */
+    const observables = [getBlogPosts() as unknown as Observable<BlogPost[]>];
 
-      return forkJoin(observables).pipe(
-        map(([blogs]) => blogs),
-        tap((blogs) => this.#cacheService.set('blogs', blogs))
-      );
-    }
+    return forkJoin(observables).pipe(
+      map(([blogs]) => blogs)
+      // tap((blogs) => this.#cacheService.set('blogs', blogs))
+    );
+    // }
   }
 
   /**

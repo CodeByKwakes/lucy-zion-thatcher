@@ -6,8 +6,7 @@ export interface BlogPost {
   date_created: Date;
   user_updated: string;
   date_updated: Date;
-  header_title: string;
-  header_image: string;
+  slug: string;
   blog_title: string;
   blog_feature_image: string;
   blog_content: string;
