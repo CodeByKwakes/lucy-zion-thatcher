@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/pages/ui/src",
   "prefix": "ui",
-  "tags": ["tag:ui", "scope:pages"],
+  "tags": ["type:ui", "scope:pages"],
   "projectType": "library",
   "targets": {
     "test": {

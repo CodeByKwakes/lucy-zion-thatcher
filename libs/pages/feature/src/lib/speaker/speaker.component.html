@@ -4,29 +4,11 @@
   [title]="currentPage().title || null" />
 
 <!-- ======= About Section ======= -->
-<section
-  class="about"
-  id="about">
-  <div
-    class="container"
-    data-aos="fade-up">
-    <div
-      class="row gy-4"
-      data-aos="fade-up">
-      <div class="col-lg-4">
-        <img
-          class="img-fluid"
-          alt=""
-          [src]="(currentPage().content_image | getAsset) + '?format=webp'" />
-      </div>
-      <div class="col-lg-8">
-        <div
-          class="content ps-lg-5"
-          [innerHTML]="currentPage().content_text"></div>
-      </div>
-    </div>
-  </div>
-</section>
+@defer {
+<ui-page-content
+  [image]="currentPage().content_image"
+  [text]="currentPage().content_text" />
+}
 <!-- End About Section -->
 
 <!-- ======= Our Services Section ======= -->
