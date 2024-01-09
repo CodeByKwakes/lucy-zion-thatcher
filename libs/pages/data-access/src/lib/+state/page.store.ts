@@ -2,7 +2,7 @@ import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { computed, inject } from '@angular/core';
 import { selectUrl } from '@lzt/core/api';
 import { DataService } from '@lzt/shared/data-access';
-import { PageEntity } from '@lzt/shared/models';
+import { PageType } from '@lzt/shared/models';
 import {
   setError,
   setLoaded,
@@ -26,7 +26,7 @@ import { mergeMap, pipe } from 'rxjs';
 export const PageStore = signalStore(
   { providedIn: 'root' },
   withDevtools('pages'),
-  withEntities({ entity: type<PageEntity>(), collection: 'page' }),
+  withEntities({ entity: type<PageType>(), collection: 'page' }),
   withCallState(),
   withComputed(({ pageEntityMap }, store = inject(Store)) => ({
     selectCurrentPage: computed(() => {
