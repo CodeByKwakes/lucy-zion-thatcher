@@ -7,7 +7,7 @@ import {
   setError,
   setLoaded,
   setLoading,
-  withCallState
+  withCallStatus
 } from '@lzt/shared/utils';
 import { tapResponse } from '@ngrx/operators';
 import {
@@ -27,7 +27,7 @@ export const BlogStore = signalStore(
   { providedIn: 'root' },
   withDevtools('blogs'),
   withEntities({ entity: type<BlogPost>(), collection: 'blog' }),
-  withCallState(),
+  withCallStatus(),
   withComputed(({ blogEntityMap }, store = inject(Store)) => ({
     selectBlogFromRoute: computed(() => {
       const params = store.selectSignal(selectRouteByParam);
