@@ -17,11 +17,11 @@
     inset: 0;
   }
 
-  .container {
+  &__content-layer {
     z-index: 1;
   }
 
-  h2 {
+  &__title {
     margin: 0;
     color: var(--text);
     font-family: var(--font-secondary);
@@ -30,7 +30,7 @@
     line-height: 1.2;
   }
 
-  blockquote {
+  &__blockquote {
     padding-left: 20px;
     border-left: 2px solid var(--accent);
     margin: 40px 0;
@@ -39,7 +39,7 @@
     font-size: 15px;
   }
 
-  .btn-get-started {
+  &__cta-btn {
     display: inline-block;
     padding: 12px 30px;
     border-radius: 50px;
@@ -53,30 +53,6 @@
 
     &:hover {
       background: rgba(var(--primary-rgb) / 80%);
-    }
-  }
-
-  .btn-watch-video {
-    margin-left: 25px;
-    color: rgba(var(--color-white-rgb) / 70%);
-    font-size: 16px;
-    font-weight: 600;
-    transition: 0.5s;
-
-    i {
-      margin-right: 8px;
-      color: var(--primary);
-      font-size: 32px;
-      line-height: 0;
-      transition: 0.3s;
-    }
-
-    &:hover {
-      color: #fff;
-
-      i {
-        color: #82cbed;
-      }
     }
   }
 }
@@ -110,16 +86,12 @@
 
 @media (width <= 640px) {
   .hero {
-    h2 {
+    &__title {
       font-size: 36px;
       line-height: 1;
     }
 
-    .btn-get-started {
-      font-size: 13px;
-    }
-
-    .btn-watch-video {
+    &__cta-btn {
       font-size: 13px;
     }
   }
