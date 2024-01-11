@@ -4,9 +4,10 @@
   <div
     class="container-fluid container-xl d-flex align-items-center justify-content-between">
     <a
-      class="logo d-flex align-items-center"
+      class="d-flex align-items-center"
       (click)="onRouteChanged('home')">
       <img
+        class="header__logo"
         alt=""
         [ngSrc]="logo!"
         width="150"
@@ -14,8 +15,8 @@
         priority />
     </a>
 
-    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    <i class="mobile-nav--toggle mobile-nav--show bi bi-list"></i>
+    <i class="mobile-nav--toggle mobile-nav--hide d-none bi bi-x"></i>
 
     <nav
       class="navbar"

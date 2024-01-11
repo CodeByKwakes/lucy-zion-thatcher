@@ -6,10 +6,11 @@ import { ElementRef } from '@angular/core';
  * @returns void
  */
 export const initMobileNavToggle = (el: ElementRef): void => {
-  const mobileNavShow = el.nativeElement.querySelector('.mobile-nav-show');
-  const mobileNavHide = el.nativeElement.querySelector('.mobile-nav-hide');
-  const mobileNavToggleElements =
-    el.nativeElement.querySelectorAll('.mobile-nav-toggle');
+  const mobileNavShow = el.nativeElement.querySelector('.mobile-nav--show');
+  const mobileNavHide = el.nativeElement.querySelector('.mobile-nav--hide');
+  const mobileNavToggleElements = el.nativeElement.querySelectorAll(
+    '.mobile-nav--toggle'
+  );
 
   const bodyEl = document.querySelector('body');
 
@@ -30,7 +31,7 @@ export const initMobileNavToggle = (el: ElementRef): void => {
   function mobileNavToggle(event: Event) {
     event.preventDefault();
     if (bodyEl) {
-      bodyEl.classList.toggle('mobile-nav-active');
+      bodyEl.classList.toggle('mobile-nav--active');
     }
 
     mobileNavShow.classList.toggle('d-none');

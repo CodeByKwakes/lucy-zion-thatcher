@@ -11,11 +11,11 @@ export const initStickyHeader = (el: ElementRef, renderer: Renderer2): void => {
 
   const togglescrollTop = () => {
     if (window.scrollY > 100) {
-      renderer.addClass(header, 'sticked');
+      renderer.addClass(header, 'header--sticked');
       return;
     }
 
-    renderer.removeClass(header, 'sticked');
+    renderer.removeClass(header, 'header--sticked');
   };
 
   if (header) {
