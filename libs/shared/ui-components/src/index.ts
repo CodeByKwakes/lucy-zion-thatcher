@@ -1,1 +1,1 @@
-export * from './lib/breadcrumbs/breadcrumbs.component';
+export * from './lib/page-header/page-header.component';

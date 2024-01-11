@@ -4,12 +4,12 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PageStore } from '@lzt/pages/data-access';
 import { DataService } from '@lzt/shared/data-access';
 import { ContactPage, GlobalPage, MessageMeta } from '@lzt/shared/models';
-import { BreadcrumbsComponent } from '@lzt/shared/ui-components';
+import { PageHeaderComponent } from '@lzt/shared/ui-components';
 
 @Component({
   selector: 'lib-contact',
   standalone: true,
-  imports: [CommonModule, BreadcrumbsComponent, ReactiveFormsModule],
+  imports: [CommonModule, PageHeaderComponent, ReactiveFormsModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })

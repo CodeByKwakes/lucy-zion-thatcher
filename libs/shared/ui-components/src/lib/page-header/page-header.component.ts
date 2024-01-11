@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
-  selector: 'lib-breadcrumbs',
+  selector: 'lib-page-header',
   standalone: true,
   imports: [CommonModule, GetAssetPipe],
-  templateUrl: './breadcrumbs.component.html',
-  styleUrls: ['./breadcrumbs.component.scss']
+  templateUrl: './page-header.component.html',
+  styleUrls: ['./page-header.component.scss']
 })
-export class BreadcrumbsComponent {
+export class PageHeaderComponent {
   @Input() headerImage: string | null = null;
   @Input() title: string | null = null;
 }
