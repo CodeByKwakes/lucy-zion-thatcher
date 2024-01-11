@@ -19,11 +19,11 @@ export const initScrollTopButton = (
 
   const togglescrollTop = () => {
     if (window.scrollY > 100) {
-      renderer.addClass(scrollTop, 'active');
+      renderer.addClass(scrollTop, 'scroll-top--active');
       return;
     }
 
-    renderer.removeClass(scrollTop, 'active');
+    renderer.removeClass(scrollTop, 'scroll-top--active');
   };
 
   const toggleScrollTo = () => {
