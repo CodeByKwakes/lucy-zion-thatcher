@@ -21,7 +21,7 @@ import {
 import { addEntities, withEntities } from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { Store } from '@ngrx/store';
-import { mergeMap, pipe } from 'rxjs';
+import { mergeMap, pipe, tap } from 'rxjs';
 
 export const PageStore = signalStore(
   { providedIn: 'root' },
@@ -40,9 +40,8 @@ export const PageStore = signalStore(
   withMethods((store, dataService = inject(DataService)) => ({
     loadPages: rxMethod<void>(
       pipe(
+        tap(() => patchState(store, setLoading())),
         mergeMap(() => {
-          patchState(store, setLoading());
-
           return dataService.loadAllPages().pipe(
             tapResponse({
               next: (pages) =>
