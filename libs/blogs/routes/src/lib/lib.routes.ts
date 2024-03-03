@@ -1,27 +1,18 @@
 import { Route } from '@angular/router';
-import {
-  blogExistsGuard,
-  blogsGuard,
-  provideBlogFeature
-} from '@lzt/blogs/data-access';
 
-export const routesRoutes: Route[] = [
+export const blogsRoutes: Route[] = [
   {
     path: '',
-    providers: [provideBlogFeature()],
     children: [
-      // { path: '', pathMatch: 'full', redirectTo: 'blog-list' },
       {
         path: 'blogs',
         loadComponent: async () =>
-          (await import('@lzt/blogs/feature')).BlogListComponent,
-        canActivate: [blogsGuard]
+          (await import('@lzt/blogs/feature')).BlogListComponent
       },
       {
-        path: 'blogs/:blogId',
+        path: 'blogs/:id',
         loadComponent: async () =>
-          (await import('@lzt/blogs/feature')).BlogDetailComponent,
-        canActivate: [blogExistsGuard]
+          (await import('@lzt/blogs/feature')).BlogDetailComponent
       }
     ]
   }

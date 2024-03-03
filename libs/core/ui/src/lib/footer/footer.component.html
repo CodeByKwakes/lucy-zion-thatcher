@@ -1,0 +1,81 @@
+<footer
+  class="footer"
+  id="footer">
+  <section class="footer-content">
+    <div class="container">
+      <div class="row gy-4">
+        <section class="col-lg-6 col-md-12 footer-info">
+          <a
+            class="logo d-flex align-items-center"
+            (click)="onRouteChanged('home')">
+            <img
+              alt=""
+              [ngSrc]="logo!"
+              width="150"
+              height="100"
+              priority />
+          </a>
+          <p>NHS Sexual Health Advisor</p>
+          <p>Young People and Safeguarding Lead | Author</p>
+          <p>
+            Advocate for Female Sexual Empowerment | Motivational Interviewer
+          </p>
+
+          <div class="social-links d-flex mt-3">
+            @for (item of socialMedia; track item) {
+            <a
+              [href]="item.link"
+              [class]="item.name">
+              <i class="bi bi-{{item.name}}"></i>
+            </a>
+            }
+          </div>
+        </section>
+
+        <section
+          class="col-lg-3 col-md-6 col-12 text-center text-md-start footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            @for (item of links; track $index) {
+            <li>
+              <i class="bi bi-dash"></i>
+              <a (click)="onRouteChanged(item)">{{item | titlecase}}</a>
+            </li>
+            }
+          </ul>
+        </section>
+
+        <section
+          class="col-lg-3 col-md-6 col-12 footer-contact text-center text-md-start">
+          <h4>Contact</h4>
+          <p>
+            <strong>Phone:</strong>
+            {{phoneNumber}}
+            <br />
+            <strong>Email:</strong>
+            {{email}}
+            <br />
+          </p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer-legal">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright
+        <strong><span>Lucy Zion Thatcher</span></strong>
+        . All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by
+        <a>CodeByKwakes</a>
+      </div>
+    </div>
+  </section>
+</footer>
+
+<a class="scroll-top d-flex align-items-center justify-content-center">
+  <i class="scroll-top__icon bi bi-arrow-up-short"></i>
+</a>

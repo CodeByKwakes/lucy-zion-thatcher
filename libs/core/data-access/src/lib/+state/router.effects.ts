@@ -5,7 +5,7 @@ import { RouterActions } from './router.actions';
 import { tap } from 'rxjs/operators';
 import { Location } from '@angular/common';
 
-export const navigateGo$ = createEffect(
+const navigateGo$ = createEffect(
   (actions$ = inject(Actions), router = inject(Router)) => {
     return actions$.pipe(
       ofType(RouterActions.go),
@@ -17,7 +17,7 @@ export const navigateGo$ = createEffect(
   { functional: true, dispatch: false }
 );
 
-export const navigateForward$ = createEffect(
+const navigateForward$ = createEffect(
   (actions$ = inject(Actions), location = inject(Location)) => {
     return actions$.pipe(
       ofType(RouterActions.forward),
@@ -29,7 +29,7 @@ export const navigateForward$ = createEffect(
   { functional: true, dispatch: false }
 );
 
-export const navigateBack$ = createEffect(
+const navigateBack$ = createEffect(
   (actions$ = inject(Actions), location = inject(Location)) => {
     return actions$.pipe(
       ofType(RouterActions.back),
@@ -40,3 +40,5 @@ export const navigateBack$ = createEffect(
   },
   { functional: true, dispatch: false }
 );
+
+export const RouterEffects = { navigateGo$, navigateForward$, navigateBack$ };

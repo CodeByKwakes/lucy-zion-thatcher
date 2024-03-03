@@ -1,121 +1,26 @@
+@if(pagesLoaded()) {
 <!-- ======= Header ======= -->
-<header
-  class="header d-flex align-items-center fixed-top"
-  id="header">
-  <div
-    class="container-fluid container-xl d-flex align-items-center justify-content-between">
-    <a
-      class="logo d-flex align-items-center"
-      (click)="routeTo(['home'])">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img [src]="imagePath + $globalPage().logo" alt="" /> -->
-
-      <h1 class="d-flex align-items-center">Lucy Zion Thatcher</h1>
-    </a>
-
-    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-    <!-- .navbar -->
-  </div>
-</header>
+<lib-header
+  [links]="links()"
+  [logo]="(globalPage().logo | getAsset) + '?format=webp'
+  "
+  (routeChanged)="onRouteToPage($event)" />
 <!-- End Header -->
-
-<!-- ======= Hero Section ======= -->
-<ng-container *ngIf="$homePage()?.slug === 'home'">
-  <section
-    class="hero d-flex align-items-center"
-    id="hero">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-4">
-          <h2 data-aos="fade-up">{{$homePage().title}}</h2>
-          <blockquote
-            data-aos="fade-up"
-            data-aos-delay="100">
-            <p>{{$homePage().caption}}</p>
-          </blockquote>
-          <div
-            class="d-flex"
-            data-aos="fade-up"
-            data-aos-delay="200">
-            <a
-              class="btn-get-started"
-              href="mailto:{{$globalPage().email}}">
-              Email Lucy
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</ng-container>
-
-<!-- End Hero Section -->
 
 <main id="main">
   <ng-content></ng-content>
 </main>
 
 <!-- ======= Footer ======= -->
-<footer
-  class="footer"
-  id="footer">
-  <div class="footer-content">
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-6 col-md-12 footer-info">
-          <a
-            class="logo d-flex align-items-center"
-            href="index.html">
-            <span>Lucy Zion Thatcher</span>
-          </a>
-          <p>NHS Sexual Health Advisor</p>
-          <p>Young People and Safeguarding Lead | Author</p>
-          <p>
-            Advocate for Female Sexual Empowerment | Motivational Interviewer
-          </p>
-
-          <div class="social-links d-flex mt-3">
-            <a
-              *ngFor="let item of $globalPage().social_media"
-              [href]="item.link"
-              [class]="item.name">
-              <i class="bi bi-{{item.name}}"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-6 footer-contact text-center text-md-start">
-          <h4>Contact</h4>
-          <p>
-            <strong>Phone:</strong>
-            {{$globalPage().phone_number}}
-            <br />
-            <strong>Email:</strong>
-            {{$globalPage().email}}
-            <br />
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-legal">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright
-        <strong><span>Lucy Zion Thatcher</span></strong>
-        . All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by
-        <a>CodeByKwakes</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<lib-footer
+  [email]="globalPage().email"
+  [links]="links()"
+  [logo]="(globalPage().logo | getAsset) + '?format=webp'"
+  [phoneNumber]="globalPage().phone_number"
+  [socialMedia]="globalPage().social_media"
+  (routeChanged)="onRouteToPage($event)" />
 <!-- End Footer -->
 
-<a class="scroll-top d-flex align-items-center justify-content-center">
-  <i class="bi bi-arrow-up-short"></i>
-</a>
+} @else {
+<div class="preloader"></div>
+}

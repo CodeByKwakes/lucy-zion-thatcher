@@ -1,0 +1,25 @@
+/* --------------------------------------------------------------
+# Page Header
+-------------------------------------------------------------- */
+.page-header {
+  position: relative;
+  min-height: 30vh;
+  padding: 140px 0 60px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &::before {
+    position: absolute;
+    background-color: rgba(var(--secondary-rgb) / 70%);
+    content: '';
+    inset: 0;
+  }
+
+  &__title {
+    color: var(--text);
+    font-family: var(--font-secondary);
+    font-size: 56px;
+    font-weight: 500;
+  }
+}

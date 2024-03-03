@@ -1,10 +1,8 @@
 import { Route } from '@angular/router';
 
-export const routesRoutes: Route[] = [
+export const pagesRoutes: Route[] = [
   {
     path: '',
-    providers: [],
-    canActivate: [],
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       {

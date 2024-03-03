@@ -1,41 +1,30 @@
+@if(currentPage()) {
+<lib-page-header
+  [headerImage]="currentPage().header_image!"
+  [title]="currentPage().title || null" />
+
 <!-- ======= About Section ======= -->
-<section
-  class="about"
-  id="about">
-  <div
-    class="container"
-    data-aos="fade-up">
-    <div
-      class="row gy-4"
-      data-aos="fade-up">
-      <div class="col-lg-4">
-        <img
-          class="img-fluid"
-          alt=""
-          [src]="imagePath + $page().content_image" />
-      </div>
-      <div class="col-lg-8">
-        <div
-          class="content ps-lg-5"
-          [innerHTML]="$page().content_text"></div>
-      </div>
-    </div>
-  </div>
-</section>
+@defer {
+<ui-page-content
+  [image]="currentPage().content_image"
+  [text]="currentPage().content_text" />
+}
+
 <!-- End About Section -->
 
 <!-- ======= Call To Action Section ======= -->
 <section
-  class="call-to-action"
+  class="page-section call-to-action"
   id="call-to-action"
-  [ngStyle]="{ backgroundImage: 'linear-gradient(rgba(var(--secondary-rgb) / 0.8),rgba(var(--secondary-rgb) / 0.8)),url('+ imagePath + $page().quote_image + ')' }">
+  [ngStyle]="{
+    backgroundImage: 'linear-gradient(rgba(var(--secondary-rgb) / 0.8),rgba(var(--secondary-rgb) / 0.8)),url('+ (currentPage().quote_image! | getAsset) + ')' }">
   <div
     class="container"
     data-aos="fade-up">
     <div class="row justify-content-center">
       <div class="col-lg-6 text-center">
         <blockquote>
-          <p style="font-style: italic">{{$page().quote_caption}}</p>
+          <p style="font-style: italic">{{ currentPage().quote_caption }}</p>
           <footer><cite>– Lucy Zion Thatcher</cite></footer>
         </blockquote>
       </div>
@@ -43,3 +32,4 @@
   </div>
 </section>
 <!-- End Call To Action Section -->
+}

@@ -9,8 +9,4 @@ import { LayoutComponent } from '@lzt/core/feature';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  constructor() {
-    console.log('AppComponent constructor');
-  }
-}
+export class AppComponent {}

@@ -16,19 +16,24 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@lzt/blogs/api": ["libs/blogs/api/src/index.ts"],
       "@lzt/blogs/data-access": ["libs/blogs/data-access/src/index.ts"],
       "@lzt/blogs/feature": ["libs/blogs/feature/src/index.ts"],
       "@lzt/blogs/routes": ["libs/blogs/routes/src/index.ts"],
-      "@lzt/core/api-pages": ["libs/core/api-pages/src/index.ts"],
+      "@lzt/core/api": ["libs/core/api/src/index.ts"],
       "@lzt/core/data-access": ["libs/core/data-access/src/index.ts"],
       "@lzt/core/feature": ["libs/core/feature/src/index.ts"],
-      "@lzt/pages/api-core": ["libs/pages/api-core/src/index.ts"],
+      "@lzt/core/ui": ["libs/core/ui/src/index.ts"],
+      "@lzt/pages/api": ["libs/pages/api/src/index.ts"],
       "@lzt/pages/data-access": ["libs/pages/data-access/src/index.ts"],
       "@lzt/pages/feature": ["libs/pages/feature/src/index.ts"],
       "@lzt/pages/routes": ["libs/pages/routes/src/index.ts"],
+      "@lzt/pages/ui": ["libs/pages/ui/src/index.ts"],
       "@lzt/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@lzt/shared/models": ["libs/shared/models/src/index.ts"],
-      "shared/ui-style": ["libs/shared/ui-style/src/index.ts"]
+      "@lzt/shared/ui-components": ["libs/shared/ui-components/src/index.ts"],
+      "@lzt/shared/ui-style": ["libs/shared/ui-style/src/index.ts"],
+      "@lzt/shared/utils": ["libs/shared/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

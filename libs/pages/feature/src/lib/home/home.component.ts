@@ -1,14 +1,23 @@
-import { Component, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { usePageFeature } from '@lzt/pages/data-access';
+import { Component, Signal, inject } from '@angular/core';
+import { useCoreStore } from '@lzt/core/api';
+import { PageStore } from '@lzt/pages/data-access';
 import { HomePage } from '@lzt/shared/models';
+import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, GetAssetPipe],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  // readonly $page = usePageFeature().$currentPage as Signal<HomePage>;
+  readonly #coreStore = useCoreStore();
+  readonly #pageStore = inject(PageStore);
+
+  readonly currentPage = this.#pageStore.selectCurrentPage as Signal<HomePage>;
+
+  onRouteToPage(page: string): void {
+    this.#coreStore.routeTo([page]);
+  }
 }

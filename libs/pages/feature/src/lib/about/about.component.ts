@@ -1,13 +1,25 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Signal, inject } from '@angular/core';
+import { PageStore } from '@lzt/pages/data-access';
+import { PageContentComponent } from '@lzt/pages/ui';
 import { AboutPage } from '@lzt/shared/models';
-import { BasePageComponent } from '../BasePageComponent';
+import { PageHeaderComponent } from '@lzt/shared/ui-components';
+import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    PageHeaderComponent,
+    GetAssetPipe,
+    PageContentComponent
+  ],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent extends BasePageComponent<AboutPage> {}
+export class AboutComponent {
+  readonly #pageStore = inject(PageStore);
+
+  readonly currentPage = this.#pageStore.selectCurrentPage as Signal<AboutPage>;
+}

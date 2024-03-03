@@ -1,6 +1,10 @@
-<!-- ======= Contact Section ======= -->
+@if(currentPage()) {
+<lib-page-header
+  [headerImage]="currentPage().header_image || null"
+  [title]="currentPage().title || null" />
+
 <section
-  class="contact"
+  class="page-section contact"
   id="contact">
   <div
     class="container position-relative"
@@ -23,7 +27,7 @@
           <i class="bi bi-envelope flex-shrink-0"></i>
           <div>
             <h4>Email:</h4>
-            <p>info@example.com</p>
+            <p>{{globalPage().email}}</p>
           </div>
         </div>
         <!-- End Info Item -->
@@ -31,8 +35,8 @@
         <div class="info-item d-flex">
           <i class="bi bi-phone flex-shrink-0"></i>
           <div>
-            <h4>Call:</h4>
-            <p>+1 5589 55488 55</p>
+            <h4>Phone:</h4>
+            <p>{{globalPage().phone_number}}</p>
           </div>
         </div>
         <!-- End Info Item -->
@@ -45,8 +49,8 @@
         <form
           class="php-email-form"
           role="form"
-          action="forms/contact.php"
-          method="post">
+          [formGroup]="contactForm"
+          (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-md-6 form-group">
               <input
@@ -54,6 +58,7 @@
                 id="name"
                 name="name"
                 type="text"
+                formControlName="name"
                 placeholder="Your Name"
                 required />
             </div>
@@ -63,6 +68,7 @@
                 id="email"
                 name="email"
                 type="email"
+                formControlName="email"
                 placeholder="Your Email"
                 required />
             </div>
@@ -73,6 +79,7 @@
               id="subject"
               name="subject"
               type="text"
+              formControlName="subject"
               placeholder="Subject"
               required />
           </div>
@@ -80,19 +87,26 @@
             <textarea
               class="form-control"
               name="message"
+              formControlName="message"
               rows="5"
               placeholder="Message"
               required></textarea>
           </div>
           <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">
-              Your message has been sent. Thank you!
-            </div>
+            @if (isLoading()) {
+            <div class="loading">Loading...</div>
+            } @if (errorMessage()) {
+            <div class="error-message">{{errorMessage()}}</div>
+            } @if (successMessage()) {
+            <div class="sent-message">{{successMessage()}}</div>
+            }
           </div>
           <div class="text-center">
-            <button type="submit">Send Message</button>
+            <button
+              type="submit"
+              [disabled]="contactForm.invalid">
+              Send Message
+            </button>
           </div>
         </form>
       </div>
@@ -100,4 +114,4 @@
     </div>
   </div>
 </section>
-<!-- End Contact Section -->
+}

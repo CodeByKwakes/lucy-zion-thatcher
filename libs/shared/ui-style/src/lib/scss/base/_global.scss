@@ -1,6 +1,9 @@
 /* --------------------------------------------------------------
 # General
 -------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
 
 html,
 body {
@@ -11,9 +14,9 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-default);
-  color: var(--text);
   background-color: var(--background);
+  color: var(--text);
+  font-family: var(--font-default);
 }
 
 a {

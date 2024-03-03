@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "./src",
-  "tags": [],
+  "tags": ["type:app"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -25,10 +25,9 @@
           "node_modules/aos/dist/aos.js",
           "node_modules/glightbox/dist/js/glightbox.min.js",
           "node_modules/swiper/swiper-bundle.min.js",
-          "node_modules/isotope-layout/dist/isotope.pkgd.min.js",
-          "./src/assets/js/main.js"
+          "node_modules/isotope-layout/dist/isotope.pkgd.min.js"
         ],
-        "allowedCommonJsDependencies": ["aos"]
+        "allowedCommonJsDependencies": ["aos", "crypto-js"]
       },
       "configurations": {
         "production": {
@@ -52,7 +51,13 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "libs/shared/utils/src/lib/environments/environment.ts",
+              "with": "libs/shared/utils/src/lib/environments/environment.development.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"
@@ -61,10 +66,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "lucy-zion-thatcher:build:production"
+          "buildTarget": "lucy-zion-thatcher:build:production"
         },
         "development": {
-          "browserTarget": "lucy-zion-thatcher:build:development"
+          "buildTarget": "lucy-zion-thatcher:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -72,28 +77,20 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "lucy-zion-thatcher:build"
+        "buildTarget": "lucy-zion-thatcher:build"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "executor": "@nx/eslint:lint",
       "options": {
-        "lintFilePatterns": ["./src/**/*.ts", "./src/**/*.html"]
+        "lintFilePatterns": ["{projectRoot}/src"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "jest.config.app.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "jest.config.app.ts"
       }
     },
     "serve-static": {

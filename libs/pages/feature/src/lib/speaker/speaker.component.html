@@ -1,80 +1,44 @@
+@if(currentPage()) {
+<lib-page-header
+  [headerImage]="currentPage().header_image || null"
+  [title]="currentPage().title || null" />
+
 <!-- ======= About Section ======= -->
-<section
-  class="about"
-  id="about">
-  <div
-    class="container"
-    data-aos="fade-up">
-    <div
-      class="row gy-4"
-      data-aos="fade-up">
-      <div class="col-lg-4">
-        <img
-          class="img-fluid"
-          alt=""
-          [src]="imagePath + $page().content_image" />
-      </div>
-      <div class="col-lg-8">
-        <div
-          class="content ps-lg-5"
-          [innerHTML]="$page().content_text"></div>
-      </div>
-    </div>
-  </div>
-</section>
+@defer {
+<ui-page-content
+  [image]="currentPage().content_image"
+  [text]="currentPage().content_text" />
+}
 <!-- End About Section -->
 
 <!-- ======= Our Services Section ======= -->
 <section
-  class="services-list"
+  class="page-section services-list"
   id="services-list">
   <div
     class="container"
     data-aos="fade-up">
-    <div class="section-header">
-      <p>{{$page().services_caption}}</p>
+    <div class="page-section__header">
+      <p>{{currentPage().services_caption}}</p>
     </div>
 
     <div class="row gy-5">
+      @for (item of currentPage().list; track item) {
       <div
-        *ngFor="let item of $page().list"
         class="col-lg-4 col-md-6 service-item d-flex"
         data-aos="fade-up"
         data-aos-delay="100">
         <div>
-          <h4 class="title">
+          <h4 class="service-item-title">
             <a class="stretched-link"> {{item.label}} </a>
           </h4>
-          <p class="description">{{item.text}}</p>
+          <p class="service-item-description">{{item.text}}</p>
         </div>
       </div>
-      <!-- End Service Item -->
-
-      <!-- <div
-        class="col-lg-4 col-md-6 service-item d-flex"
-        data-aos="fade-up"
-        data-aos-delay="200">
-        <div class="icon flex-shrink-0">
-          <i
-            class="bi bi-card-checklist"
-            style="color: #15a04a"></i>
-        </div>
-        <div>
-          <h4 class="title">
-            <a
-              href="#"
-              class="stretched-link">
-              Unlocking Potential
-            </a>
-          </h4>
-          <p class="description">
-            The Transferable Skills and Benefits of Sexual Empowerment to Help
-            you Thrive in Everyday Life
-          </p>
-        </div>
-      </div> -->
+      }
       <!-- End Service Item -->
     </div>
   </div>
 </section>
 <!-- End Our Services Section -->
+}

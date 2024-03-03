@@ -40,6 +40,4 @@ Thumbs.db
 
 .angular
 
-# Docker
-/cms/data/*
-.nx/
+.nx/cache
