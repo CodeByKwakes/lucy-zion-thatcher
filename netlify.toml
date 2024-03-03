@@ -1,6 +1,6 @@
 [build]
   publish = "dist/lucy-zion-thatcher"
-  command = "npm i && npm run build:prod"
+  command = "npm i --force && npm run build:prod"
 [[redirects]]
   from = "/*"
   to = "/index.html"
