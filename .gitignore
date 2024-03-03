@@ -42,3 +42,4 @@ Thumbs.db
 
 # Docker
 /cms/data/*
+.nx/
