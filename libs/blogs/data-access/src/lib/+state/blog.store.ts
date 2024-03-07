@@ -5,9 +5,9 @@ import { DataService } from '@lzt/shared/data-access';
 import { BlogPost } from '@lzt/shared/models';
 import {
   setError,
-  setLoaded,
-  setLoading,
-  withCallStatus
+  setFulfilled,
+  setPending,
+  withRequestStatus
 } from '@lzt/shared/utils';
 import { tapResponse } from '@ngrx/operators';
 import {
@@ -27,7 +27,7 @@ export const BlogStore = signalStore(
   { providedIn: 'root' },
   withDevtools('blogs'),
   withEntities({ entity: type<BlogPost>(), collection: 'blog' }),
-  withCallStatus(),
+  withRequestStatus(),
   withComputed(({ blogEntityMap }, store = inject(Store)) => ({
     selectBlogFromRoute: computed(() => {
       const params = store.selectSignal(selectRouteByParam);
@@ -39,7 +39,7 @@ export const BlogStore = signalStore(
     loadBlogs: rxMethod<void>(
       pipe(
         mergeMap(() => {
-          patchState(store, setLoading());
+          patchState(store, setPending());
 
           return dataService.loadAllBlogs().pipe(
             tapResponse({
@@ -50,7 +50,7 @@ export const BlogStore = signalStore(
                 ),
               error: (error: Error) =>
                 patchState(store, setError(error.message)),
-              finalize: () => patchState(store, setLoaded())
+              finalize: () => patchState(store, setFulfilled())
             })
           );
         })
