@@ -7,6 +7,7 @@ import {
   setError,
   setFulfilled,
   setPending,
+  withLogger,
   withRequestStatus
 } from '@lzt/shared/utils';
 import { tapResponse } from '@ngrx/operators';
@@ -28,6 +29,7 @@ export const PageStore = signalStore(
   withDevtools('pages'),
   withEntities({ entity: type<PageType>(), collection: 'page' }),
   withRequestStatus(),
+  withLogger('pages'),
   withComputed(({ pageEntityMap }, store = inject(Store)) => ({
     selectCurrentPage: computed(() => {
       const url = store.selectSignal(selectUrl);
