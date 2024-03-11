@@ -12,5 +12,7 @@ import { GetAssetPipe } from '@lzt/shared/utils';
   styleUrls: ['./blog-detail.component.scss']
 })
 export class BlogDetailComponent {
-  readonly blog = inject(BlogStore).selectBlogFromRoute();
+  readonly #blogStore = inject(BlogStore);
+
+  readonly blog = this.#blogStore.selectBlogFromRoute;
 }

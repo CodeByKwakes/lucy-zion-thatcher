@@ -34,7 +34,7 @@ export const BlogStore = signalStore(
     selectBlogFromRoute: computed(() => {
       const params = store.selectSignal(selectRouteByParam);
 
-      return blogEntityMap()[params()['id']] ?? null;
+      return blogEntityMap()[params()['slug']] ?? null;
     })
   })),
   withMethods((store, dataService = inject(DataService)) => ({
@@ -48,7 +48,7 @@ export const BlogStore = signalStore(
               next: (blogs) =>
                 patchState(
                   store,
-                  addEntities(blogs, { collection: 'blog', idKey: 'id' })
+                  addEntities(blogs, { collection: 'blog', idKey: 'slug' })
                 ),
               error: (error: Error) =>
                 patchState(store, setError(error.message)),
