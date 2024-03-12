@@ -5,9 +5,10 @@ import { DataService } from '@lzt/shared/data-access';
 import { PageType } from '@lzt/shared/models';
 import {
   setError,
-  setLoaded,
-  setLoading,
-  withCallStatus
+  setFulfilled,
+  setPending,
+  withLogger,
+  withRequestStatus
 } from '@lzt/shared/utils';
 import { tapResponse } from '@ngrx/operators';
 import {
@@ -27,7 +28,8 @@ export const PageStore = signalStore(
   { providedIn: 'root' },
   withDevtools('pages'),
   withEntities({ entity: type<PageType>(), collection: 'page' }),
-  withCallStatus(),
+  withRequestStatus(),
+  withLogger('pages'),
   withComputed(({ pageEntityMap }, store = inject(Store)) => ({
     selectCurrentPage: computed(() => {
       const url = store.selectSignal(selectUrl);
@@ -40,7 +42,7 @@ export const PageStore = signalStore(
   withMethods((store, dataService = inject(DataService)) => ({
     loadPages: rxMethod<void>(
       pipe(
-        tap(() => patchState(store, setLoading())),
+        tap(() => patchState(store, setPending())),
         mergeMap(() => {
           return dataService.loadAllPages().pipe(
             tapResponse({
@@ -51,7 +53,7 @@ export const PageStore = signalStore(
                 ),
               error: (error: Error) =>
                 patchState(store, setError(error.message)),
-              finalize: () => patchState(store, setLoaded())
+              finalize: () => patchState(store, setFulfilled())
             })
           );
         })

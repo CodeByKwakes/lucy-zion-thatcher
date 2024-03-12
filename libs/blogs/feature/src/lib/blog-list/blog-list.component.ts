@@ -16,7 +16,7 @@ export class BlogListComponent {
   readonly #coreStore = useCoreStore();
   readonly blog = inject(BlogStore);
 
-  routeToBlogDetail(id: string) {
-    this.#coreStore.routeTo(['blogs', id]);
+  routeToBlogDetail(slug: string) {
+    this.#coreStore.routeTo(['blogs', slug]);
   }
 }
