@@ -10,7 +10,7 @@ export const blogsRoutes: Route[] = [
           (await import('@lzt/blogs/feature')).BlogListComponent
       },
       {
-        path: 'blogs/:id',
+        path: 'blogs/:slug',
         loadComponent: async () =>
           (await import('@lzt/blogs/feature')).BlogDetailComponent
       }

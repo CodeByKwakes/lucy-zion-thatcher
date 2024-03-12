@@ -5,9 +5,10 @@ import { DataService } from '@lzt/shared/data-access';
 import { BlogPost } from '@lzt/shared/models';
 import {
   setError,
-  setLoaded,
-  setLoading,
-  withCallStatus
+  setFulfilled,
+  setPending,
+  withLogger,
+  withRequestStatus
 } from '@lzt/shared/utils';
 import { tapResponse } from '@ngrx/operators';
 import {
@@ -27,30 +28,31 @@ export const BlogStore = signalStore(
   { providedIn: 'root' },
   withDevtools('blogs'),
   withEntities({ entity: type<BlogPost>(), collection: 'blog' }),
-  withCallStatus(),
+  withRequestStatus(),
+  withLogger('blogs'),
   withComputed(({ blogEntityMap }, store = inject(Store)) => ({
     selectBlogFromRoute: computed(() => {
       const params = store.selectSignal(selectRouteByParam);
 
-      return blogEntityMap()[params()['id']] ?? null;
+      return blogEntityMap()[params()['slug']] ?? null;
     })
   })),
   withMethods((store, dataService = inject(DataService)) => ({
     loadBlogs: rxMethod<void>(
       pipe(
         mergeMap(() => {
-          patchState(store, setLoading());
+          patchState(store, setPending());
 
           return dataService.loadAllBlogs().pipe(
             tapResponse({
               next: (blogs) =>
                 patchState(
                   store,
-                  addEntities(blogs, { collection: 'blog', idKey: 'id' })
+                  addEntities(blogs, { collection: 'blog', idKey: 'slug' })
                 ),
               error: (error: Error) =>
                 patchState(store, setError(error.message)),
-              finalize: () => patchState(store, setLoaded())
+              finalize: () => patchState(store, setFulfilled())
             })
           );
         })

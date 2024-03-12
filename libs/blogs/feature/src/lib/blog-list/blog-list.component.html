@@ -24,8 +24,10 @@
                   [src]="(item?.blog_feature_image! | getAsset)  + '?format=webp'" />
               </div>
 
-              <h2 class="title">
-                <a> {{item.blog_title}} </a>
+              <h2 class="title pointer_cursor">
+                <a (click)="routeToBlogDetail(item.slug)">
+                  {{item.blog_title}}
+                </a>
               </h2>
 
               <div class="meta-top">
@@ -46,7 +48,9 @@
                 [innerHTML]="item.blog_content | truncate: 200"></div>
 
               <div class="read-more mt-auto align-self-end">
-                <a (click)="routeToBlogDetail(item.id)">
+                <a
+                  class="pointer_cursor"
+                  (click)="routeToBlogDetail(item.slug)">
                   Read More
                   <i class="bi bi-arrow-right"></i>
                 </a>
