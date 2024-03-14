@@ -20,7 +20,10 @@ export const initMobileNavToggle = (el: ElementRef): void => {
   }
 
   mobileNavToggleElements.forEach((el: HTMLElement) => {
-    el.addEventListener('click', mobileNavToggle);
+    el.addEventListener('click', (event) => {
+      event.preventDefault();
+      mobileNavToggle();
+    });
   });
 
   /**
@@ -28,8 +31,7 @@ export const initMobileNavToggle = (el: ElementRef): void => {
    * @param event - The click event.
    * @returns void
    */
-  function mobileNavToggle(event: Event) {
-    event.preventDefault();
+  function mobileNavToggle() {
     if (bodyEl) {
       bodyEl.classList.toggle('mobile-nav--active');
     }
