@@ -10,7 +10,11 @@ import {
   inject
 } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
-import { initMobileNavToggle, initStickyHeader } from '@lzt/shared/utils';
+import {
+  initMobileNavToggle,
+  initStickyHeader,
+  mobileNavToggle
+} from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-header',
@@ -38,6 +42,17 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   onRouteChanged(route: string) {
+    const bodyEl = document.querySelector('body') as HTMLElement;
+    const mobileNavShow = document.querySelector(
+      '.mobile-nav--show'
+    ) as HTMLElement;
+    const mobileNavHide = document.querySelector(
+      '.mobile-nav--hide'
+    ) as HTMLElement;
     this.routeChanged.emit(route);
+
+    if (bodyEl.classList.contains('mobile-nav--active')) {
+      mobileNavToggle(bodyEl, mobileNavShow, mobileNavHide);
+    }
   }
 }
