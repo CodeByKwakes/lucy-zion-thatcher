@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, input } from '@angular/core';
 import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
@@ -10,6 +10,6 @@ import { GetAssetPipe } from '@lzt/shared/utils';
   styleUrl: './page-content.component.scss'
 })
 export class PageContentComponent {
-  @Input() image!: string;
-  @Input() text!: string;
+  image = input<string | null>();
+  text = input<string | null>();
 }

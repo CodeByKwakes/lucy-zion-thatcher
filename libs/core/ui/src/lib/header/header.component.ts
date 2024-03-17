@@ -4,10 +4,10 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  Input,
   Output,
   Renderer2,
-  inject
+  inject,
+  input
 } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import {
@@ -32,8 +32,8 @@ export class HeaderComponent implements AfterViewInit {
   readonly #el = inject(ElementRef);
   readonly #renderer = inject(Renderer2);
 
-  @Input() links: string[] = [];
-  @Input() logo: string | null = null;
+  links = input<string[]>([]);
+  logo = input<string | null>(null);
   @Output() routeChanged = new EventEmitter<string>();
 
   ngAfterViewInit(): void {

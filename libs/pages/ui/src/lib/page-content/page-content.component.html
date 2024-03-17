@@ -11,12 +11,12 @@
         <img
           class="img-fluid"
           alt=""
-          [src]="(image | getAsset) +'?format=webp'" />
+          [src]="(image()! | getAsset) +'?format=webp'" />
       </div>
       <div class="col-lg-8">
         <div
           class="content ps-lg-5"
-          [innerHTML]="text"></div>
+          [innerHTML]="text()"></div>
       </div>
     </div>
   </div>

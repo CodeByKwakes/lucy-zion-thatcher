@@ -9,7 +9,7 @@
       <img
         class="header__logo"
         alt=""
-        [ngSrc]="logo!"
+        [ngSrc]="logo()!"
         width="150"
         height="100"
         priority />
@@ -24,7 +24,7 @@
       <ul
         [routerLinkActiveOptions]="{exact: true}"
         routerLinkActive="active">
-        @for (item of links; track $index) {
+        @for (item of links(); track $index) {
         <li (click)="onRouteChanged(item)">
           <a>{{item | titlecase}}</a>
         </li>
