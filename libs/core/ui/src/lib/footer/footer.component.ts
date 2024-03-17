@@ -4,10 +4,10 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  Input,
   Output,
   Renderer2,
-  inject
+  inject,
+  input
 } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { SocialMedia } from '@lzt/shared/models';
@@ -29,11 +29,11 @@ export class FooterComponent implements AfterViewInit {
   readonly #el = inject(ElementRef);
   readonly #renderer = inject(Renderer2);
 
-  @Input() email = '';
-  @Input() links: string[] = [];
-  @Input() logo: string | null = null;
-  @Input() phoneNumber = '';
-  @Input() socialMedia: SocialMedia[] = [];
+  email = input('');
+  links = input<string[]>([]);
+  logo = input<string | null>(null);
+  phoneNumber = input<string>('');
+  socialMedia = input<SocialMedia[]>([]);
 
   @Output() routeChanged = new EventEmitter<string>();
 
