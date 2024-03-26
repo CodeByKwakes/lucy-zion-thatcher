@@ -3,10 +3,9 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter,
-  Output,
   inject,
-  input
+  input,
+  output
 } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import {
@@ -34,7 +33,7 @@ export class HeaderComponent implements AfterViewInit {
   readonly links = input<string[]>([]);
   readonly logo = input<string | null>(null);
 
-  @Output() routeChanged = new EventEmitter<string>();
+  routeChange = output<string>();
 
   ngAfterViewInit(): void {
     initMobileNavToggle(this.#el);
@@ -48,7 +47,7 @@ export class HeaderComponent implements AfterViewInit {
     const mobileNavHide = document.querySelector(
       '.mobile-nav--hide'
     ) as HTMLElement;
-    this.routeChanged.emit(route);
+    this.routeChange.emit(route);
 
     if (bodyEl.classList.contains('mobile-nav--active')) {
       mobileNavToggle(bodyEl, mobileNavShow, mobileNavHide);

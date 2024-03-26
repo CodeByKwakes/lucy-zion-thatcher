@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, EventEmitter, Output, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { SocialMedia } from '@lzt/shared/models';
 import { isScrollActive } from '@lzt/shared/utils';
@@ -24,10 +24,10 @@ export class FooterComponent {
   socialMedia = input<SocialMedia[]>([]);
   isScrollTopActive$ = isScrollActive();
 
-  @Output() routeChanged = new EventEmitter<string>();
+  routeChange = output<string>();
 
   onRouteChanged(route: string): void {
-    this.routeChanged.emit(route);
+    this.routeChange.emit(route);
   }
 
   onScrollTop(): void {
