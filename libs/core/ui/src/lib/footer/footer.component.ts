@@ -1,17 +1,8 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Output,
-  Renderer2,
-  inject,
-  input
-} from '@angular/core';
+import { Component, EventEmitter, Output, input } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { SocialMedia } from '@lzt/shared/models';
-import { initScrollTopButton } from '@lzt/shared/utils';
+import { distinctUntilChanged, fromEvent, map } from 'rxjs';
 
 @Component({
   selector: 'lib-footer',
@@ -25,23 +16,28 @@ import { initScrollTopButton } from '@lzt/shared/utils';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent implements AfterViewInit {
-  readonly #el = inject(ElementRef);
-  readonly #renderer = inject(Renderer2);
-
+export class FooterComponent {
   email = input('');
   links = input<string[]>([]);
   logo = input<string | null>(null);
   phoneNumber = input<string>('');
   socialMedia = input<SocialMedia[]>([]);
+  isScrollTopActive$ = fromEvent(window, 'scroll').pipe(
+    map(() => window.scrollY),
+    distinctUntilChanged(),
+    map((scrollTop: number) => scrollTop > 100)
+  );
 
   @Output() routeChanged = new EventEmitter<string>();
 
-  ngAfterViewInit(): void {
-    initScrollTopButton(this.#el, this.#renderer);
+  onRouteChanged(route: string): void {
+    this.routeChanged.emit(route);
   }
 
-  onRouteChanged(route: string) {
-    this.routeChanged.emit(route);
+  onScrollTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 }

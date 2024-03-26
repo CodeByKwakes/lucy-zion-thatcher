@@ -5,16 +5,12 @@ import {
   ElementRef,
   EventEmitter,
   Output,
-  Renderer2,
   inject,
   input
 } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
-import {
-  initMobileNavToggle,
-  initStickyHeader,
-  mobileNavToggle
-} from '@lzt/shared/utils';
+import { initMobileNavToggle, mobileNavToggle } from '@lzt/shared/utils';
+import { distinctUntilChanged, fromEvent, map } from 'rxjs';
 
 @Component({
   selector: 'lib-header',
@@ -30,14 +26,18 @@ import {
 })
 export class HeaderComponent implements AfterViewInit {
   readonly #el = inject(ElementRef);
-  readonly #renderer = inject(Renderer2);
 
-  links = input<string[]>([]);
-  logo = input<string | null>(null);
+  readonly isSticky$ = fromEvent(window, 'scroll').pipe(
+    map(() => window.scrollY),
+    distinctUntilChanged(),
+    map((scrollTop: number) => scrollTop > 100)
+  );
+  readonly links = input<string[]>([]);
+  readonly logo = input<string | null>(null);
+
   @Output() routeChanged = new EventEmitter<string>();
 
   ngAfterViewInit(): void {
-    initStickyHeader(this.#el, this.#renderer);
     initMobileNavToggle(this.#el);
   }
 

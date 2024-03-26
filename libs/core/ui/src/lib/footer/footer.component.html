@@ -76,6 +76,9 @@
   </section>
 </footer>
 
-<a class="scroll-top d-flex align-items-center justify-content-center">
+<a
+  class="scroll-top d-flex align-items-center justify-content-center"
+  [ngClass]="{'scroll-top--active': (isScrollTopActive$ |async)}"
+  (click)="onScrollTop()">
   <i class="scroll-top__icon bi bi-arrow-up-short"></i>
 </a>
