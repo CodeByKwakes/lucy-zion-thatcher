@@ -9,8 +9,11 @@ import {
   input
 } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
-import { initMobileNavToggle, mobileNavToggle } from '@lzt/shared/utils';
-import { distinctUntilChanged, fromEvent, map } from 'rxjs';
+import {
+  initMobileNavToggle,
+  isScrollActive,
+  mobileNavToggle
+} from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-header',
@@ -27,11 +30,7 @@ import { distinctUntilChanged, fromEvent, map } from 'rxjs';
 export class HeaderComponent implements AfterViewInit {
   readonly #el = inject(ElementRef);
 
-  readonly isSticky$ = fromEvent(window, 'scroll').pipe(
-    map(() => window.scrollY),
-    distinctUntilChanged(),
-    map((scrollTop: number) => scrollTop > 100)
-  );
+  readonly isSticky$ = isScrollActive();
   readonly links = input<string[]>([]);
   readonly logo = input<string | null>(null);
 

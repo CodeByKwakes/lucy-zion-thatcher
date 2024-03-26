@@ -2,7 +2,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, EventEmitter, Output, input } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { SocialMedia } from '@lzt/shared/models';
-import { distinctUntilChanged, fromEvent, map } from 'rxjs';
+import { isScrollActive } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-footer',
@@ -22,11 +22,7 @@ export class FooterComponent {
   logo = input<string | null>(null);
   phoneNumber = input<string>('');
   socialMedia = input<SocialMedia[]>([]);
-  isScrollTopActive$ = fromEvent(window, 'scroll').pipe(
-    map(() => window.scrollY),
-    distinctUntilChanged(),
-    map((scrollTop: number) => scrollTop > 100)
-  );
+  isScrollTopActive$ = isScrollActive();
 
   @Output() routeChanged = new EventEmitter<string>();
 
