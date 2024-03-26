@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { GetAssetPipe } from '@lzt/shared/utils';
+import { GetAssetPipe, SafeHtmlPipe } from '@lzt/shared/utils';
 
 @Component({
   selector: 'ui-page-content',
   standalone: true,
-  imports: [CommonModule, GetAssetPipe],
+  imports: [CommonModule, GetAssetPipe, SafeHtmlPipe],
   templateUrl: './page-content.component.html',
   styleUrl: './page-content.component.scss'
 })
