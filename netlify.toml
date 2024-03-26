@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/lucy-zion-thatcher"
+  publish = "dist/lucy-zion-thatcher/browser"
   command = "npm i --force && npm run build:prod"
 [[redirects]]
   from = "/*"
