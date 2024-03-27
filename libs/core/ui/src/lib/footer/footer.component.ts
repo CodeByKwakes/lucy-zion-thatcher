@@ -2,7 +2,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { SocialMedia } from '@lzt/shared/models';
-import { isScrollActive } from '@lzt/shared/utils';
+import { useIsWindowScrollActive } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-footer',
@@ -22,7 +22,7 @@ export class FooterComponent {
   logo = input<string | null>(null);
   phoneNumber = input<string>('');
   socialMedia = input<SocialMedia[]>([]);
-  isScrollTopActive$ = isScrollActive();
+  isScrollTopActive$ = useIsWindowScrollActive();
 
   routeChange = output<string>();
 

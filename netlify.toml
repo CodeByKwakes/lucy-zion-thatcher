@@ -5,3 +5,5 @@
   from = "/*"
   to = "/index.html"
   status = 200
+[images]
+  remote_images = ["https://lucy-zion-thatcher-cms.up.railway.app/.*"]

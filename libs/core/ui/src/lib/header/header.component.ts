@@ -10,7 +10,7 @@ import {
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import {
   initMobileNavToggle,
-  isScrollActive,
+  useIsWindowScrollActive,
   mobileNavToggle
 } from '@lzt/shared/utils';
 
@@ -29,7 +29,7 @@ import {
 export class HeaderComponent implements AfterViewInit {
   readonly #el = inject(ElementRef);
 
-  readonly isSticky$ = isScrollActive();
+  readonly isSticky$ = useIsWindowScrollActive();
   readonly links = input<string[]>([]);
   readonly logo = input<string | null>(null);
 
