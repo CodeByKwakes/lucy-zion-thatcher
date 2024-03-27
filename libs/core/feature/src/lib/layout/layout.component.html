@@ -4,7 +4,7 @@
   [links]="links()"
   [logo]="(globalPage().logo | getAsset) + '?format=webp'
   "
-  (routeChanged)="onRouteToPage($event)" />
+  (routeChange)="onRouteToPage($event)" />
 <!-- End Header -->
 
 <main id="main">
@@ -18,7 +18,7 @@
   [logo]="(globalPage().logo | getAsset) + '?format=webp'"
   [phoneNumber]="globalPage().phone_number"
   [socialMedia]="globalPage().social_media"
-  (routeChanged)="onRouteToPage($event)" />
+  (routeChange)="onRouteToPage($event)" />
 <!-- End Footer -->
 
 } @else {

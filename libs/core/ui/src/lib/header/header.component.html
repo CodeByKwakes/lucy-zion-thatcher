@@ -1,6 +1,7 @@
 <header
   class="header d-flex align-items-center fixed-top"
-  id="header">
+  id="header"
+  [ngClass]="{'header--sticked': (isSticky$ | async)}">
   <div
     class="container-fluid container-xl d-flex align-items-center justify-content-between">
     <a
@@ -9,7 +10,7 @@
       <img
         class="header__logo"
         alt=""
-        [ngSrc]="logo!"
+        [ngSrc]="logo()!"
         width="150"
         height="100"
         priority />
@@ -21,11 +22,12 @@
     <nav
       class="navbar"
       id="navbar">
-      <ul
-        [routerLinkActiveOptions]="{exact: true}"
-        routerLinkActive="active">
-        @for (item of links; track $index) {
-        <li (click)="onRouteChanged(item)">
+      <ul>
+        @for (item of links(); track $index) {
+        <li
+          #rla="routerLinkActive"
+          (click)="onRouteChanged(item)"
+          routerLinkActive>
           <a>{{item | titlecase}}</a>
         </li>
         }

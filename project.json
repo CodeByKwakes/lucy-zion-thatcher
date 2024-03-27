@@ -7,12 +7,13 @@
   "tags": ["type:app"],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath.base}"],
       "options": {
-        "outputPath": "dist/lucy-zion-thatcher",
+        "outputPath": {
+          "base": "dist/lucy-zion-thatcher"
+        },
         "index": "./src/index.html",
-        "main": "./src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "./tsconfig.app.json",
         "assets": ["./src/favicon.ico", "./src/assets"],
@@ -27,7 +28,8 @@
           "node_modules/swiper/swiper-bundle.min.js",
           "node_modules/isotope-layout/dist/isotope.pkgd.min.js"
         ],
-        "allowedCommonJsDependencies": ["aos", "crypto-js"]
+        "allowedCommonJsDependencies": ["aos", "crypto-js"],
+        "browser": "./src/main.ts"
       },
       "configurations": {
         "production": {
@@ -46,9 +48,7 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true,

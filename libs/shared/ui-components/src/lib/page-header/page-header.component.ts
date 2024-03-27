@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, input } from '@angular/core';
 import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
@@ -10,6 +10,6 @@ import { GetAssetPipe } from '@lzt/shared/utils';
   styleUrls: ['./page-header.component.scss']
 })
 export class PageHeaderComponent {
-  @Input() headerImage: string | null = null;
-  @Input() title: string | null = null;
+  headerImage = input<string | null>();
+  title = input<string | null>();
 }
