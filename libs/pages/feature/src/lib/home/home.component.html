@@ -16,7 +16,7 @@
           class="hero__blockquote"
           data-aos="fade-up"
           data-aos-delay="100">
-          <p>{{currentPage().caption}}</p>
+          <div [innerHTML]="currentPage().caption | safeHtml"></div>
         </blockquote>
         <div
           class="d-flex"

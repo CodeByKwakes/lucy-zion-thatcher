@@ -3,11 +3,11 @@ import { Component, Signal, inject } from '@angular/core';
 import { useCoreStore } from '@lzt/core/api';
 import { PageStore } from '@lzt/pages/data-access';
 import { HomePage } from '@lzt/shared/models';
-import { GetAssetPipe } from '@lzt/shared/utils';
+import { GetAssetPipe, SafeHtmlPipe } from '@lzt/shared/utils';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, GetAssetPipe],
+  imports: [CommonModule, GetAssetPipe, SafeHtmlPipe],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
