@@ -45,7 +45,7 @@
 
               <div
                 class="content"
-                [innerHTML]="item.blog_content | truncate: 200"></div>
+                [innerHTML]="item.blog_content | truncate: 200 | safeHtml"></div>
 
               <div class="read-more mt-auto align-self-end">
                 <a

@@ -23,8 +23,6 @@
               [src]="(blog().blog_feature_image! | getAsset)  + '?format=webp'" />
           </div>
 
-          <!-- <h2 class="title">{{blog.blog_title}}</h2> -->
-
           <div class="meta-top">
             <ul>
               <li class="d-flex align-items-center">
@@ -41,7 +39,7 @@
 
           <div
             class="content"
-            [innerHTML]="blog().blog_content"></div>
+            [innerHTML]="blog().blog_content | safeHtml"></div>
         </article>
       </div>
     </div>

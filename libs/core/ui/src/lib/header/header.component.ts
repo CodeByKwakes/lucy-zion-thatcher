@@ -3,16 +3,14 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-  Renderer2,
-  inject
+  inject,
+  input,
+  output
 } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import {
   initMobileNavToggle,
-  initStickyHeader,
+  useIsWindowScrollActive,
   mobileNavToggle
 } from '@lzt/shared/utils';
 
@@ -30,14 +28,14 @@ import {
 })
 export class HeaderComponent implements AfterViewInit {
   readonly #el = inject(ElementRef);
-  readonly #renderer = inject(Renderer2);
 
-  @Input() links: string[] = [];
-  @Input() logo: string | null = null;
-  @Output() routeChanged = new EventEmitter<string>();
+  readonly isSticky$ = useIsWindowScrollActive();
+  readonly links = input<string[]>([]);
+  readonly logo = input<string | null>(null);
+
+  routeChange = output<string>();
 
   ngAfterViewInit(): void {
-    initStickyHeader(this.#el, this.#renderer);
     initMobileNavToggle(this.#el);
   }
 
@@ -49,7 +47,7 @@ export class HeaderComponent implements AfterViewInit {
     const mobileNavHide = document.querySelector(
       '.mobile-nav--hide'
     ) as HTMLElement;
-    this.routeChanged.emit(route);
+    this.routeChange.emit(route);
 
     if (bodyEl.classList.contains('mobile-nav--active')) {
       mobileNavToggle(bodyEl, mobileNavShow, mobileNavHide);
