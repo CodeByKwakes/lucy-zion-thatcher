@@ -32,7 +32,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 15px 0 15px 30px;
-      color: rgba(var(--text-rgb) / 60%);
+      color: rgba(var(--text-rgb), 0.6);
       cursor: pointer;
       font-family: var(--font-default);
       font-size: 15px;
@@ -107,7 +107,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 20px;
-      color: rgba(var(--text-rgb) / 70%);
+      color: rgba(var(--text-rgb), 0.6);
       font-family: var(--font-default);
       font-size: 15px;
       font-weight: 600;

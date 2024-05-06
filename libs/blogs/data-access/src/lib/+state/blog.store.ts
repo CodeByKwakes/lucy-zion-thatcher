@@ -24,10 +24,13 @@ import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { mergeMap, pipe } from 'rxjs';
 
+const entity = type<BlogPost>();
+const collection = 'blog';
+
 export const BlogStore = signalStore(
   { providedIn: 'root' },
   withDevtools('blogs'),
-  withEntities({ entity: type<BlogPost>(), collection: 'blog' }),
+  withEntities({ entity, collection }),
   withRequestStatus(),
   withLogger('blogs'),
   withComputed(({ blogEntityMap }, store = inject(Store)) => ({
@@ -48,7 +51,7 @@ export const BlogStore = signalStore(
               next: (blogs) =>
                 patchState(
                   store,
-                  addEntities(blogs, { collection: 'blog', idKey: 'slug' })
+                  addEntities(blogs, { collection, idKey: 'slug' })
                 ),
               error: (error: Error) =>
                 patchState(store, setError(error.message)),
