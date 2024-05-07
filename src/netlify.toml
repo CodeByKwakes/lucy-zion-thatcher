@@ -1,9 +1,11 @@
 [build]
   publish = "dist/lucy-zion-thatcher/browser"
-  command = "npm i --force && npm run build:prod"
+  command = "npm run build:prod"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
 [images]
   remote_images = ["https://lucy-zion-thatcher-cms.up.railway.app/.*"]
