@@ -3,7 +3,7 @@ export default {
   displayName: 'blogs-api',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/blogs/api',
+  coverageDirectory: '../../../coverage/modules/blogs/api',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
