@@ -1,3 +1,3 @@
-import { BlogStore } from '@lzt/blogs/data-access';
+import { BlogStore } from '@lzt/blogs/domain';
 
 export { BlogStore };

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { BlogStore } from '@lzt/blogs/data-access';
+import { BlogStore } from '@lzt/blogs/domain';
 import { useCoreStore } from '@lzt/core/api';
 import { PageHeaderComponent } from '@lzt/shared/ui-components';
 import { GetAssetPipe, TruncatePipe, SafeHtmlPipe } from '@lzt/shared/utils';

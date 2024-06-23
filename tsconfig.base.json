@@ -17,7 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@lzt/blogs/api": ["modules/blogs/api/src/index.ts"],
-      "@lzt/blogs/data-access": ["libs/blogs/data-access/src/index.ts"],
+      "@lzt/blogs/domain": ["modules/blogs/domain/src/index.ts"],
       "@lzt/blogs/feature": ["libs/blogs/feature/src/index.ts"],
       "@lzt/core/api": ["libs/core/api/src/index.ts"],
       "@lzt/core/data-access": ["libs/core/data-access/src/index.ts"],
