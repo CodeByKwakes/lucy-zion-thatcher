@@ -1,15 +1,8 @@
-import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { computed, inject } from '@angular/core';
 import { selectRouteByParam } from '@lzt/core/api';
 import { DataService } from '@lzt/shared/data-access';
 import { BlogPost } from '@lzt/shared/models';
-import {
-  setError,
-  setFulfilled,
-  setPending,
-  withLogger,
-  withRequestStatus
-} from '@lzt/shared/utils';
+import { setError, setFulfilled, setPending } from '@lzt/shared/utils';
 import { tapResponse } from '@ngrx/operators';
 import {
   patchState,
@@ -23,16 +16,15 @@ import { addEntities, withEntities } from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { mergeMap, pipe } from 'rxjs';
+import { withBlogFeatures } from './blog.features';
 
 const entity = type<BlogPost>();
 const collection = 'blog';
 
 export const BlogStore = signalStore(
   { providedIn: 'root' },
-  withDevtools('blogs'),
   withEntities({ entity, collection }),
-  withRequestStatus(),
-  withLogger('blogs'),
+  withBlogFeatures(),
   withComputed(({ blogEntityMap }, store = inject(Store)) => ({
     selectBlogFromRoute: computed(() => {
       const params = store.selectSignal(selectRouteByParam);
