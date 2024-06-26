@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'pages-data-access',
+  displayName: 'pages-domain',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/pages/data-access',
+  coverageDirectory: '../../../coverage/modules/pages/domain',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

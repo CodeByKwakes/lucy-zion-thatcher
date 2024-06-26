@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Signal, inject } from '@angular/core';
 import { useCoreStore } from '@lzt/core/api';
-import { PageStore } from '@lzt/pages/data-access';
+import { PageStore } from '@lzt/pages/domain';
 import { HomePage } from '@lzt/shared/models';
 import { GetAssetPipe, SafeHtmlPipe } from '@lzt/shared/utils';
 
