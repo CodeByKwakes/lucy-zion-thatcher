@@ -1,7 +1,7 @@
 import { effect } from '@angular/core';
 import { getState, signalStoreFeature, withHooks } from '@ngrx/signals';
 
-export function withLogger(name: string) {
+export function withStateLogging(name: string) {
   return signalStoreFeature(
     withHooks({
       onInit(store) {

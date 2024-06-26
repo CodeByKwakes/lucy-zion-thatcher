@@ -1,4 +1,5 @@
-@if(pagesLoaded()) {
+@if(hasPagesLoaded()) {
+
 <!-- ======= Header ======= -->
 <lib-header
   [links]="links()"
@@ -22,5 +23,7 @@
 <!-- End Footer -->
 
 } @else {
+
 <div class="preloader"></div>
+
 }

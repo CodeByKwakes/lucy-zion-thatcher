@@ -15,11 +15,12 @@ import {
 import { addEntities, withEntities } from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { Store } from '@ngrx/store';
-import { mergeMap, pipe } from 'rxjs';
+import { mergeMap, pipe, tap } from 'rxjs';
 import { withBlogFeatures } from './blog.features';
 
 const entity = type<BlogPost>();
 const collection = 'blog';
+const idKey = 'slug';
 
 export const BlogStore = signalStore(
   { providedIn: 'root' },
@@ -35,16 +36,12 @@ export const BlogStore = signalStore(
   withMethods((store, dataService = inject(DataService)) => ({
     loadBlogs: rxMethod<void>(
       pipe(
+        tap(() => patchState(store, setPending())),
         mergeMap(() => {
-          patchState(store, setPending());
-
           return dataService.loadAllBlogs().pipe(
             tapResponse({
               next: (blogs) =>
-                patchState(
-                  store,
-                  addEntities(blogs, { collection, idKey: 'slug' })
-                ),
+                patchState(store, addEntities(blogs, { collection, idKey })),
               error: (error: Error) =>
                 patchState(store, setError(error.message)),
               finalize: () => patchState(store, setFulfilled())

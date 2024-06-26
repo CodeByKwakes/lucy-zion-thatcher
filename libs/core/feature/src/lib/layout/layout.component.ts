@@ -27,7 +27,7 @@ export class LayoutComponent implements AfterViewInit {
 
   readonly globalPage = this.#pageStore.selectGlobalPage as Signal<GlobalPage>;
   readonly links = signal<string[]>(NAV_LINKS);
-  readonly pagesLoaded = this.#pageStore.loaded;
+  readonly hasPagesLoaded = this.#pageStore.hasLoaded;
 
   ngAfterViewInit(): void {
     this.initAos();

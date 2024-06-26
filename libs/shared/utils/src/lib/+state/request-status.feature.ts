@@ -6,30 +6,30 @@ export type RequestStatus =
   | 'pending'
   | 'fulfilled'
   | { error: string };
-export type RequestStatusState = { requestStatus: RequestStatus };
+export type RequestStatusState = { status: RequestStatus };
 
 export function withRequestStatus() {
   return signalStoreFeature(
-    withState<RequestStatusState>({ requestStatus: 'idle' }),
-    withComputed(({ requestStatus }) => ({
-      loading: computed(() => requestStatus() === 'pending'),
-      loaded: computed(() => requestStatus() === 'fulfilled'),
+    withState<RequestStatusState>({ status: 'idle' }),
+    withComputed(({ status }) => ({
+      isLoading: computed(() => status() === 'pending'),
+      hasLoaded: computed(() => status() === 'fulfilled'),
       error: computed(() => {
-        const status = requestStatus();
-        return typeof status === 'object' ? status.error : null;
+        const getStatus = status();
+        return typeof getStatus === 'object' ? getStatus.error : null;
       })
     }))
   );
 }
 
 export function setPending(): RequestStatusState {
-  return { requestStatus: 'pending' };
+  return { status: 'pending' };
 }
 
 export function setFulfilled(): RequestStatusState {
-  return { requestStatus: 'fulfilled' };
+  return { status: 'fulfilled' };
 }
 
 export function setError(error: string): RequestStatusState {
-  return { requestStatus: { error } };
+  return { status: { error } };
 }
