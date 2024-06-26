@@ -1,6 +1,6 @@
 import { computed, inject } from '@angular/core';
 import { selectRouteByParam } from '@lzt/core/api';
-import { DataService } from '@lzt/shared/data-access';
+import { DataService } from '@lzt/shared/domain';
 import { BlogPost } from '@lzt/shared/models';
 import { setError, setFulfilled, setPending } from '@lzt/shared/utils';
 import { tapResponse } from '@ngrx/operators';

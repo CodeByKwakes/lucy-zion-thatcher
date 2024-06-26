@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Signal, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PageStore } from '@lzt/pages/domain';
-import { DataService } from '@lzt/shared/data-access';
+import { DataService } from '@lzt/shared/domain';
 import { ContactPage, GlobalPage, MessageMeta } from '@lzt/shared/models';
 import { PageHeaderComponent } from '@lzt/shared/ui-components';
 

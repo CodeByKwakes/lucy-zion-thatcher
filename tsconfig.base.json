@@ -27,7 +27,7 @@
       "@lzt/pages/domain": ["modules/pages/domain/src/index.ts"],
       "@lzt/pages/feature": ["modules/pages/feature/src/index.ts"],
       "@lzt/pages/ui": ["modules/pages/ui/src/index.ts"],
-      "@lzt/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@lzt/shared/domain": ["modules/shared/domain/src/index.ts"],
       "@lzt/shared/models": ["libs/shared/models/src/index.ts"],
       "@lzt/shared/ui-components": ["libs/shared/ui-components/src/index.ts"],
       "@lzt/shared/ui-style": ["libs/shared/ui-style/src/index.ts"],
