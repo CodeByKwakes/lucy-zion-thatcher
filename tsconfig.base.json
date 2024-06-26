@@ -33,7 +33,7 @@
         "modules/shared/ui-components/src/index.ts"
       ],
       "@lzt/shared/ui-style": ["modules/shared/ui-style/src/index.ts"],
-      "@lzt/shared/utils": ["libs/shared/utils/src/index.ts"]
+      "@lzt/shared/utils": ["modules/shared/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
