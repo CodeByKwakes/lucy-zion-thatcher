@@ -6,7 +6,7 @@ import {
   inject,
   signal
 } from '@angular/core';
-import { useCoreStore } from '@lzt/core/data-access';
+import { useCoreStore } from '@lzt/core/domain';
 import { FooterComponent, HeaderComponent } from '@lzt/core/ui';
 import { PageStore } from '@lzt/pages/api';
 import { GlobalPage } from '@lzt/shared/models';

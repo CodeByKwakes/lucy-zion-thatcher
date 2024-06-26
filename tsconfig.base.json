@@ -20,7 +20,7 @@
       "@lzt/blogs/domain": ["modules/blogs/domain/src/index.ts"],
       "@lzt/blogs/feature": ["modules/blogs/feature/src/index.ts"],
       "@lzt/core/api": ["modules/core/api/src/index.ts"],
-      "@lzt/core/data-access": ["libs/core/data-access/src/index.ts"],
+      "@lzt/core/domain": ["modules/core/domain/src/index.ts"],
       "@lzt/core/feature": ["libs/core/feature/src/index.ts"],
       "@lzt/core/ui": ["libs/core/ui/src/index.ts"],
       "@lzt/pages/api": ["libs/pages/api/src/index.ts"],
