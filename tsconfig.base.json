@@ -23,7 +23,7 @@
       "@lzt/core/domain": ["modules/core/domain/src/index.ts"],
       "@lzt/core/feature": ["modules/core/feature/src/index.ts"],
       "@lzt/core/ui": ["modules/core/ui/src/index.ts"],
-      "@lzt/pages/api": ["libs/pages/api/src/index.ts"],
+      "@lzt/pages/api": ["modules/pages/api/src/index.ts"],
       "@lzt/pages/data-access": ["libs/pages/data-access/src/index.ts"],
       "@lzt/pages/feature": ["libs/pages/feature/src/index.ts"],
       "@lzt/pages/ui": ["libs/pages/ui/src/index.ts"],

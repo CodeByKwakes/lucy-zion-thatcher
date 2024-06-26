@@ -3,7 +3,7 @@ export default {
   displayName: 'pages-api',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/pages/api',
+  coverageDirectory: '../../../coverage/modules/pages/api',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
