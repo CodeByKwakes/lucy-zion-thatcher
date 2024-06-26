@@ -32,7 +32,7 @@
       "@lzt/shared/ui-components": [
         "modules/shared/ui-components/src/index.ts"
       ],
-      "@lzt/shared/ui-style": ["libs/shared/ui-style/src/index.ts"],
+      "@lzt/shared/ui-style": ["modules/shared/ui-style/src/index.ts"],
       "@lzt/shared/utils": ["libs/shared/utils/src/index.ts"]
     }
   },

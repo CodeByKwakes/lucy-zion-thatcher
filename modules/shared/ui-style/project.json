@@ -1,19 +1,19 @@
 {
   "name": "shared-ui-style",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/shared/ui-style/src",
+  "sourceRoot": "modules/shared/ui-style/src",
   "projectType": "library",
+  "tags": ["type:ui", "scope:shared"],
   "targets": {
     "stylelint": {
       "executor": "nx-stylelint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/shared/ui-style/**/*.css",
-          "libs/shared/ui-style/**/*.scss"
+          "modules/shared/ui-style/**/*.css",
+          "modules/shared/ui-style/**/*.scss"
         ]
       }
     }
-  },
-  "tags": ["type:ui", "scope:shared"]
+  }
 }
