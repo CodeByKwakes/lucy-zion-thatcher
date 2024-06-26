@@ -1,16 +1,16 @@
 {
   "name": "core-ui",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/core/ui/src",
+  "sourceRoot": "modules/core/ui/src",
   "prefix": "lib",
-  "tags": ["type:ui", "scope:core"],
   "projectType": "library",
+  "tags": ["type:ui", "scope:core"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/core/ui/jest.config.ts"
+        "jestConfig": "modules/core/ui/jest.config.ts"
       }
     },
     "lint": {
