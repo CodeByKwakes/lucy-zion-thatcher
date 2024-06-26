@@ -19,7 +19,7 @@
         "assets": ["./src/favicon.ico", "./src/assets"],
         "styles": ["./src/styles.scss"],
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/shared/ui-style/src/lib/scss"]
+          "includePaths": ["modules/shared/ui-style/src/lib/scss"]
         },
         "scripts": [
           "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
