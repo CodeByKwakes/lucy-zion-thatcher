@@ -21,7 +21,7 @@
       "@lzt/blogs/feature": ["modules/blogs/feature/src/index.ts"],
       "@lzt/core/api": ["modules/core/api/src/index.ts"],
       "@lzt/core/domain": ["modules/core/domain/src/index.ts"],
-      "@lzt/core/feature": ["libs/core/feature/src/index.ts"],
+      "@lzt/core/feature": ["modules/core/feature/src/index.ts"],
       "@lzt/core/ui": ["libs/core/ui/src/index.ts"],
       "@lzt/pages/api": ["libs/pages/api/src/index.ts"],
       "@lzt/pages/data-access": ["libs/pages/data-access/src/index.ts"],

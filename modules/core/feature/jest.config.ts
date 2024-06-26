@@ -3,7 +3,7 @@ export default {
   displayName: 'core-feature',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/core/feature',
+  coverageDirectory: '../../../coverage/modules/core/feature',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
