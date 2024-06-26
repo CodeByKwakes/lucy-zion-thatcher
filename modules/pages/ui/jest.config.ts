@@ -3,7 +3,7 @@ export default {
   displayName: 'pages-ui',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/pages/ui',
+  coverageDirectory: '../../../coverage/modules/pages/ui',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
