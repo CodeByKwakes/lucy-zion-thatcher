@@ -1,5 +1,5 @@
 /* --------------------------------------------------------------
-# Page Header
+# Page & Section Header
 -------------------------------------------------------------- */
 .page-header {
   position: relative;
@@ -22,5 +22,18 @@
     font-size: 56px;
     font-weight: 500;
     text-align: center;
+  }
+}
+
+.section-header {
+  text-align: center;
+  padding-bottom: 30px;
+
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
   }
 }
