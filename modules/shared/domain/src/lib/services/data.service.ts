@@ -61,24 +61,23 @@ export class DataService {
         observer.next(cachedData as PageArray);
         observer.complete();
       });
-    } else {
-      console.log('http pages');
-      /**
-       * Array of observables representing different pages.
-       * Each observable corresponds to a specific page type.
-       */
-      const observables = [
-        getPage('global') as unknown as Observable<GlobalPage>,
-        getPage('home') as unknown as Observable<HomePage>,
-        getPage('about') as unknown as Observable<AboutPage>,
-        getPage('speaker') as unknown as Observable<SpeakerPage>,
-        getPage('contact') as unknown as Observable<ContactPage>
-      ];
-
-      return forkJoin(observables).pipe(
-        tap((pages) => this.#cacheService.set('pages', pages))
-      );
     }
+    console.log('http pages');
+    /**
+     * Array of observables representing different pages.
+     * Each observable corresponds to a specific page type.
+     */
+    const observables = [
+      getPage('global') as unknown as Observable<GlobalPage>,
+      getPage('home') as unknown as Observable<HomePage>,
+      getPage('about') as unknown as Observable<AboutPage>,
+      getPage('speaker') as unknown as Observable<SpeakerPage>,
+      getPage('contact') as unknown as Observable<ContactPage>
+    ];
+
+    return forkJoin(observables).pipe(
+      tap((pages) => this.#cacheService.set('pages', pages))
+    );
   }
 
   /**
