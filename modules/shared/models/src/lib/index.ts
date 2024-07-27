@@ -6,3 +6,4 @@ export * from './home-page.model';
 export * from './message-meta.model';
 export * from './page.model';
 export * from './speaker-page.model';
+export * from './testimonial.model';

@@ -4,11 +4,11 @@ import { GlobalPage } from './global-page.model';
 import { HomePage } from './home-page.model';
 import { SpeakerPage } from './speaker-page.model';
 
-export type PageType =
+export type PageTypeOptions =
   | GlobalPage
   | HomePage
   | AboutPage
   | SpeakerPage
   | ContactPage;
 
-export type PageArray = PageType[];
+export type PageArray = PageTypeOptions[];
