@@ -44,7 +44,7 @@ export const PageStore = signalStore(
       pipe(
         tap(() => patchState(store, setPending())),
         mergeMap(() => {
-          return dataService.loadAllPages().pipe(
+          return dataService.loadPages().pipe(
             tapResponse({
               next: (pages) =>
                 patchState(

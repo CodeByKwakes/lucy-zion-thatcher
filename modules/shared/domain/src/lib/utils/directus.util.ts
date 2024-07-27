@@ -28,5 +28,17 @@ export const getBlogPosts = async () =>
     })
   );
 
+export const getTestimonials = async () =>
+  await directus.request(
+    readItems('testimonials', {
+      fields: ['*'],
+      filter: {
+        status: {
+          _eq: 'published'
+        }
+      }
+    })
+  );
+
 export const createMessage = async (data: MessageMeta) =>
   await directus.request(createItem('messages', data));

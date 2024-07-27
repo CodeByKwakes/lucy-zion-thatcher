@@ -7,10 +7,16 @@ import {
   HomePage,
   MessageMeta,
   PageArray,
-  SpeakerPage
+  SpeakerPage,
+  Testimonial
 } from '@lzt/shared/models';
 import { Observable, forkJoin, map, tap } from 'rxjs';
-import { createMessage, getBlogPosts, getPage } from '../utils';
+import {
+  createMessage,
+  getBlogPosts,
+  getPage,
+  getTestimonials
+} from '../utils';
 import { CacheService } from '@lzt/shared/utils';
 
 @Injectable({
@@ -33,6 +39,7 @@ export class DataService {
     //   });
     // } else {
     // console.log('http blogs');
+
     /**
      * Array of observables.
      * @type {Observable<BlogPost[]>[]}
@@ -51,7 +58,7 @@ export class DataService {
    * Each page is represented by a specific page type.
    * @returns An observable that emits an array of pages.
    */
-  loadAllPages(): Observable<PageArray> {
+  loadPages(): Observable<PageArray> {
     const cachedData = this.#cacheService.get('pages');
 
     if (cachedData) {
@@ -80,6 +87,13 @@ export class DataService {
     );
   }
 
+  loadTestimonials(): Observable<Testimonial[]> {
+    const observables = [
+      getTestimonials() as unknown as Observable<Testimonial[]>
+    ];
+
+    return forkJoin(observables).pipe(map(([testimonials]) => testimonials));
+  }
   /**
    * Sends a message using the provided data.
    * @param data The message metadata.
