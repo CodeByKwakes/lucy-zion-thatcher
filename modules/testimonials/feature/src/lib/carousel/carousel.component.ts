@@ -36,7 +36,17 @@ export class CarouselComponent implements AfterViewInit {
         1200: {
           slidesPerView: 3
         }
-      }
+      },
+      injectStyles: [
+        `.swiper-button-prev, .swiper-button-next {
+            color: var(--accent);
+          }
+
+          .swiper-pagination-bullet-active {
+            background-color: var(--accent);
+          }
+        `
+      ]
     } as SwiperOptions;
 
     Object.assign(this.swiper.nativeElement, swiperParams);
