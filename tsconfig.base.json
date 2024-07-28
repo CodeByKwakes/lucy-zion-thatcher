@@ -29,9 +29,7 @@
       "@lzt/pages/ui": ["modules/pages/ui/src/index.ts"],
       "@lzt/shared/domain": ["modules/shared/domain/src/index.ts"],
       "@lzt/shared/models": ["modules/shared/models/src/index.ts"],
-      "@lzt/shared/ui-components": [
-        "modules/shared/ui-components/src/index.ts"
-      ],
+      "@lzt/shared/ui": ["modules/shared/ui/src/index.ts"],
       "@lzt/shared/utils": ["modules/shared/utils/src/index.ts"],
       "@lzt/styles": ["styles/src/index.ts"],
       "@lzt/testimonials/api": ["modules/testimonials/api/src/index.ts"],

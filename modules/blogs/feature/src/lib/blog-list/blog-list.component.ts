@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { BlogStore } from '@lzt/blogs/domain';
 import { useCoreStore } from '@lzt/core/api';
-import { PageHeaderComponent } from '@lzt/shared/ui-components';
+import { PageHeaderComponent } from '@lzt/shared/ui';
 import { GetAssetPipe, TruncatePipe, SafeHtmlPipe } from '@lzt/shared/utils';
 
 @Component({

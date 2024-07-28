@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PageStore } from '@lzt/pages/domain';
 import { DataService } from '@lzt/shared/domain';
 import { ContactPage, GlobalPage, MessageMeta } from '@lzt/shared/models';
-import { PageHeaderComponent } from '@lzt/shared/ui-components';
+import { PageHeaderComponent } from '@lzt/shared/ui';
 
 @Component({
   selector: 'lib-contact',

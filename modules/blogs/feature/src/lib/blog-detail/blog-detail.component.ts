@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { BlogStore } from '@lzt/blogs/domain';
-import { PageHeaderComponent } from '@lzt/shared/ui-components';
+import { PageHeaderComponent } from '@lzt/shared/ui';
 import { GetAssetPipe, SafeHtmlPipe } from '@lzt/shared/utils';
 
 @Component({
