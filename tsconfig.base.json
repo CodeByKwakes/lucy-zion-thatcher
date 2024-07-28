@@ -34,6 +34,7 @@
       ],
       "@lzt/shared/ui-style": ["modules/shared/ui-style/src/index.ts"],
       "@lzt/shared/utils": ["modules/shared/utils/src/index.ts"],
+      "@lzt/testimonials/api": ["modules/testimonials/api/src/index.ts"],
       "@lzt/testimonials/domain": ["modules/testimonials/domain/src/index.ts"]
     }
   },

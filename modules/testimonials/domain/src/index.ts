@@ -1,1 +1,1 @@
-export * from './lib/domain.component';
+export * from './lib/+state/testimonial.store';
