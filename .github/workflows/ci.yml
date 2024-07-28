@@ -1,10 +1,11 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   pull_request:
+    branches: [main]
 
 permissions:
   actions: read
@@ -27,8 +28,14 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+      - run: git fetch origin main
       - run: npm install --legacy-peer-deps
       - uses: nrwl/nx-set-shas@v4
 
       # - run: npx nx-cloud record -- nx format:check
-      - run: npx nx affected -t lint build
+      - name: Run Affected Lint
+        shell: bash
+        run: npx nx affected -t lint -- --base=remotes/origin/main
+      - name: Run Affected Build
+        shell: bash
+        run: npx nx affected -t build -- --base=remotes/origin/main
