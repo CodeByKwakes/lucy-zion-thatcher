@@ -33,7 +33,8 @@
       "@lzt/shared/utils": ["modules/shared/utils/src/index.ts"],
       "@lzt/styles": ["styles/src/index.ts"],
       "@lzt/testimonials/api": ["modules/testimonials/api/src/index.ts"],
-      "@lzt/testimonials/domain": ["modules/testimonials/domain/src/index.ts"]
+      "@lzt/testimonials/domain": ["modules/testimonials/domain/src/index.ts"],
+      "@lzt/testimonials/feature": ["modules/testimonials/feature/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
