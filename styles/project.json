@@ -1,0 +1,16 @@
+{
+  "name": "styles",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "styles/src",
+  "projectType": "library",
+  "tags": ["type:ui", "scope:shared"],
+  "targets": {
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["styles/**/*.css", "styles/**/*.scss"]
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ import {
   withEnabledBlockingInitialNavigation,
   withInMemoryScrolling
 } from '@angular/router';
-import { provideCoreStore } from '@lzt/core/data-access';
+import { provideCoreStore } from '@lzt/core/domain';
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {

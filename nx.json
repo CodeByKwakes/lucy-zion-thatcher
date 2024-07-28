@@ -55,8 +55,7 @@
     }
   },
   "workspaceLayout": {
-    "appsDir": "apps",
-    "libsDir": "libs"
+    "appsDir": "apps"
   },
   "generators": {
     "@nx/angular:application": {

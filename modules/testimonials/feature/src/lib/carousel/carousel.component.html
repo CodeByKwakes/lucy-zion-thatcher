@@ -1,0 +1,25 @@
+<swiper-container
+  #swiper
+  slides-per-view="3"
+  speed="1000"
+  navigation="true"
+  pagination="true"
+  pagination-clickable="true"
+  autoplay="true"
+  autoplay-disable-on-interaction="false">
+  @for (testimonial of testimonials(); track testimonial.id) {
+  <swiper-slide>
+    <div class="testimonial-item">
+      <blockquote class="my-auto">
+        <p>{{testimonial.quote}}</p>
+      </blockquote>
+
+      @if (testimonial.name) {
+      <div class="profile">
+        <h3>{{testimonial.name}}</h3>
+      </div>
+      }
+    </div>
+  </swiper-slide>
+  }
+</swiper-container>

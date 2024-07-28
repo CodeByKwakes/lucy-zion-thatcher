@@ -1,0 +1,49 @@
+<!-- ======= Hero Section ======= -->
+@if(currentPage()) {
+<section
+  class="hero page-section d-flex align-items-center"
+  id="hero"
+  style="background-image: url('{{currentPage().header_image! | getAsset}}?format=webp')">
+  <div class="hero__content-layer container">
+    <div class="row">
+      <div class="col-xl-4">
+        <h2
+          class="hero__title"
+          data-aos="fade-up">
+          {{currentPage().title}}
+        </h2>
+        <blockquote
+          class="hero__blockquote"
+          data-aos="fade-up"
+          data-aos-delay="100">
+          <div [innerHTML]="currentPage().caption | safeHtml"></div>
+        </blockquote>
+        <div
+          class="d-flex"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          (click)="onRouteToPage('about')">
+          <a class="hero__cta-btn"> About Lucy </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= Testimonials Section ======= -->
+<section
+  class="testimonials page-section"
+  id="testimonials">
+  <div
+    class="container"
+    data-aos="fade-up">
+    <div class="section-header">
+      <h2>Testimonials</h2>
+    </div>
+
+    <lib-carousel></lib-carousel>
+  </div>
+</section>
+<!-- End Testimonials Section -->
+}
+<!-- End Hero Section -->

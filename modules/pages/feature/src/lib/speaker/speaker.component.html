@@ -1,0 +1,60 @@
+@if(currentPage()) {
+<lib-page-header
+  [headerImage]="currentPage().header_image || null"
+  [title]="currentPage().title || null" />
+
+<!-- ======= About Section ======= -->
+@defer {
+<ui-page-content
+  [image]="currentPage().content_image"
+  [text]="currentPage().content_text" />
+}
+<!-- End About Section -->
+
+<!-- ======= Our Services Section ======= -->
+<section
+  class="page-section services-list"
+  id="services-list">
+  <div
+    class="container"
+    data-aos="fade-up">
+    <div class="page-section__header">
+      <p>{{currentPage().services_caption}}</p>
+    </div>
+
+    <div class="row gy-5">
+      @for (item of currentPage().list; track item) {
+      <div
+        class="col-lg-4 col-md-6 service-item d-flex"
+        data-aos="fade-up"
+        data-aos-delay="100">
+        <div>
+          <h4 class="service-item-title">
+            <a class="stretched-link"> {{item.label}} </a>
+          </h4>
+          <p class="service-item-description">{{item.text}}</p>
+        </div>
+      </div>
+      }
+      <!-- End Service Item -->
+    </div>
+  </div>
+</section>
+<!-- End Our Services Section -->
+
+<!-- ======= Testimonials Section ======= -->
+<section
+  class="testimonials page-section"
+  id="testimonials">
+  <div
+    class="container"
+    data-aos="fade-up">
+    <div class="section-header">
+      <h2>Testimonials</h2>
+    </div>
+
+    <lib-carousel></lib-carousel>
+  </div>
+</section>
+<!-- End Testimonials Section -->
+}
