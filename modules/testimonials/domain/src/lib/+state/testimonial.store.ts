@@ -20,7 +20,6 @@ const collection = 'testimonial';
 const idKey = 'id';
 
 export const TestimonialStore = signalStore(
-  { providedIn: 'root' },
   withEntities({ entity, collection }),
   withTestimonialFeatures(),
   // withComputed(({ testimonialEntityMap }, store = inject(Store)) => ({

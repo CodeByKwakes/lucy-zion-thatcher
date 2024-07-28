@@ -12,6 +12,7 @@ import { useCoreStore } from '@lzt/core/api';
 import { PageStore } from '@lzt/pages/domain';
 import { HomePage } from '@lzt/shared/models';
 import { GetAssetPipe, SafeHtmlPipe } from '@lzt/shared/utils';
+import { TestimonialStore } from '@lzt/testimonials/api';
 import { SwiperContainer } from 'swiper/element';
 import { SwiperOptions } from 'swiper/types';
 
@@ -20,15 +21,18 @@ import { SwiperOptions } from 'swiper/types';
   imports: [CommonModule, GetAssetPipe, SafeHtmlPipe],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [TestimonialStore]
 })
 export class HomeComponent implements AfterViewInit {
   @ViewChild('swiper') swiper!: ElementRef<SwiperContainer>;
 
   readonly #coreStore = useCoreStore();
   readonly #pageStore = inject(PageStore);
+  readonly #testimonialStore = inject(TestimonialStore);
 
   readonly currentPage = this.#pageStore.selectCurrentPage as Signal<HomePage>;
+  readonly testimonials = this.#testimonialStore.testimonialEntities;
 
   ngAfterViewInit() {
     const swiperParams = {

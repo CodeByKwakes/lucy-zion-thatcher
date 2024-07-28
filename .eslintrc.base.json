@@ -95,7 +95,8 @@
                 "onlyDependOnLibsWithTags": [
                   "scope:pages",
                   "scope:shared",
-                  "scope:core/api"
+                  "scope:core/api",
+                  "scope:testimonials/api"
                 ]
               },
               {
@@ -110,8 +111,7 @@
                 "sourceTag": "scope:testimonials",
                 "onlyDependOnLibsWithTags": [
                   "scope:testimonials",
-                  "scope:shared",
-                  "scope:core/api"
+                  "scope:shared"
                 ]
               }
             ]

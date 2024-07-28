@@ -4,7 +4,7 @@
   "sourceRoot": "modules/testimonials/api/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["type:api"],
+  "tags": ["type:api", "scope:testimonials", "scope:testimonials/api"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
