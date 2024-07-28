@@ -111,7 +111,8 @@
                 "sourceTag": "scope:testimonials",
                 "onlyDependOnLibsWithTags": [
                   "scope:testimonials",
-                  "scope:shared"
+                  "scope:shared",
+                  "scope:core/api"
                 ]
               }
             ]

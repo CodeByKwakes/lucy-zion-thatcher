@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { useCoreStore } from '@lzt/core/api';
 import { PageStore } from '@lzt/pages/domain';
-import { HomePage } from '@lzt/shared/models';
+import { HomePage, Testimonial } from '@lzt/shared/models';
 import { GetAssetPipe, SafeHtmlPipe } from '@lzt/shared/utils';
 import { TestimonialStore } from '@lzt/testimonials/api';
 import { SwiperContainer } from 'swiper/element';
@@ -32,7 +32,7 @@ export class HomeComponent implements AfterViewInit {
   readonly #testimonialStore = inject(TestimonialStore);
 
   readonly currentPage = this.#pageStore.selectCurrentPage as Signal<HomePage>;
-  readonly testimonials = this.#testimonialStore.testimonialEntities;
+  readonly testimonials = this.#testimonialStore.pageTestimonials;
 
   ngAfterViewInit() {
     const swiperParams = {

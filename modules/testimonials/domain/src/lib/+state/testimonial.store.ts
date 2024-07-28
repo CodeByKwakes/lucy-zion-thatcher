@@ -1,4 +1,4 @@
-import { inject } from '@angular/core';
+import { computed, inject } from '@angular/core';
 import { DataService } from '@lzt/shared/domain';
 import { Testimonial } from '@lzt/shared/models';
 import { setError, setFulfilled, setPending } from '@lzt/shared/utils';
@@ -7,6 +7,7 @@ import {
   patchState,
   signalStore,
   type,
+  withComputed,
   withHooks,
   withMethods
 } from '@ngrx/signals';
@@ -14,6 +15,8 @@ import { addEntities, withEntities } from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { mergeMap, pipe, tap } from 'rxjs';
 import { withTestimonialFeatures } from './testimonial.features';
+import { Store } from '@ngrx/store';
+import { selectUrl } from '@lzt/core/api';
 
 const entity = type<Testimonial>();
 const collection = 'testimonial';
@@ -22,13 +25,15 @@ const idKey = 'id';
 export const TestimonialStore = signalStore(
   withEntities({ entity, collection }),
   withTestimonialFeatures(),
-  // withComputed(({ testimonialEntityMap }, store = inject(Store)) => ({
-  //   selectBlogFromRoute: computed(() => {
-  //     const params = store.selectSignal(selectRouteByParam);
+  withComputed(({ testimonialEntities }, store = inject(Store)) => ({
+    pageTestimonials: computed(() => {
+      const url = store.selectSignal(selectUrl);
 
-  //     return testimonialEntityMap()[params()['slug']] ?? null;
-  //   })
-  // })),
+      return testimonialEntities().filter(
+        (testimonial) => testimonial.page === url().slice(1)
+      );
+    })
+  })),
   withMethods((store, dataService = inject(DataService)) => ({
     loadTestimonials: rxMethod<void>(
       pipe(
