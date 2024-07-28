@@ -105,6 +105,14 @@
                   "scope:shared",
                   "scope:core/api"
                 ]
+              },
+              {
+                "sourceTag": "scope:testimonials",
+                "onlyDependOnLibsWithTags": [
+                  "scope:testimonials",
+                  "scope:shared",
+                  "scope:core/api"
+                ]
               }
             ]
           }
