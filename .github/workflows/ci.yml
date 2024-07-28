@@ -38,4 +38,4 @@ jobs:
         run: npx nx affected -t lint -- --base=remotes/origin/main
       - name: Run Affected Build
         shell: bash
-        run: npx nx affected -t build -- --base=remotes/origin/main
+        run: npx nx affected -t build
