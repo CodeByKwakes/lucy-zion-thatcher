@@ -24,10 +24,16 @@ import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { mergeMap, pipe, tap } from 'rxjs';
 
+const pageConfig = {
+  entity: type<PageTypeOptions>(),
+  collection: 'page',
+  selectId: (page: PageTypeOptions) => page.slug
+};
+
 export const PageStore = signalStore(
   { providedIn: 'root' },
   withDevtools('pages'),
-  withEntities({ entity: type<PageTypeOptions>(), collection: 'page' }),
+  withEntities(pageConfig),
   withRequestStatus(),
   withStateLogging('pages'),
   withComputed(({ pageEntityMap }, store = inject(Store)) => ({
@@ -47,10 +53,7 @@ export const PageStore = signalStore(
           return dataService.loadPages().pipe(
             tapResponse({
               next: (pages) =>
-                patchState(
-                  store,
-                  addEntities(pages, { collection: 'page', idKey: 'slug' })
-                ),
+                patchState(store, addEntities(pages, pageConfig)),
               error: (error: Error) =>
                 patchState(store, setError(error.message)),
               finalize: () => patchState(store, setFulfilled())

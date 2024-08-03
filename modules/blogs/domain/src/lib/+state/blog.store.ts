@@ -12,19 +12,25 @@ import {
   withHooks,
   withMethods
 } from '@ngrx/signals';
-import { addEntities, withEntities } from '@ngrx/signals/entities';
+import {
+  addEntities,
+  entityConfig,
+  withEntities
+} from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { mergeMap, pipe, tap } from 'rxjs';
 import { withBlogFeatures } from './blog.features';
 
-const entity = type<BlogPost>();
-const collection = 'blog';
-const idKey = 'slug';
+const blogConfig = entityConfig({
+  entity: type<BlogPost>(),
+  collection: 'blog',
+  selectId: (blog) => blog.slug
+});
 
 export const BlogStore = signalStore(
   { providedIn: 'root' },
-  withEntities({ entity, collection }),
+  withEntities(blogConfig),
   withBlogFeatures(),
   withComputed(({ blogEntityMap }, store = inject(Store)) => ({
     selectBlogFromRoute: computed(() => {
@@ -41,7 +47,7 @@ export const BlogStore = signalStore(
           return dataService.loadAllBlogs().pipe(
             tapResponse({
               next: (blogs) =>
-                patchState(store, addEntities(blogs, { collection, idKey })),
+                patchState(store, addEntities(blogs, blogConfig)),
               error: (error: Error) =>
                 patchState(store, setError(error.message)),
               finalize: () => patchState(store, setFulfilled())
