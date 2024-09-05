@@ -2,32 +2,37 @@ import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { computed, inject } from '@angular/core';
 import { selectUrl } from '@lzt/core/api';
 import { DataService } from '@lzt/shared/domain';
-import { PageTypeOptions } from '@lzt/shared/models';
+import { PageType } from '@lzt/shared/models';
 import {
   setError,
   setFulfilled,
   setPending,
-  withStateLogging,
-  withRequestStatus
+  withRequestStatus,
+  withStateLogging
 } from '@lzt/shared/utils';
 import { tapResponse } from '@ngrx/operators';
 import {
   patchState,
   signalStore,
+  signalStoreFeature,
   type,
   withComputed,
   withHooks,
   withMethods
 } from '@ngrx/signals';
-import { addEntities, withEntities } from '@ngrx/signals/entities';
+import {
+  addEntities,
+  NamedEntityState,
+  withEntities
+} from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { mergeMap, pipe, tap } from 'rxjs';
 
 const pageConfig = {
-  entity: type<PageTypeOptions>(),
+  entity: type<PageType>(),
   collection: 'page',
-  selectId: (page: PageTypeOptions) => page.slug
+  selectId: (page: PageType) => page.slug
 };
 
 export const PageStore = signalStore(
@@ -45,6 +50,7 @@ export const PageStore = signalStore(
       return pageEntityMap()['global'] ?? null;
     })
   })),
+  // withPageTypeOptionSelectors(),
   withMethods((store, dataService = inject(DataService)) => ({
     loadPages: rxMethod<void>(
       pipe(
@@ -69,3 +75,21 @@ export const PageStore = signalStore(
     }
   })
 );
+
+//  Signal<EntityMap<PageType>>
+
+// export function withPageTypeSelectors() {
+//   return signalStoreFeature(
+//     { state: type<NamedEntityState<PageType, 'page'>>() },
+
+//     withComputed(({ pageEntityMap }, store = inject(Store)) => ({
+//       selectCurrentPage: computed(() => {
+//         const url = store.selectSignal(selectUrl);
+//         return pageEntityMap()[url().slice(1)] ?? null;
+//       }),
+//       selectGlobalPage: computed(() => {
+//         return pageEntityMap()['global'] ?? null;
+//       })
+//     }))
+//   );
+// }
