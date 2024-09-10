@@ -102,6 +102,12 @@
         "modules/testimonials/feature/**/*",
         "*"
       ]
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
     }
   ]
 }
