@@ -73,5 +73,35 @@
     }
   },
   "defaultProject": "lucy-zion-thatcher",
-  "nxCloudAccessToken": "ZjQ0ZmIwMDgtZmViYi00NDE1LTgxNGYtNjFlNmUzZGJkODJlfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "ZjQ0ZmIwMDgtZmViYi00NDE1LTgxNGYtNjFlNmUzZGJkODJlfHJlYWQtd3JpdGU=",
+  "plugins": [
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      },
+      "include": [
+        "e2e/**/*",
+        "modules/blogs/api/**/*",
+        "modules/blogs/domain/**/*",
+        "modules/blogs/feature/**/*",
+        "modules/core/api/**/*",
+        "modules/core/domain/**/*",
+        "modules/core/feature/**/*",
+        "modules/core/ui/**/*",
+        "modules/pages/api/**/*",
+        "modules/pages/domain/**/*",
+        "modules/pages/feature/**/*",
+        "modules/pages/ui/**/*",
+        "modules/shared/domain/**/*",
+        "modules/shared/models/**/*",
+        "modules/shared/ui/**/*",
+        "modules/shared/utils/**/*",
+        "modules/testimonials/api/**/*",
+        "modules/testimonials/domain/**/*",
+        "modules/testimonials/feature/**/*",
+        "*"
+      ]
+    }
+  ]
 }

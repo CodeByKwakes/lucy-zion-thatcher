@@ -12,9 +12,6 @@
       "options": {
         "jestConfig": "modules/testimonials/api/jest.config.ts"
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint"
     }
   }
 }

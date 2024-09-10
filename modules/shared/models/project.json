@@ -14,10 +14,6 @@
         "tsConfig": "modules/shared/models/tsconfig.lib.json",
         "assets": ["modules/shared/models/*.md"]
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
     }
   }
 }

@@ -3,6 +3,8 @@
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "e2e/src",
   "projectType": "application",
+  "tags": [],
+  "implicitDependencies": ["lucy-zion-thatcher"],
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
@@ -19,12 +21,6 @@
           "devServerTarget": "lucy-zion-thatcher:serve-static"
         }
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["lucy-zion-thatcher"]
+  }
 }
