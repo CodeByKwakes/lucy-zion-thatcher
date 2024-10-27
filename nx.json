@@ -118,5 +118,6 @@
         "openTargetName": "open-cypress"
       }
     }
-  ]
+  ],
+  "useLegacyCache": true
 }
