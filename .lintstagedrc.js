@@ -3,7 +3,7 @@ module.exports = {
     'nx format:write --uncommitted --fix true'
   ],
   '{src,apps,modules}/**/*.{ts,js}': [
-    'nx format:write --uncommitted --fix true',
+    'nx format:write --uncommitted --fix true'
     // 'nx affected:lint --uncommitted --fix true'
   ],
   '{src,apps,modules}/**/*.{scss,css}': [
