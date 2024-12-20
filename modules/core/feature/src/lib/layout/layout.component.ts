@@ -16,7 +16,6 @@ import { NAV_LINKS } from '../constants';
 
 @Component({
   selector: 'lib-layout',
-  standalone: true,
   imports: [CommonModule, GetAssetPipe, HeaderComponent, FooterComponent],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']

@@ -6,7 +6,6 @@ import { GetAssetPipe, SafeHtmlPipe } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-blog-detail',
-  standalone: true,
   imports: [CommonModule, PageHeaderComponent, GetAssetPipe, SafeHtmlPipe],
   templateUrl: './blog-detail.component.html',
   styleUrls: ['./blog-detail.component.scss']

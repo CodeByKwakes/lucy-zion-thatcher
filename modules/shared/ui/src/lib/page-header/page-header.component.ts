@@ -4,7 +4,6 @@ import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-page-header',
-  standalone: true,
   imports: [CommonModule, GetAssetPipe],
   templateUrl: './page-header.component.html',
   styleUrls: ['./page-header.component.scss']

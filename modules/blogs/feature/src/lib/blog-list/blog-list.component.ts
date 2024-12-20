@@ -7,7 +7,6 @@ import { GetAssetPipe, TruncatePipe, SafeHtmlPipe } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-blog-list',
-  standalone: true,
   imports: [
     CommonModule,
     TruncatePipe,

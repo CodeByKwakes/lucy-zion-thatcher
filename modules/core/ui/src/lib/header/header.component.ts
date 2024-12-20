@@ -16,7 +16,6 @@ import {
 
 @Component({
   selector: 'lib-header',
-  standalone: true,
   imports: [CommonModule, NgOptimizedImage, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

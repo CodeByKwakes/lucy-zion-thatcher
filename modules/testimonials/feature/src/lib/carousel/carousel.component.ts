@@ -12,7 +12,6 @@ import { SwiperOptions } from 'swiper/types';
 
 @Component({
   selector: 'lib-carousel',
-  standalone: true,
   imports: [],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',

@@ -5,7 +5,6 @@ import { useIsWindowScrollActive } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-footer',
-  standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'

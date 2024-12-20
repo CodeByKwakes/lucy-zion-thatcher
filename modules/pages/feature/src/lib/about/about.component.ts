@@ -8,7 +8,6 @@ import { GetAssetPipe } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-about',
-  standalone: true,
   imports: [
     CommonModule,
     PageHeaderComponent,
