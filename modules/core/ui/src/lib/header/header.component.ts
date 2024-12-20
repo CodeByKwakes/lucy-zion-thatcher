@@ -7,22 +7,17 @@ import {
   input,
   output
 } from '@angular/core';
-import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
+import { RouterLinkActive } from '@angular/router';
 import {
   initMobileNavToggle,
-  useIsWindowScrollActive,
-  mobileNavToggle
+  mobileNavToggle,
+  useIsWindowScrollActive
 } from '@lzt/shared/utils';
 
 @Component({
   selector: 'lib-header',
   standalone: true,
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    RouterLinkActive,
-    RouterLinkWithHref
-  ],
+  imports: [CommonModule, NgOptimizedImage, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
