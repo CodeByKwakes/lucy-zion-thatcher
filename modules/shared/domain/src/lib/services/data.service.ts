@@ -23,7 +23,7 @@ import { CacheService } from '@lzt/shared/utils';
   providedIn: 'root'
 })
 export class DataService {
-  #cacheService = inject(CacheService);
+  readonly #cacheService = inject(CacheService);
   /**
    * Loads all the blog posts.
    * @returns {Observable<BlogPost[]>} An observable that emits an array of blog posts.

@@ -13,8 +13,8 @@ interface DataWithTimestamp {
   providedIn: 'root'
 })
 export class CacheService {
-  #prefix = 'app-cache-';
-  private secretKey = '1029384756';
+  readonly #prefix = 'app-cache-';
+  readonly #secretKey = '1029384756';
 
   get(key: string): unknown {
     const storageKey = this.getKey(key);
@@ -77,14 +77,14 @@ export class CacheService {
   private encrypt(value: unknown): string {
     return CryptoJS.AES.encrypt(
       JSON.stringify(value),
-      this.secretKey
+      this.#secretKey
     ).toString();
   }
 
   private decrypt(encryptedValue: unknown): unknown {
     const decryptedBytes = CryptoJS.AES.decrypt(
       encryptedValue as string,
-      this.secretKey
+      this.#secretKey
     );
 
     return JSON.parse(decryptedBytes.toString(CryptoJS.enc.Utf8));
