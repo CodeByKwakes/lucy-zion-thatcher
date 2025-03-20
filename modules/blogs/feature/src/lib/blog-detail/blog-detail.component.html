@@ -1,8 +1,13 @@
 <!-- ======= Blog Details Section ======= -->
 @if(blog()) {
+  @let featureImage = blog().blog_feature_image || null;
+  @let title = blog().blog_title || null;
+  @let content = blog().blog_content;
+  @let dateCreated = blog().date_created;
+
 <lib-page-header
-  [headerImage]="blog().blog_feature_image || null"
-  [title]="blog().blog_title || null" />
+  [headerImage]="featureImage"
+  [title]="title" />
 
 <section
   class="page-section blog"
@@ -20,7 +25,7 @@
             <img
               class="img-fluid"
               alt=""
-              [src]="(blog().blog_feature_image! | getAsset)  + '?format=webp'" />
+              [src]="(featureImage! | getAsset)  + '?format=webp'" />
           </div>
 
           <div class="meta-top">
@@ -28,9 +33,7 @@
               <li class="d-flex align-items-center">
                 <i class="bi bi-clock"></i>
                 <a href="blog-details.html">
-                  <time datetime="2020-01-01"
-                    >{{blog().date_created | date}}</time
-                  >
+                  <time datetime="2020-01-01">{{ dateCreated | date}}</time>
                 </a>
               </li>
             </ul>
@@ -39,7 +42,7 @@
 
           <div
             class="content"
-            [innerHTML]="blog().blog_content | safeHtml"></div>
+            [innerHTML]="content | safeHtml"></div>
         </article>
       </div>
     </div>

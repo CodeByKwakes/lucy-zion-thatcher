@@ -1,6 +1,6 @@
 <lib-page-header title="Blogs" />
 
-@if(blog.hasLoaded()) {
+@let hasLoaded = blog.hasLoaded(); @if(hasLoaded) {
 
 <section
   class="page-section blog"
@@ -14,7 +14,10 @@
         data-aos="fade-up"
         data-aos-delay="200">
         <div class="row gy-5 posts-list">
-          @for (item of blog.blogEntities(); track item.id) {
+          @for (item of blog.blogEntities(); track item.id) { @let featureImage
+          = item.blog_feature_image; @let title = item.blog_title; @let content
+          = item.blog_content; @let dateUpdated = item.date_created; @let slug =
+          item.slug;
 
           <div class="col-lg-4">
             <article class="d-flex flex-column">
@@ -22,13 +25,11 @@
                 <img
                   class="img-fluid"
                   alt=""
-                  [src]="(item?.blog_feature_image! | getAsset)  + '?format=webp'" />
+                  [src]="(featureImage! | getAsset)  + '?format=webp'" />
               </div>
 
               <h2 class="title pointer_cursor">
-                <a (click)="routeToBlogDetail(item.slug)">
-                  {{item.blog_title}}
-                </a>
+                <a (click)="routeToBlogDetail(slug)"> {{title}} </a>
               </h2>
 
               <div class="meta-top">
@@ -36,9 +37,7 @@
                   <li class="d-flex align-items-center">
                     <i class="bi bi-clock"></i>
                     <a href="blog-details.html">
-                      <time datetime="2022-01-01">
-                        {{item.date_updated | date}}
-                      </time>
+                      <time datetime="2022-01-01">{{dateUpdated | date}}</time>
                     </a>
                   </li>
                 </ul>
@@ -46,12 +45,12 @@
 
               <div
                 class="content"
-                [innerHTML]="item.blog_content | truncate: 200 | safeHtml"></div>
+                [innerHTML]="content | truncate: 200 | safeHtml"></div>
 
               <div class="read-more mt-auto align-self-end">
                 <a
                   class="pointer_cursor"
-                  (click)="routeToBlogDetail(item.slug)">
+                  (click)="routeToBlogDetail(slug)">
                   Read More
                   <i class="bi bi-arrow-right"></i>
                 </a>

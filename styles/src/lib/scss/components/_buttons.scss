@@ -8,11 +8,11 @@
   bottom: 15px;
   width: 40px;
   height: 40px;
-  border-radius: 4px;
   background: var(--primary);
+  border-radius: 4px;
+  visibility: hidden;
   opacity: 0;
   transition: all 0.4s;
-  visibility: hidden;
 
   &__icon {
     color: #fff;
@@ -21,8 +21,8 @@
   }
 
   &--active {
-    opacity: 1;
     visibility: visible;
+    opacity: 1;
   }
 
   &:hover {

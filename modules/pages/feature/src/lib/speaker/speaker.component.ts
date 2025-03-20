@@ -8,7 +8,6 @@ import { CarouselComponent } from '@lzt/testimonials/api';
 
 @Component({
   selector: 'lib-speaker',
-  standalone: true,
   imports: [
     CommonModule,
     PageHeaderComponent,

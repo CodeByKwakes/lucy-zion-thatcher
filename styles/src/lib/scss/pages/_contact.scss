@@ -3,14 +3,12 @@
 -------------------------------------------------------------- */
 .contact {
   position: relative;
-
-  // background: url('../img/contact-bg.png') left top no-repeat;
   background-size: contain;
 
   &::before {
+    content: '';
     position: absolute;
     background: rgba(var(--background-rgb) / 20%);
-    content: '';
     inset: 0;
   }
 
@@ -23,15 +21,15 @@
 
     i {
       display: flex;
+      justify-content: center;
+      align-items: center;
       width: 44px;
       height: 44px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50px;
       margin-right: 15px;
       background: var(--primary);
       color: var(--text);
       font-size: 20px;
+      border-radius: 50px;
       transition: all 0.3s ease-in-out;
     }
 
@@ -86,15 +84,15 @@
       text-align: center;
 
       &::before {
+        content: '';
         display: inline-block;
         width: 24px;
         height: 24px;
         border: 3px solid #059652;
+        margin: 0 10px -6px 0;
         border-radius: 50%;
         border-top-color: #fff;
-        margin: 0 10px -6px 0;
         animation: animate-loading 1s linear infinite;
-        content: '';
       }
     }
 

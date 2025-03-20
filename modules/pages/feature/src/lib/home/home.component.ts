@@ -7,7 +7,6 @@ import { GetAssetPipe, SafeHtmlPipe } from '@lzt/shared/utils';
 import { CarouselComponent } from '@lzt/testimonials/api';
 
 @Component({
-  standalone: true,
   imports: [CommonModule, GetAssetPipe, SafeHtmlPipe, CarouselComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']

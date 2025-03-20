@@ -8,7 +8,6 @@ import { PageHeaderComponent } from '@lzt/shared/ui';
 
 @Component({
   selector: 'lib-contact',
-  standalone: true,
   imports: [CommonModule, PageHeaderComponent, ReactiveFormsModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']

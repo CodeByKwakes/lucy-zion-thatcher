@@ -11,9 +11,9 @@
   background-size: cover;
 
   &::before {
+    content: '';
     position: absolute;
     background: rgba(var(--secondary-rgb) / 50%);
-    content: '';
     inset: 0;
   }
 
@@ -60,12 +60,12 @@
 @media (width >= 1034px) {
   .hero {
     &::after {
+      content: '';
       position: absolute;
       top: 0;
       bottom: 0;
       width: 40%;
       background: var(--secondary);
-      content: '';
     }
   }
 }

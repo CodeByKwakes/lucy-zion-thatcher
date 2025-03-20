@@ -6,7 +6,7 @@ import {
   GlobalPage,
   HomePage,
   MessageMeta,
-  PageArray,
+  PageType,
   SpeakerPage,
   Testimonial
 } from '@lzt/shared/models';
@@ -23,7 +23,7 @@ import { CacheService } from '@lzt/shared/utils';
   providedIn: 'root'
 })
 export class DataService {
-  #cacheService = inject(CacheService);
+  readonly #cacheService = inject(CacheService);
   /**
    * Loads all the blog posts.
    * @returns {Observable<BlogPost[]>} An observable that emits an array of blog posts.
@@ -58,14 +58,14 @@ export class DataService {
    * Each page is represented by a specific page type.
    * @returns An observable that emits an array of pages.
    */
-  loadPages(): Observable<PageArray> {
+  loadPages(): Observable<PageType[]> {
     const cachedData = this.#cacheService.get('pages');
 
     if (cachedData) {
       console.log('cachedData pages');
 
-      return new Observable<PageArray>((observer) => {
-        observer.next(cachedData as PageArray);
+      return new Observable<PageType[]>((observer) => {
+        observer.next(cachedData as PageType[]);
         observer.complete();
       });
     }

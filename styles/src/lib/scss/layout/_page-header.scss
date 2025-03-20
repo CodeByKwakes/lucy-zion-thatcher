@@ -6,13 +6,13 @@
   min-height: 30vh;
   padding: 140px 0 60px;
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
 
   &::before {
+    content: '';
     position: absolute;
     background-color: rgba(var(--secondary-rgb) / 70%);
-    content: '';
     inset: 0;
   }
 
@@ -26,14 +26,14 @@
 }
 
 .section-header {
-  text-align: center;
   padding-bottom: 30px;
+  text-align: center;
 
   h2 {
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
     font-size: 32px;
     font-weight: 600;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    position: relative;
   }
 }

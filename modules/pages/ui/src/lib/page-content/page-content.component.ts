@@ -4,7 +4,6 @@ import { GetAssetPipe, SafeHtmlPipe } from '@lzt/shared/utils';
 
 @Component({
   selector: 'ui-page-content',
-  standalone: true,
   imports: [CommonModule, GetAssetPipe, SafeHtmlPipe],
   templateUrl: './page-content.component.html',
   styleUrl: './page-content.component.scss'

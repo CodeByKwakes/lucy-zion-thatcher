@@ -18,12 +18,14 @@ import { withTestimonialFeatures } from './testimonial.features';
 import { Store } from '@ngrx/store';
 import { selectUrl } from '@lzt/core/api';
 
-const entity = type<Testimonial>();
-const collection = 'testimonial';
-const idKey = 'id';
+const testimonialConfig = {
+  entity: type<Testimonial>(),
+  collection: 'testimonial',
+  selectId: (testimonial: Testimonial) => testimonial.id
+};
 
 export const TestimonialStore = signalStore(
-  withEntities({ entity, collection }),
+  withEntities(testimonialConfig),
   withTestimonialFeatures(),
   withComputed(({ testimonialEntities }, store = inject(Store)) => ({
     pageTestimonials: computed(() => {
@@ -42,10 +44,7 @@ export const TestimonialStore = signalStore(
           return dataService.loadTestimonials().pipe(
             tapResponse({
               next: (testimonials) =>
-                patchState(
-                  store,
-                  addEntities(testimonials, { collection, idKey })
-                ),
+                patchState(store, addEntities(testimonials, testimonialConfig)),
               error: (error: Error) =>
                 patchState(store, setError(error.message)),
               finalize: () => patchState(store, setFulfilled())
