@@ -7,7 +7,7 @@ import { useIsWindowScrollActive } from '@lzt/shared/utils';
   selector: 'lib-footer',
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
   email = input('');

@@ -18,7 +18,7 @@ import {
   selector: 'lib-header',
   imports: [CommonModule, NgOptimizedImage, RouterLinkActive],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements AfterViewInit {
   readonly #el = inject(ElementRef);
