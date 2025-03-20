@@ -30,6 +30,12 @@ export class CacheService {
     if (storedValue) {
       const dataWithTimestamp: DataWithTimestamp = JSON.parse(storedValue);
 
+      // Check if expirationInSeconds is 0 and clear the cache
+      if (dataWithTimestamp.expirationInSeconds === 0) {
+        this.clear();
+        return null;
+      }
+
       // Check if data is still valid based on expiration
       if (
         !dataWithTimestamp.expirationInSeconds ||
