@@ -1,9 +1,7 @@
 <!-- ======= Blog Details Section ======= -->
-@if(blog()) {
-  @let featureImage = blog().blog_feature_image || null;
-  @let title = blog().blog_title || null;
-  @let content = blog().blog_content;
-  @let dateCreated = blog().date_created;
+@if(blog()) { @let featureImage = blog().blog_feature_image || null; @let title
+= blog().blog_title || null; @let content = blog().blog_content; @let
+dateCreated = blog().date_created;
 
 <lib-page-header
   [headerImage]="featureImage"
