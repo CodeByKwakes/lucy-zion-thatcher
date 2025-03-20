@@ -9,9 +9,7 @@ interface DataWithTimestamp {
   isEncrypted: boolean;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class CacheService {
   readonly #prefix = 'app-cache-';
   readonly #backupPrefix = 'app-cache-backup-';
@@ -56,6 +54,11 @@ export class CacheService {
     expirationInSeconds = this.#defaultExpirationInSeconds,
     encrypt: boolean = environment.isProduction
   ): void {
+    if (expirationInSeconds === 0) {
+      this.clear();
+      expirationInSeconds = this.#defaultExpirationInSeconds;
+    }
+
     const storageKey = this.getKey(key);
     const timestamp = new Date().getTime();
     const dataWithTimestamp: DataWithTimestamp = {
@@ -75,7 +78,8 @@ export class CacheService {
     Object.keys(localStorage).forEach((key) => {
       if (key.startsWith(this.#prefix)) {
         const originalKey = key.substring(this.#prefix.length);
-        const data = JSON.parse(localStorage.getItem(key) || '{}');
+        const item = localStorage.getItem(key);
+        const data = item ? JSON.parse(item) : {};
         this.backupItem(originalKey, data);
         localStorage.removeItem(key);
       }
@@ -86,7 +90,7 @@ export class CacheService {
     Object.keys(localStorage).forEach((key) => {
       if (key.startsWith(this.#backupPrefix)) {
         const originalKey = key.substring(this.#backupPrefix.length);
-        const backupData = JSON.parse(localStorage.getItem(key) || '{}');
+        const backupData = JSON.parse(localStorage.getItem(key) ?? '{}');
 
         // Restore with a fresh timestamp but keep the same expiration period
         this.set(
