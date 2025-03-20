@@ -78,7 +78,8 @@ export class CacheService {
     Object.keys(localStorage).forEach((key) => {
       if (key.startsWith(this.#prefix)) {
         const originalKey = key.substring(this.#prefix.length);
-        const data = JSON.parse(localStorage.getItem(key) ?? '{}');
+        const item = localStorage.getItem(key);
+        const data = item ? JSON.parse(item) : {};
         this.backupItem(originalKey, data);
         localStorage.removeItem(key);
       }
