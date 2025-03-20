@@ -1,8 +1,6 @@
 <lib-page-header title="Blogs" />
 
-@let hasLoaded = blog.hasLoaded();
-
-@if(hasLoaded) {
+@let hasLoaded = blog.hasLoaded(); @if(hasLoaded) {
 
 <section
   class="page-section blog"
@@ -16,13 +14,10 @@
         data-aos="fade-up"
         data-aos-delay="200">
         <div class="row gy-5 posts-list">
-          @for (item of blog.blogEntities(); track item.id) {
-
-            @let featureImage = item.blog_feature_image;
-            @let title = item.blog_title;
-            @let content = item.blog_content;
-            @let dateUpdated = item.date_updated;
-            @let slug = item.slug;
+          @for (item of blog.blogEntities(); track item.id) { @let featureImage
+          = item.blog_feature_image; @let title = item.blog_title; @let content
+          = item.blog_content; @let dateUpdated = item.date_created; @let slug =
+          item.slug;
 
           <div class="col-lg-4">
             <article class="d-flex flex-column">

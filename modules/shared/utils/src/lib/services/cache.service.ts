@@ -14,7 +14,16 @@ interface DataWithTimestamp {
 })
 export class CacheService {
   readonly #prefix = 'app-cache-';
+  readonly #backupPrefix = 'app-cache-backup-';
   readonly #secretKey = '1029384756';
+  readonly #defaultExpirationInSeconds = 172800; // 2 days in seconds
+
+  constructor() {
+    // Set up periodic check for expired items (every hour)
+    if (typeof window !== 'undefined') {
+      setInterval(() => this.cleanupExpiredItems(), 3600000);
+    }
+  }
 
   get(key: string): unknown {
     const storageKey = this.getKey(key);
@@ -32,17 +41,19 @@ export class CacheService {
           ? this.decrypt(dataWithTimestamp.value)
           : dataWithTimestamp.value;
       }
-      // If data is expired, remove it from the cache
-      this.clearKey(key);
+      // If data is expired, backup and remove it from the cache
+      this.backupItem(key, dataWithTimestamp);
+      this.clearKey(storageKey);
     }
 
-    return null;
+    // Try to get from backup if not in main storage
+    return this.getFromBackup(key);
   }
 
   set(
     key: string,
     value: unknown,
-    expirationInSeconds = 0,
+    expirationInSeconds = this.#defaultExpirationInSeconds,
     encrypt: boolean = environment.isProduction
   ): void {
     const storageKey = this.getKey(key);
@@ -55,15 +66,98 @@ export class CacheService {
     };
 
     localStorage.setItem(storageKey, JSON.stringify(dataWithTimestamp));
+    // Remove any backup for this key as we're setting a fresh value
+    this.clearBackupKey(key);
   }
 
   clear(): void {
-    // Clear all items with the app-specific prefix
+    // Backup all items before clearing
     Object.keys(localStorage).forEach((key) => {
       if (key.startsWith(this.#prefix)) {
-        this.clearKey(key);
+        const originalKey = key.substring(this.#prefix.length);
+        const data = JSON.parse(localStorage.getItem(key) || '{}');
+        this.backupItem(originalKey, data);
+        localStorage.removeItem(key);
       }
     });
+  }
+
+  restoreAllBackups(): void {
+    Object.keys(localStorage).forEach((key) => {
+      if (key.startsWith(this.#backupPrefix)) {
+        const originalKey = key.substring(this.#backupPrefix.length);
+        const backupData = JSON.parse(localStorage.getItem(key) || '{}');
+
+        // Restore with a fresh timestamp but keep the same expiration period
+        this.set(
+          originalKey,
+          backupData.isEncrypted
+            ? this.decrypt(backupData.value)
+            : backupData.value,
+          backupData.expirationInSeconds,
+          backupData.isEncrypted
+        );
+
+        // Remove the backup after restoration
+        localStorage.removeItem(key);
+      }
+    });
+  }
+
+  private cleanupExpiredItems(): void {
+    const currentTime = new Date().getTime();
+
+    Object.keys(localStorage).forEach((key) => {
+      if (key.startsWith(this.#prefix)) {
+        try {
+          const data: DataWithTimestamp = JSON.parse(
+            localStorage.getItem(key) || '{}'
+          );
+          if (
+            data.expirationInSeconds &&
+            currentTime - data.timestamp > data.expirationInSeconds * 1000
+          ) {
+            const originalKey = key.substring(this.#prefix.length);
+            this.backupItem(originalKey, data);
+            localStorage.removeItem(key);
+          }
+        } catch (e) {
+          // Skip if item can't be parsed
+        }
+      }
+    });
+  }
+
+  private backupItem(key: string, data: DataWithTimestamp): void {
+    const backupKey = this.#backupPrefix + key;
+    localStorage.setItem(backupKey, JSON.stringify(data));
+  }
+
+  private getFromBackup(key: string): unknown {
+    const backupKey = this.#backupPrefix + key;
+    const backupData = localStorage.getItem(backupKey);
+
+    if (backupData) {
+      const data: DataWithTimestamp = JSON.parse(backupData);
+      // Restore the item to main storage with fresh timestamp
+      this.set(
+        key,
+        data.isEncrypted ? this.decrypt(data.value) : data.value,
+        data.expirationInSeconds,
+        data.isEncrypted
+      );
+
+      // Remove from backup after restoration
+      localStorage.removeItem(backupKey);
+
+      return data.isEncrypted ? this.decrypt(data.value) : data.value;
+    }
+
+    return null;
+  }
+
+  private clearBackupKey(key: string): void {
+    localStorage.removeItem(this.#backupPrefix + key);
   }
 
   private isDataValid(dataWithTimestamp: DataWithTimestamp): boolean {
